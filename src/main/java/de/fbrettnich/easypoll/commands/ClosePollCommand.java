@@ -98,6 +98,12 @@ public class ClosePollCommand {
 
         hook.sendMessageEmbeds(
                 eb.build()
-        ).queue(null, Sentry::captureException);
+        )
+                .delay(30, TimeUnit.SECONDS)
+                .flatMap(Message::delete)
+                .queue(null, new ErrorHandler()
+                        .ignore(ErrorResponse.UNKNOWN_MESSAGE)
+                        .handle(Objects::nonNull, Sentry::captureException)
+                );
     }
 }
