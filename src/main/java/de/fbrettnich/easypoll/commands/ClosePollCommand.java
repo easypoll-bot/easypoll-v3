@@ -43,7 +43,16 @@ public class ClosePollCommand {
 
         if(member == null) return;
 
-        if(!member.isOwner() && !member.hasPermission(Permission.ADMINISTRATOR) && !member.hasPermission(Permission.MANAGE_PERMISSIONS) && !new Permissions(event.getMember()).hasPollCreatorRole()) {
+        PollManager pm = new PollManager();
+        String pollId = event.getOption("pollid").getAsString();
+
+        if(
+                !member.isOwner() &&
+                !member.hasPermission(Permission.ADMINISTRATOR) &&
+                !member.hasPermission(Permission.MANAGE_PERMISSIONS) &&
+                !new Permissions(member).hasPollCreatorRole() &&
+                !pm.getPollCreatorIdByPollId(pollId).equals(member.getId()))
+        {
 
             EmbedBuilder eb = new EmbedBuilder();
 
@@ -53,7 +62,8 @@ public class ClosePollCommand {
                     "To use this command you need at least one of them:",
                     "\u2022 ADMINISTRATOR *(Permission)*\n" +
                             "\u2022 MANAGE_PERMISSIONS *(Permission)*\n" +
-                            "\u2022 PollCreator *(Role)*\n",
+                            "\u2022 PollCreator *(Role)*\n" +
+                            "\u2022 Creator of this Poll",
                     true);
 
             hook.sendMessageEmbeds(
@@ -69,9 +79,7 @@ public class ClosePollCommand {
             return;
         }
 
-        PollManager pm = new PollManager();
         EmbedBuilder eb = new EmbedBuilder();
-        String pollId = event.getOption("pollid").getAsString();
 
         if(pm.canClosePollByPollId(pollId, event.getGuild().getId())) {
             pm.closePollByPollId(pollId);

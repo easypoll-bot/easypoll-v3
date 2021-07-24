@@ -224,6 +224,18 @@ public class PollManager {
         return collection.find(searchQuery).hasNext();
     }
 
+    public String getPollCreatorIdByPollId(String pollId) {
+        DBCollection collection = Main.getMongoDB().getCollection("polls");
+        DBObject searchQuery = new BasicDBObject("pollId", pollId);
+        DBObject document = collection.findOne(searchQuery);
+
+        if(document != null) {
+            return (String) document.get("userId");
+        }
+
+        return "null";
+    }
+
     public String generateUniquePollId() {
 
         int length = 10;
