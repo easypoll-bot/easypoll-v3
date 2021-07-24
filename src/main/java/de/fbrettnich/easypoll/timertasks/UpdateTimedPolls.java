@@ -85,11 +85,13 @@ public class UpdateTimedPolls extends TimerTask {
                                         (List<String>) document.get("choices_content")
                                 )
                         ).queue(null, new ErrorHandler()
+                                // TODO: Handle "Missing permission: MESSAGE_EMBED_LINKS" correctly | Sentry: EASYPOLL-BOT-J
+                                .ignore(ErrorResponse.MISSING_PERMISSIONS)
                                 .handle(ErrorResponse.UNKNOWN_MESSAGE, e -> {
                                     document.put("active", false);
                                     collection.update(new BasicDBObject("messageId", document.get("messageId")), document);
                                 })
-                                .handle(Objects::nonNull, Sentry::captureException)
+                                //.handle(Objects::nonNull, Sentry::captureException)
                         );
 
                         document.put("timerLastUpdated", System.currentTimeMillis());

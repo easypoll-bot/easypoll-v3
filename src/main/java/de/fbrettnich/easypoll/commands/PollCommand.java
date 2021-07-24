@@ -28,6 +28,7 @@ import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.exceptions.ErrorHandler;
 import net.dv8tion.jda.api.exceptions.ErrorResponseException;
+import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.dv8tion.jda.api.requests.ErrorResponse;
@@ -186,23 +187,23 @@ public class PollCommand {
                     endTime
             );
 
-            EmbedBuilder eb = new EmbedBuilder();
+            try {
+                message.addReaction("\uD83D\uDC4D").queue(null, Sentry::captureException); // 👍 :thumbsup:
+                message.addReaction("\uD83D\uDC4E").queue(null, Sentry::captureException); // 👎 :thumbsdown:
+            }catch (InsufficientPermissionException ex) {
 
-            eb.setColor(Color.RED);
-            eb.setTitle("I do not have permissions to add reactions to the messages in the specified channel.");
-            eb.addField("Please make sure that I have the following permissions",
-                    "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
-                    true);
+                EmbedBuilder eb = new EmbedBuilder();
 
-            message.addReaction("\uD83D\uDC4D").queue(null, new ErrorHandler()
-                    .handle(ErrorResponse.MISSING_PERMISSIONS, e -> hook.sendMessageEmbeds(eb.build()).queue(null, Sentry::captureException))
-                    .handle(Objects::nonNull, Sentry::captureException)
-            ); // 👍 :thumbsup:
+                eb.setColor(Color.RED);
+                eb.setTitle("I do not have permissions to add reactions to the messages in the specified channel.");
+                eb.addField("Please make sure that I have the following permissions",
+                        "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
+                        true);
 
-            message.addReaction("\uD83D\uDC4E").queue(null, new ErrorHandler()
-                    .ignore(ErrorResponse.MISSING_PERMISSIONS)
-                    .handle(Objects::nonNull, Sentry::captureException)
-            ); // 👎 :thumbsdown:
+                hook.sendMessageEmbeds(
+                        eb.build()
+                ).queue(null, Sentry::captureException);
+            }
 
         } else {
 
@@ -285,7 +286,6 @@ public class PollCommand {
                     message.addReaction(reaction).complete();
 
                 }catch (ErrorResponseException ex) {
-
                     if(ex.getErrorResponse() == ErrorResponse.UNKNOWN_EMOJI) {
 
                         EmbedBuilder eb = new EmbedBuilder();
@@ -303,25 +303,24 @@ public class PollCommand {
 
                         break;
 
-                    }else if (ex.getErrorResponse() == ErrorResponse.MISSING_PERMISSIONS) {
-
-                        EmbedBuilder eb = new EmbedBuilder();
-
-                        eb.setColor(Color.RED);
-                        eb.setTitle("I do not have permissions to add reactions to the messages in the specified channel.");
-                        eb.addField("Please make sure that I have the following permissions",
-                                "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
-                                true);
-
-                        hook.sendMessageEmbeds(
-                                eb.build()
-                        ).queue(null, Sentry::captureException);
-
-                        break;
-
                     }else{
                         Sentry.captureException(ex);
                     }
+                }catch (InsufficientPermissionException ex) {
+
+                    EmbedBuilder eb = new EmbedBuilder();
+
+                    eb.setColor(Color.RED);
+                    eb.setTitle("I do not have permissions to add reactions to the messages in the specified channel.");
+                    eb.addField("Please make sure that I have the following permissions",
+                            "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
+                            true);
+
+                    hook.sendMessageEmbeds(
+                            eb.build()
+                    ).queue(null, Sentry::captureException);
+
+                    break;
                 }
             }
         }
