@@ -148,7 +148,7 @@ public class PollCommand {
             endTime = System.currentTimeMillis() + totalTime;
         }
 
-        if((optionDataList.size() == 1 && !isTimePoll) || optionDataList.size() == 2 && isTimePoll) {
+        if(optionDataList.stream().map(OptionMapping::getName).noneMatch(s -> s.startsWith("answer"))) {
 
             pollType = isTimePoll ? PollType.TIME_UPDOWN : PollType.DEFAULT_UPDOWN;
 
