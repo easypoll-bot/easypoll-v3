@@ -250,6 +250,7 @@ public class Main {
                                 .addOption(OptionType.STRING, "answer17", "Answer 17")
                                 .addOption(OptionType.STRING, "answer18", "Answer 18")
                                 .addOption(OptionType.STRING, "answer19", "Answer 19")
+                                .addOption(OptionType.STRING, "answer20", "Answer 20")
                 )
                 .addCommands(
                         new CommandData("timepoll", "Create a timed poll with end date")
@@ -275,6 +276,7 @@ public class Main {
                                 .addOption(OptionType.STRING, "answer17", "Answer 17")
                                 .addOption(OptionType.STRING, "answer18", "Answer 18")
                                 .addOption(OptionType.STRING, "answer19", "Answer 19")
+                                .addOption(OptionType.STRING, "answer20", "Answer 20")
                 )
                 .queue(null, Sentry::captureException);
     }
@@ -286,7 +288,6 @@ public class Main {
     public static ConfigFile getConfig() {
         return config;
     }
-
 
     /**
      *
