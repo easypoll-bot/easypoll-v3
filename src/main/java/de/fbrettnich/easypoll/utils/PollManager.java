@@ -28,6 +28,7 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.MessageReaction;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.exceptions.ErrorResponseException;
+import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
 import net.dv8tion.jda.api.requests.ErrorResponse;
 
 import java.util.List;
@@ -176,19 +177,22 @@ public class PollManager {
                     try {
                         List<MessageReaction> messageReactions = textChannel.retrieveMessageById((String) document.get("messageId")).complete().getReactions();
 
-                        textChannel.editMessageEmbedsById((String) document.get("messageId"),
-                                new PollManager().getPollEmbed(
-                                        (String) document.get("pollId"),
-                                        PollType.valueOf((String) document.get("type")),
-                                        (long) document.get("end"),
-                                        true,
-                                        messageReactions,
-                                        (boolean) document.get("multiplechoices"),
-                                        (String) document.get("question"),
-                                        (List<String>) document.get("choices_reaction"),
-                                        (List<String>) document.get("choices_content")
-                                )
-                        ).queue(null, Sentry::captureException);
+                        try {
+                            textChannel.editMessageEmbedsById((String) document.get("messageId"),
+                                    new PollManager().getPollEmbed(
+                                            (String) document.get("pollId"),
+                                            PollType.valueOf((String) document.get("type")),
+                                            (long) document.get("end"),
+                                            true,
+                                            messageReactions,
+                                            (boolean) document.get("multiplechoices"),
+                                            (String) document.get("question"),
+                                            (List<String>) document.get("choices_reaction"),
+                                            (List<String>) document.get("choices_content")
+                                    )
+                            ).queue(null, Sentry::captureException);
+                        }catch (InsufficientPermissionException ignored) { }
+
                     }catch (ErrorResponseException ex) {
                         if(ex.getErrorResponse() != ErrorResponse.UNKNOWN_MESSAGE) {
                             Sentry.captureException(ex);

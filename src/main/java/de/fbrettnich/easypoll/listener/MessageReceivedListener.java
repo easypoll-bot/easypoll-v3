@@ -22,6 +22,7 @@ import net.dv8tion.jda.api.entities.ChannelType;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.exceptions.ErrorHandler;
+import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.ErrorResponse;
 
@@ -62,13 +63,15 @@ public class MessageReceivedListener extends ListenerAdapter {
                             "If you need further help or have any questions, please visit me on my Discord Server [discord.gg/JnuXNCv](https://discord.gg/JnuXNCv)"
             );
 
-            event.getTextChannel().sendMessageEmbeds(eb.build())
-                    .delay(2, TimeUnit.MINUTES)
-                    .flatMap(Message::delete)
-                    .queue(null, new ErrorHandler()
-                            .ignore(ErrorResponse.UNKNOWN_MESSAGE)
-                            .handle(Objects::nonNull, Sentry::captureException)
-                    );
+            try {
+                event.getTextChannel().sendMessageEmbeds(eb.build())
+                        .delay(2, TimeUnit.MINUTES)
+                        .flatMap(Message::delete)
+                        .queue(null, new ErrorHandler()
+                                .ignore(ErrorResponse.UNKNOWN_MESSAGE)
+                                .handle(Objects::nonNull, Sentry::captureException)
+                        );
+            }catch (InsufficientPermissionException ignored) {}
         }
 
 

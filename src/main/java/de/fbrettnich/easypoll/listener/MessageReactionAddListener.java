@@ -18,15 +18,13 @@ import de.fbrettnich.easypoll.core.Constants;
 import de.fbrettnich.easypoll.utils.Statistics;
 import de.fbrettnich.easypoll.utils.enums.StatisticsEvents;
 import io.sentry.Sentry;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
-import net.dv8tion.jda.api.exceptions.ErrorHandler;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.requests.ErrorResponse;
 
 import java.awt.*;
 import java.util.List;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MessageReactionAddListener extends ListenerAdapter {
@@ -48,6 +46,7 @@ public class MessageReactionAddListener extends ListenerAdapter {
 
         if(message == null) return;
         if(message.getAuthor() != event.getJDA().getSelfUser()) return;
+        if(!event.getGuild().getSelfMember().hasPermission(Permission.MESSAGE_MANAGE)) return;
 
         List<MessageReaction> messageReactions = message.getReactions();
         List<MessageEmbed> messageEmbedList = message.getEmbeds();
@@ -63,9 +62,7 @@ public class MessageReactionAddListener extends ListenerAdapter {
                 removeAddedReaction = false;
 
                 if (messageReactions.size() > 2) {
-                    messageReactions.get(2).removeReaction(user).queue(null, new ErrorHandler()
-                            .ignore(ErrorResponse.MISSING_PERMISSIONS)
-                            .handle(Objects::nonNull, Sentry::captureException));
+                    messageReactions.get(2).removeReaction(user).queue(null, Sentry::captureException);
                 }
 
                 switch (event.getReactionEmote().getName()) {
@@ -73,9 +70,7 @@ public class MessageReactionAddListener extends ListenerAdapter {
 
                         messageReactions.get(1).retrieveUsers().queue(users -> {
                             if (users.contains(user)) {
-                                messageReactions.get(1).removeReaction(user).queue(null, new ErrorHandler()
-                                        .ignore(ErrorResponse.MISSING_PERMISSIONS)
-                                        .handle(Objects::nonNull, Sentry::captureException));
+                                messageReactions.get(1).removeReaction(user).queue(null, Sentry::captureException);
                             }
                         }, Sentry::captureException);
 
@@ -86,9 +81,7 @@ public class MessageReactionAddListener extends ListenerAdapter {
 
                         messageReactions.get(0).retrieveUsers().queue(users -> {
                             if (users.contains(user)) {
-                                messageReactions.get(0).removeReaction(user).queue(null, new ErrorHandler()
-                                        .ignore(ErrorResponse.MISSING_PERMISSIONS)
-                                        .handle(Objects::nonNull, Sentry::captureException));
+                                messageReactions.get(0).removeReaction(user).queue(null, Sentry::captureException);
                             }
                         }, Sentry::captureException);
 
@@ -105,9 +98,7 @@ public class MessageReactionAddListener extends ListenerAdapter {
                     if (messageReaction.getReactionEmote().equals(event.getReactionEmote())) {
                         messageReaction.retrieveUsers().queue(users -> {
                             if (!users.contains(event.getJDA().getSelfUser())) {
-                                messageReaction.removeReaction(user).queue(null, new ErrorHandler()
-                                        .ignore(ErrorResponse.MISSING_PERMISSIONS)
-                                        .handle(Objects::nonNull, Sentry::captureException));
+                                messageReaction.removeReaction(user).queue(null, Sentry::captureException);
                                 isOtherReaction.set(true);
                             }
                         }, Sentry::captureException);
@@ -120,9 +111,7 @@ public class MessageReactionAddListener extends ListenerAdapter {
                             if (!messageReaction.getReactionEmote().equals(event.getReactionEmote())) {
                                 messageReaction.retrieveUsers().queue(users -> {
                                     if (users.contains(user)) {
-                                        messageReaction.removeReaction(user).queue(null, new ErrorHandler()
-                                                .ignore(ErrorResponse.MISSING_PERMISSIONS)
-                                                .handle(Objects::nonNull, Sentry::captureException));
+                                        messageReaction.removeReaction(user).queue(null, Sentry::captureException);
                                     }
                                 }, Sentry::captureException);
                             }
@@ -134,9 +123,7 @@ public class MessageReactionAddListener extends ListenerAdapter {
         }
 
         if (removeAddedReaction) {
-            event.getReaction().removeReaction(user).queue(null, new ErrorHandler()
-                    .ignore(ErrorResponse.MISSING_PERMISSIONS)
-                    .handle(Objects::nonNull, Sentry::captureException));
+            event.getReaction().removeReaction(user).queue(null, Sentry::captureException);
         }
 
         Statistics.insertEventCall(StatisticsEvents.REACTIONADD);
