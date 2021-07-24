@@ -15,9 +15,12 @@
 package de.fbrettnich.easypoll.listener;
 
 import de.fbrettnich.easypoll.core.Constants;
+import de.fbrettnich.easypoll.utils.Permissions;
+import de.fbrettnich.easypoll.utils.PollManager;
 import de.fbrettnich.easypoll.utils.Statistics;
 import de.fbrettnich.easypoll.utils.enums.StatisticsEvents;
 import io.sentry.Sentry;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -55,7 +58,20 @@ public class MessageReactionAddListener extends ListenerAdapter {
 
         if(messageColor != null) {
 
-            if (messageColor.equals(Constants.COLOR_POLL_UPDOWN) && messageReactions.get(0).getReactionEmote().getName().equalsIgnoreCase("\uD83D\uDC4D") && messageReactions.get(1).getReactionEmote().getName().equalsIgnoreCase("\uD83D\uDC4E")) {
+            if(event.getReactionEmote().getName().equalsIgnoreCase("\u274C")) {
+
+                Member member = event.getMember();
+
+                if(member != null) {
+                    if(member.isOwner() || member.hasPermission(Permission.ADMINISTRATOR) || member.hasPermission(Permission.MANAGE_PERMISSIONS) || new Permissions(member).hasPollCreatorRole() || message.getAuthor() == user) {
+                        PollManager pm = new PollManager();
+                        if(pm.canClosePollByMessageId(message.getId(), event.getGuild().getId())) {
+                            pm.closePollByMessageId(message.getId());
+                        }
+                    }
+                }
+
+            }else if (messageColor.equals(Constants.COLOR_POLL_UPDOWN) && messageReactions.get(0).getReactionEmote().getName().equalsIgnoreCase("\uD83D\uDC4D") && messageReactions.get(1).getReactionEmote().getName().equalsIgnoreCase("\uD83D\uDC4E")) {
 
                 removeAddedReaction = false;
 

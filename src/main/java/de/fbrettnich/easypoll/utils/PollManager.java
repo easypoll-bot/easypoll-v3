@@ -72,7 +72,7 @@ public class PollManager {
 
         if(closed && messageReactions != null) {
 
-            double allReactionsCount = messageReactions.stream().mapToInt(MessageReaction::getCount).sum() - messageReactions.size();
+            double allReactionsCount = messageReactions.stream().mapToInt(MessageReaction::getCount).sum() - messageReactions.size() - 1;
 
             if(messageReactions.size() >= choices_reaction.size()) {
 
@@ -121,7 +121,7 @@ public class PollManager {
 
         eb.setDescription(description);
 
-        eb.setFooter("Poll ID: " + pollId);
+        eb.setFooter("Poll ID: " + pollId + " \u2022 The poll can be closed by reacting with \u274C");
 
         return eb.build();
     }

@@ -204,6 +204,11 @@ public class PollCommand {
                     .handle(Objects::nonNull, Sentry::captureException)
             ); // 👎 :thumbsdown:
 
+            message.addReaction("\u274C").queue(null, new ErrorHandler()
+                    .ignore(ErrorResponse.MISSING_PERMISSIONS)
+                    .handle(Objects::nonNull, Sentry::captureException)
+            ); // ❌ :x:
+
         } else {
 
             pollType = isTimePoll ? PollType.TIME_MULTI : PollType.DEFAULT_MULTI;
@@ -324,6 +329,11 @@ public class PollCommand {
                     }
                 }
             }
+
+            message.addReaction("\u274C").queue(null, new ErrorHandler()
+                    .ignore(ErrorResponse.MISSING_PERMISSIONS)
+                    .handle(Objects::nonNull, Sentry::captureException)
+            ); // ❌ :x:
         }
     }
 }
