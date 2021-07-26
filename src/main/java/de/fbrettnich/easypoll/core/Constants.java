@@ -25,8 +25,8 @@ public class Constants {
     public static String BOT_ID = "";
     public static final String BOT_OWNER_MENTION = "<@231091710195662848>";
 
-    public static final String WEBSITE_URL = "https://easypoll.me/";
-    public static final String INVITE_URL = "https://easypoll.me/invite";
+    public static final String WEBSITE_URL = "https://easypoll.me/?utm_source=discordbot&utm_medium=website&utm_campaign=easypoll";
+    public static final String INVITE_URL = "https://easypoll.me/invite?utm_source=discordbot&utm_medium=invite&utm_campaign=easypoll";
     public static final String VOTE_URL = "https://easypoll.me/vote";
     public static final String DISCORD_URL = "https://easypoll.me/discord";
     public static final String ICON_URL = "https://easypoll.me/bot-images/easypoll-logo.png";

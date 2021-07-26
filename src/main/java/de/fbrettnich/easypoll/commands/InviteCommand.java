@@ -31,7 +31,7 @@ public class InviteCommand {
         eb.setTitle("Invite EasyPoll", Constants.INVITE_URL);
         eb.setColor(Color.decode("#5865F2"));
         eb.setDescription(
-                "You can invite " + event.getJDA().getSelfUser().getAsMention() + " here: [www.easypoll.me/invite](https://easypoll.me/invite)"
+                "You can invite " + event.getJDA().getSelfUser().getAsMention() + " here: [www.easypoll.me/invite](" + Constants.INVITE_URL + ")"
         );
 
         event.replyEmbeds(
