@@ -21,6 +21,7 @@ import io.sentry.Sentry;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
+import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
@@ -62,7 +63,9 @@ public class MessageReactionAddListener extends ListenerAdapter {
                 removeAddedReaction = false;
 
                 if (messageReactions.size() > 2) {
-                    messageReactions.get(2).removeReaction(user).queue(null, Sentry::captureException);
+                    try {
+                        messageReactions.get(2).removeReaction(user).queue(null, Sentry::captureException);
+                    }catch (InsufficientPermissionException ignored) { }
                 }
 
                 switch (event.getReactionEmote().getName()) {
@@ -70,7 +73,9 @@ public class MessageReactionAddListener extends ListenerAdapter {
 
                         messageReactions.get(1).retrieveUsers().queue(users -> {
                             if (users.contains(user)) {
-                                messageReactions.get(1).removeReaction(user).queue(null, Sentry::captureException);
+                                try {
+                                    messageReactions.get(1).removeReaction(user).queue(null, Sentry::captureException);
+                                }catch (InsufficientPermissionException ignored) { }
                             }
                         }, Sentry::captureException);
 
@@ -81,7 +86,9 @@ public class MessageReactionAddListener extends ListenerAdapter {
 
                         messageReactions.get(0).retrieveUsers().queue(users -> {
                             if (users.contains(user)) {
-                                messageReactions.get(0).removeReaction(user).queue(null, Sentry::captureException);
+                                try {
+                                    messageReactions.get(0).removeReaction(user).queue(null, Sentry::captureException);
+                                }catch (InsufficientPermissionException ignored) { }
                             }
                         }, Sentry::captureException);
 
@@ -98,7 +105,9 @@ public class MessageReactionAddListener extends ListenerAdapter {
                     if (messageReaction.getReactionEmote().equals(event.getReactionEmote())) {
                         messageReaction.retrieveUsers().queue(users -> {
                             if (!users.contains(event.getJDA().getSelfUser())) {
-                                messageReaction.removeReaction(user).queue(null, Sentry::captureException);
+                                try {
+                                    messageReaction.removeReaction(user).queue(null, Sentry::captureException);
+                                }catch (InsufficientPermissionException ignored) { }
                                 isOtherReaction.set(true);
                             }
                         }, Sentry::captureException);
@@ -111,7 +120,9 @@ public class MessageReactionAddListener extends ListenerAdapter {
                             if (!messageReaction.getReactionEmote().equals(event.getReactionEmote())) {
                                 messageReaction.retrieveUsers().queue(users -> {
                                     if (users.contains(user)) {
-                                        messageReaction.removeReaction(user).queue(null, Sentry::captureException);
+                                        try {
+                                            messageReaction.removeReaction(user).queue(null, Sentry::captureException);
+                                        }catch (InsufficientPermissionException ignored) { }
                                     }
                                 }, Sentry::captureException);
                             }
@@ -123,7 +134,9 @@ public class MessageReactionAddListener extends ListenerAdapter {
         }
 
         if (removeAddedReaction) {
-            event.getReaction().removeReaction(user).queue(null, Sentry::captureException);
+            try {
+                event.getReaction().removeReaction(user).queue(null, Sentry::captureException);
+            }catch (InsufficientPermissionException ignored) { }
         }
 
         Statistics.insertEventCall(StatisticsEvents.REACTIONADD);

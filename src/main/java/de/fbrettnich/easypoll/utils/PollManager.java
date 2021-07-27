@@ -176,11 +176,18 @@ public class PollManager {
             Guild guild = Main.getShardManager().getGuildById((String) document.get("guildId"));
             if(guild != null) {
 
-                TextChannel textChannel = guild.getTextChannelById((String) document.get("channelId"));
+                TextChannel textChannel = null;
+                try {
+                    textChannel = guild.getTextChannelById((String) document.get("channelId"));
+                }catch (InsufficientPermissionException ignored) { }
+
                 if(textChannel != null) {
 
                     try {
-                        List<MessageReaction> messageReactions = textChannel.retrieveMessageById((String) document.get("messageId")).complete().getReactions();
+                        List<MessageReaction> messageReactions = null;
+                        try {
+                            messageReactions = textChannel.retrieveMessageById((String) document.get("messageId")).complete().getReactions();
+                        }catch (InsufficientPermissionException ignored) { }
 
                         try {
                             textChannel.editMessageEmbedsById((String) document.get("messageId"),
@@ -197,7 +204,6 @@ public class PollManager {
                                     )
                             ).queue(null, Sentry::captureException);
                         }catch (InsufficientPermissionException ignored) { }
-
                     }catch (ErrorResponseException ex) {
                         if(ex.getErrorResponse() != ErrorResponse.UNKNOWN_MESSAGE) {
                             Sentry.captureException(ex);

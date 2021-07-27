@@ -303,6 +303,20 @@ public class PollCommand {
 
                         break;
 
+                    }else if(ex.getErrorResponse() == ErrorResponse.MISSING_PERMISSIONS) {
+
+                        EmbedBuilder eb = new EmbedBuilder();
+
+                        eb.setColor(Color.RED);
+                        eb.setTitle("I do not have permissions to add reactions to the messages in the specified channel.");
+                        eb.addField("Please make sure that I have the following permissions",
+                                "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
+                                true);
+
+                        hook.sendMessageEmbeds(
+                                eb.build()
+                        ).queue(null, Sentry::captureException);
+
                     }else{
                         Sentry.captureException(ex);
                     }
