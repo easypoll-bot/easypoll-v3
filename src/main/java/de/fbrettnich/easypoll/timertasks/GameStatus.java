@@ -26,28 +26,29 @@ import java.util.TimerTask;
 public class GameStatus extends TimerTask {
 
     private final JDA jda;
-    private final ArrayList<Activity> activities = new ArrayList<>();
     private int i = 0;
 
     public GameStatus(JDA jda) {
         this.jda = jda;
+    }
 
-        this.activities.add(Activity.listening("/poll"));
-        this.activities.add(Activity.listening("/timepoll"));
-        this.activities.add(Activity.listening("/easypoll"));
-        this.activities.add(Activity.watching("www.easypoll.me"));
-        this.activities.add(Activity.playing("easypoll.me | /help"));
-        this.activities.add(Activity.streaming(
+    @Override
+    public void run() {
+
+        ArrayList<Activity> activities = new ArrayList<>();
+
+        activities.add(Activity.listening("/poll"));
+        activities.add(Activity.listening("/timepoll"));
+        activities.add(Activity.listening("/easypoll"));
+        activities.add(Activity.watching("www.easypoll.me"));
+        activities.add(Activity.playing("easypoll.me | /help"));
+        activities.add(Activity.streaming(
                 "on " +
                         FormatUtil.decimalFormat(Main.getShardManager().getGuilds().size()) + " Servers | " +
                         FormatUtil.decimalFormat(Main.getShardManager().getGuilds().stream().mapToInt(Guild::getMemberCount).sum()) + " Users | " +
                         FormatUtil.decimalFormat(jda.getShardInfo().getShardTotal()) + " Shards",
                 "https://www.twitch.tv/floxiii_")
         );
-    }
-
-    @Override
-    public void run() {
 
         if(i == activities.size()) i = 0;
 
