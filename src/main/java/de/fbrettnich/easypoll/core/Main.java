@@ -196,7 +196,7 @@ public class Main {
             }
 
         } catch (IOException ex) {
-            ex.printStackTrace();
+            Sentry.captureException(ex);
         } finally {
             if (br != null) {
                 try {
