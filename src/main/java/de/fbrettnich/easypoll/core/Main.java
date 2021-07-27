@@ -66,7 +66,7 @@ public class Main {
         DefaultShardManagerBuilder defaultShardManagerBuilder = DefaultShardManagerBuilder.createDefault(Constants.DEVMODE ? getConfig().getString("bot.token_dev") : getConfig().getString("bot.token"))
 
                 .setAutoReconnect(true)
-                .setShardsTotal(-1)
+                .setShardsTotal(20)
                 .setChunkingFilter(ChunkingFilter.NONE)
                 .setMemberCachePolicy(MemberCachePolicy.NONE)
                 .disableCache(CacheFlag.EMOTE, CacheFlag.ACTIVITY, CacheFlag.VOICE_STATE, CacheFlag.CLIENT_STATUS, CacheFlag.ROLE_TAGS)
@@ -84,7 +84,7 @@ public class Main {
         shardManager = defaultShardManagerBuilder.build();
 
 
-        new Timer().schedule(new UpdateTimedPolls(), 5 * 60 * 1000, 1000);
+        new Timer().schedule(new UpdateTimedPolls(), 5 * 60 * 1000, 3 * 1000);
         if(!Constants.DEVMODE) {
             new Timer().schedule(new BotListStats(), 5 * 60 * 1000, 5 * 60 * 1000);
             new Timer().schedule(new TimerTask() {
@@ -151,7 +151,7 @@ public class Main {
                         Sentry.captureException(ex);
                     }
                 }
-            }, 5 * 60 * 1000L, 5 * 60 * 1000L);
+            }, 6 * 60 * 1000L, 5 * 60 * 1000L);
         }
 
         startConsolenInput();

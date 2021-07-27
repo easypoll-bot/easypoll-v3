@@ -168,6 +168,11 @@ public class PollManager {
     private void closePoll(DBCollection collection, DBObject searchQuery, DBObject document) {
         if (document != null) {
 
+            document.put("closed", System.currentTimeMillis());
+            document.put("active", false);
+
+            collection.update(searchQuery, document);
+
             Guild guild = Main.getShardManager().getGuildById((String) document.get("guildId"));
             if(guild != null) {
 
@@ -199,10 +204,6 @@ public class PollManager {
                         }
                     }
 
-                    document.put("closed", System.currentTimeMillis());
-                    document.put("active", false);
-
-                    collection.update(searchQuery, document);
                 }
             }
         }

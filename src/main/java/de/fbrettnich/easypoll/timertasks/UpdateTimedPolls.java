@@ -48,7 +48,7 @@ public class UpdateTimedPolls extends TimerTask {
                                     .append("$lt", System.currentTimeMillis())
                     );
 
-            collection.find(searchQuery).limit(20).forEach(document -> new PollManager().closePollByPollId((String) document.get("pollId")));
+            collection.find(searchQuery).limit(10).forEach(document -> new PollManager().closePollByPollId((String) document.get("pollId")));
 
         }).start();
 
@@ -65,7 +65,7 @@ public class UpdateTimedPolls extends TimerTask {
                                     .append("$gt", System.currentTimeMillis())
                     );
 
-            collection.find(searchQuery).limit(20).forEach(document -> {
+            collection.find(searchQuery).limit(10).forEach(document -> {
 
                 Guild guild = Main.getShardManager().getGuildById((String) document.get("guildId"));
                 if(guild != null) {
@@ -95,11 +95,15 @@ public class UpdateTimedPolls extends TimerTask {
                             );
                         }catch (InsufficientPermissionException ignored) { }
 
-                        document.put("timerLastUpdated", System.currentTimeMillis());
-
-                        collection.update(new BasicDBObject("messageId", document.get("messageId")), document);
+                    }else{
+                        document.put("active", false);
                     }
+                }else{
+                    document.put("active", false);
                 }
+
+                document.put("timerLastUpdated", System.currentTimeMillis());
+                collection.update(new BasicDBObject("messageId", document.get("messageId")), document);
 
             });
 
