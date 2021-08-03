@@ -19,6 +19,7 @@ import de.fbrettnich.easypoll.database.MySQL;
 import de.fbrettnich.easypoll.files.ConfigFile;
 import de.fbrettnich.easypoll.listener.*;
 import de.fbrettnich.easypoll.timertasks.BotListStats;
+import de.fbrettnich.easypoll.timertasks.CloseTimedPolls;
 import de.fbrettnich.easypoll.timertasks.UpdateTimedPolls;
 import io.sentry.Sentry;
 import kong.unirest.Unirest;
@@ -84,7 +85,9 @@ public class Main {
         shardManager = defaultShardManagerBuilder.build();
 
 
-        new Timer().schedule(new UpdateTimedPolls(), 5 * 60 * 1000, 3 * 1000);
+        new Timer().schedule(new CloseTimedPolls(), 5 * 60 * 1000, 3 * 1000);
+        new Timer().schedule(new UpdateTimedPolls(), 5 * 60 * 1000, 5 * 1000);
+
         if(!Constants.DEVMODE) {
             new Timer().schedule(new BotListStats(), 5 * 60 * 1000, 5 * 60 * 1000);
             new Timer().schedule(new TimerTask() {
