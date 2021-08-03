@@ -66,7 +66,7 @@ public class Main {
         DefaultShardManagerBuilder defaultShardManagerBuilder = DefaultShardManagerBuilder.createDefault(Constants.DEVMODE ? getConfig().getString("bot.token_dev") : getConfig().getString("bot.token"))
 
                 .setAutoReconnect(true)
-                .setShardsTotal(20)
+                .setShardsTotal(-1)
                 .setChunkingFilter(ChunkingFilter.NONE)
                 .setMemberCachePolicy(MemberCachePolicy.NONE)
                 .disableCache(CacheFlag.EMOTE, CacheFlag.ACTIVITY, CacheFlag.VOICE_STATE, CacheFlag.CLIENT_STATUS, CacheFlag.ROLE_TAGS)
@@ -165,6 +165,7 @@ public class Main {
         try {
             br = new BufferedReader(new InputStreamReader(System.in));
             while (true) {
+
                 String[] input = br.readLine().split(" ");
 
                 switch (input[0].toLowerCase()) {
@@ -192,9 +193,7 @@ public class Main {
                     default:
                         System.out.println("[CONSOLE] Unknown Command! Type 'help' for help.");
                 }
-
             }
-
         } catch (IOException ex) {
             Sentry.captureException(ex);
         } finally {
