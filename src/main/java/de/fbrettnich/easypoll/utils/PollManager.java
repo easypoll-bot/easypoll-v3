@@ -101,8 +101,10 @@ public class PollManager {
                         .append("\n:alarm_clock: Poll already ended");
             }else{
                 description
-                        .append("\n:alarm_clock: Ends in ")
-                        .append(getRemainingTime(endTime + 1000L));
+                        .append("\n:alarm_clock: Ends ")
+                        .append("<t:")
+                        .append(endTime / 1000L)
+                        .append(":R>");
             }
         }
 
@@ -284,41 +286,5 @@ public class PollManager {
         }
 
         return progressbar.toString();
-    }
-
-    private String getRemainingTime(long endTime) {
-
-        if(endTime == -1) return "-1";
-
-        long current = System.currentTimeMillis();
-        long difference = endTime - current;
-
-        int seconds = 0;
-        int minute = 0;
-        int hours = 0;
-        int days = 0;
-
-        while(difference >= 1000) {
-            difference -= 1000;
-            ++seconds;
-        }
-        while (seconds >= 60) {
-            seconds -= 60;
-            ++minute;
-        }
-        while(minute >= 60) {
-            minute -= 60;
-            ++hours;
-        }
-        while(hours >= 24) {
-            hours -= 24;
-            ++days;
-        }
-
-        if(days == 0) {
-            return hours + "h, " + minute + "m";
-        }else{
-            return days + "d, " + hours + "h, " + minute + "m";
-        }
     }
 }
