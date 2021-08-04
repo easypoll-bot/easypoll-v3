@@ -74,7 +74,6 @@ public class MessageReceivedListener extends ListenerAdapter {
             }catch (InsufficientPermissionException ignored) {}
         }
 
-
         if (event.isFromType(ChannelType.PRIVATE)) {
             Statistics.insertEventCall(StatisticsEvents.DIRECTMESSAGE);
         }

@@ -114,12 +114,12 @@ public class Main {
 
                                 ps.executeUpdate();
                                 ps.close();
-                            } catch (SQLException ex) {
-                                Sentry.captureException(ex);
+                            } catch (SQLException e) {
+                                Sentry.captureException(e);
                             }
                         }
-                    } catch (Exception ex) {
-                        Sentry.captureException(ex);
+                    } catch (Exception e) {
+                        Sentry.captureException(e);
                     }
 
                     try {
@@ -132,8 +132,8 @@ public class Main {
 
                         ps.executeUpdate();
                         ps.close();
-                    } catch (SQLException ex) {
-                        Sentry.captureException(ex);
+                    } catch (SQLException e) {
+                        Sentry.captureException(e);
                     }
 
                     try {
@@ -151,11 +151,11 @@ public class Main {
 
                             ps.executeUpdate();
                             ps.close();
-                        } catch (SQLException ex) {
-                            Sentry.captureException(ex);
+                        } catch (SQLException e) {
+                            Sentry.captureException(e);
                         }
-                    } catch (Exception ex) {
-                        Sentry.captureException(ex);
+                    } catch (Exception e) {
+                        Sentry.captureException(e);
                     }
                 }
             }, 6 * 60 * 1000L, 5 * 60 * 1000L);
@@ -201,14 +201,14 @@ public class Main {
                         System.out.println("[CONSOLE] Unknown Command! Type 'help' for help.");
                 }
             }
-        } catch (IOException ex) {
-            Sentry.captureException(ex);
+        } catch (IOException e) {
+            Sentry.captureException(e);
         } finally {
             if (br != null) {
                 try {
                     br.close();
-                } catch (IOException ex) {
-                    Sentry.captureException(ex);
+                } catch (IOException e) {
+                    Sentry.captureException(e);
                 }
             }
         }

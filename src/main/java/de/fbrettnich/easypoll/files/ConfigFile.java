@@ -61,9 +61,8 @@ public class ConfigFile {
 
                 prop.store(output, null);
 
-            } catch (IOException ex) {
-                ex.printStackTrace();
-                Sentry.captureException(ex);
+            } catch (IOException e) {
+                Sentry.captureException(e);
             }
         }
     }
@@ -76,9 +75,8 @@ public class ConfigFile {
 
             prop.load(input);
 
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            Sentry.captureException(ex);
+        } catch (IOException e) {
+            Sentry.captureException(e);
         }
     }
 

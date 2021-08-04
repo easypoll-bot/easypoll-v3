@@ -55,6 +55,5 @@ public class GameStatus extends TimerTask {
         jda.getPresence().setActivity(activities.get(i));
 
         i++;
-
     }
 }

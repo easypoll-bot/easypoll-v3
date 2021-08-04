@@ -98,7 +98,6 @@ public class PollCommand {
         if(optionDataQuestion == null) return;
 
         String pollId = new PollManager().generateUniquePollId();
-
         String question = optionDataQuestion.getAsString();
         question = question.substring(0, Math.min(question.length(), 1950));
 
@@ -106,8 +105,7 @@ public class PollCommand {
             String time = event.getOption("time").getAsString();
             time = time.replace(" ", "");
 
-            long multiplier = 60L;
-
+            long multiplier = 1L;
             if(time.endsWith("m")) {
                 time = time.replace("m", "");
                 multiplier = 60L;
@@ -121,7 +119,7 @@ public class PollCommand {
 
             try {
                 Integer.parseInt(time);
-            } catch(NumberFormatException ex) {
+            } catch(NumberFormatException e) {
                 EmbedBuilder eb = new EmbedBuilder();
 
                 eb.setColor(Color.ORANGE);
@@ -165,8 +163,8 @@ public class PollCommand {
                                 null
                         )
                 ).complete();
-            }catch (Exception ex) {
-                Sentry.captureException(ex);
+            }catch (Exception e) {
+                Sentry.captureException(e);
             }
 
             if(message == null) return;
@@ -188,7 +186,7 @@ public class PollCommand {
             try {
                 message.addReaction("\uD83D\uDC4D").queue(null, Sentry::captureException); // 👍 :thumbsup:
                 message.addReaction("\uD83D\uDC4E").queue(null, Sentry::captureException); // 👎 :thumbsdown:
-            }catch (InsufficientPermissionException ex) {
+            }catch (InsufficientPermissionException e) {
 
                 EmbedBuilder eb = new EmbedBuilder();
 
@@ -258,8 +256,8 @@ public class PollCommand {
                                 choiceList
                         )
                 ).complete();
-            }catch (Exception ex) {
-                Sentry.captureException(ex);
+            }catch (Exception e) {
+                Sentry.captureException(e);
             }
 
             if(message == null) return;
@@ -283,8 +281,8 @@ public class PollCommand {
 
                     message.addReaction(reaction).complete();
 
-                }catch (ErrorResponseException ex) {
-                    if(ex.getErrorResponse() == ErrorResponse.UNKNOWN_EMOJI) {
+                }catch (ErrorResponseException e) {
+                    if(e.getErrorResponse() == ErrorResponse.UNKNOWN_EMOJI) {
 
                         EmbedBuilder eb = new EmbedBuilder();
                         eb.setColor(Color.ORANGE);
@@ -301,7 +299,7 @@ public class PollCommand {
 
                         break;
 
-                    }else if(ex.getErrorResponse() == ErrorResponse.MISSING_PERMISSIONS) {
+                    }else if(e.getErrorResponse() == ErrorResponse.MISSING_PERMISSIONS) {
 
                         EmbedBuilder eb = new EmbedBuilder();
 
@@ -316,9 +314,9 @@ public class PollCommand {
                         ).queue(null, Sentry::captureException);
 
                     }else{
-                        Sentry.captureException(ex);
+                        Sentry.captureException(e);
                     }
-                }catch (InsufficientPermissionException ex) {
+                }catch (InsufficientPermissionException e) {
 
                     EmbedBuilder eb = new EmbedBuilder();
 

@@ -73,5 +73,4 @@ public class InfoCommand {
             return day + "d, " + hour + "h, " + minute + "m, " + second + "s";
         }
     }
-
 }

@@ -39,8 +39,8 @@ public class Statistics {
 
             ps.executeUpdate();
             ps.close();
-        } catch (SQLException ex) {
-            Sentry.captureException(ex);
+        } catch (SQLException e) {
+            Sentry.captureException(e);
         }
     }
 
@@ -58,8 +58,8 @@ public class Statistics {
 
             ps.executeUpdate();
             ps.close();
-        } catch (SQLException ex) {
-            Sentry.captureException(ex);
+        } catch (SQLException e) {
+            Sentry.captureException(e);
         }
     }
 }
