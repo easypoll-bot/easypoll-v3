@@ -143,7 +143,6 @@ public class PollManager {
         document.put("multiplechoices", allowmultiplechoices);
         document.put("created", System.currentTimeMillis());
         document.put("end", endTime);
-        document.put("timerLastUpdated", System.currentTimeMillis());
         document.put("closed", 0);
         document.put("active", true);
 

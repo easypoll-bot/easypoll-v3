@@ -29,6 +29,7 @@ public class BotListStats extends TimerTask {
 
     @Override
     public void run() {
+
         final int servers = Main.getShardManager().getGuilds().size();
         final int users = Main.getShardManager().getGuilds().stream().mapToInt(Guild::getMemberCount).sum();
         final int shards = Main.getShardManager().getShards().size();
