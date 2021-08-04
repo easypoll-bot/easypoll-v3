@@ -14,6 +14,7 @@
 
 package de.fbrettnich.easypoll.commands;
 
+import com.vdurmont.emoji.EmojiManager;
 import de.fbrettnich.easypoll.core.Constants;
 import de.fbrettnich.easypoll.utils.Permissions;
 import de.fbrettnich.easypoll.utils.PollManager;
@@ -21,10 +22,7 @@ import de.fbrettnich.easypoll.utils.enums.PollType;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.exceptions.ErrorHandler;
 import net.dv8tion.jda.api.exceptions.ErrorResponseException;
@@ -232,7 +230,7 @@ public class PollCommand {
                     reactionsListAdd.add(matcher.group(1) + ":" + matcher.group(2));
                     reactionsList.add(partSplit[0]);
                     choiceList.add(answer.replace(partSplit[0], ""));
-                } else if(partSplit[0].matches("[\\uD83C-\\uDBFF\\uDC00-\\uDFFF]+") || partSplit[0].matches("([\\u20a0-\\u32ff\\ud83c\\udc00-\\ud83d\\udeff\\udbb9\\udce5-\\udbb9\\udcee])")) {
+                } else if(EmojiManager.isEmoji(partSplit[0].replace("️", ""))) { // Replaces an empty character, which prevents the isEmoji detection
                     reactionsListAdd.add(partSplit[0]);
                     reactionsList.add(partSplit[0]);
                     choiceList.add(answer.replace(partSplit[0], ""));
