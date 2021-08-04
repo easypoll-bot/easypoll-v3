@@ -35,6 +35,20 @@ public class PollManager {
 
     public PollManager() { }
 
+    /**
+     * Generate the MessageEmbed for a Poll
+     *
+     * @param pollId ID of the poll
+     * @param pollType Type of the poll
+     * @param endTime Timestamp when the poll ends
+     * @param closed If the poll is closed
+     * @param messageReactions Current Reactions of the Poll Message
+     * @param allowmultiplechoices If multiple answers are allowed
+     * @param question Poll question
+     * @param choices_reaction Reaction list of the answers
+     * @param choices_content Text list of the answers
+     * @return The full and complete message embed
+     */
     public MessageEmbed getPollEmbed(String pollId, PollType pollType, long endTime, Boolean closed, @Nullable List<MessageReaction> messageReactions, @Nullable Boolean allowmultiplechoices, String question, List<String> choices_reaction, List<String> choices_content) {
 
         EmbedBuilder eb = new EmbedBuilder();
@@ -126,6 +140,21 @@ public class PollManager {
         return eb.build();
     }
 
+    /**
+     * Create a new poll in the database
+     *
+     * @param pollId ID of the poll
+     * @param guildId ID of the guild
+     * @param channelId ID of the channel
+     * @param messageId ID of the poll message
+     * @param userId ID of the poll creator user
+     * @param question Poll question
+     * @param choices_reaction Reaction list of the answers
+     * @param choices_content Text list of the answers
+     * @param pollType Type of the poll
+     * @param allowmultiplechoices If multiple answers are allowed
+     * @param endTime Timestamp when the poll ends
+     */
     public void createPoll(String pollId, String guildId, String channelId, String messageId, String userId, String question, List<String> choices_reaction, List<String> choices_content, PollType pollType, boolean allowmultiplechoices, long endTime) {
 
         DBCollection collection = Main.getMongoDB().getCollection("polls");
@@ -150,6 +179,11 @@ public class PollManager {
         collection.insert(document);
     }
 
+    /**
+     * Close a poll based on the Message ID
+     *
+     * @param messageId ID of the message
+     */
     public void closePollByMessageId(String messageId) {
         DBCollection collection = Main.getMongoDB().getCollection("polls");
         DBObject searchQuery = new BasicDBObject("messageId", messageId);
@@ -157,6 +191,11 @@ public class PollManager {
         closePoll(collection, searchQuery, document);
     }
 
+    /**
+     * Close a poll based on the Poll ID
+     *
+     * @param pollId ID of the poll
+     */
     public void closePollByPollId(String pollId) {
         DBCollection collection = Main.getMongoDB().getCollection("polls");
         DBObject searchQuery = new BasicDBObject("pollId", pollId);
@@ -164,6 +203,13 @@ public class PollManager {
         closePoll(collection, searchQuery, document);
     }
 
+    /**
+     * Close a poll and update the message
+     *
+     * @param collection
+     * @param searchQuery
+     * @param document
+     */
     private void closePoll(DBCollection collection, DBObject searchQuery, DBObject document) {
         if (document != null) {
 
@@ -216,6 +262,13 @@ public class PollManager {
         }
     }
 
+    /**
+     * Checking on the basis of the Poll ID if a poll can be closed
+     *
+     * @param pollId ID of the poll
+     * @param guildId ID of the guild
+     * @return true if poll can be closed, otherwise false
+     */
     public boolean canClosePollByPollId(String pollId, String guildId) {
         DBCollection collection = Main.getMongoDB().getCollection("polls");
         DBObject searchQuery = new BasicDBObject()
@@ -226,6 +279,13 @@ public class PollManager {
         return collection.find(searchQuery).hasNext();
     }
 
+    /**
+     * Checking on the basis of the Message ID if a poll can be closed
+     *
+     * @param messageId ID of the message
+     * @param guildId ID of the guild
+     * @return true if poll can be closed, otherwise false
+     */
     public boolean canClosePollByMessageId(String messageId, String guildId) {
         DBCollection collection = Main.getMongoDB().getCollection("polls");
         DBObject searchQuery = new BasicDBObject()
@@ -236,6 +296,12 @@ public class PollManager {
         return collection.find(searchQuery).hasNext();
     }
 
+    /**
+     * Get the User ID of a poll creator
+     *
+     * @param pollId ID of the poll
+     * @return User ID of the poll creator
+     */
     public String getPollCreatorIdByPollId(String pollId) {
         DBCollection collection = Main.getMongoDB().getCollection("polls");
         DBObject searchQuery = new BasicDBObject("pollId", pollId);
@@ -248,6 +314,11 @@ public class PollManager {
         return "null";
     }
 
+    /**
+     * Generate a new and unique Poll ID
+     *
+     * @return A unique Poll ID
+     */
     public String generateUniquePollId() {
 
         int length = 10;
@@ -271,6 +342,12 @@ public class PollManager {
         return sb.toString();
     }
 
+    /**
+     * Convert the percentage to a progress bar
+     *
+     * @param percentage The percentage
+     * @return The progress bar
+     */
     private String getProgressbar(double percentage) {
 
         int chars = 10;

@@ -25,6 +25,11 @@ import java.sql.SQLException;
 
 public class Statistics {
 
+    /**
+     * This method adds command statistics to the MySQL database
+     *
+     * @param command The type of the command statistic
+     */
     public static void insertCommandUsage(StatisticsCommands command) {
         if(Constants.DEVMODE) return;
 
@@ -39,6 +44,11 @@ public class Statistics {
         }
     }
 
+    /**
+     * This method adds event statistics to the MySQL database
+     *
+     * @param event The type of the event statistic
+     */
     public static void insertEventCall(StatisticsEvents event) {
         if(Constants.DEVMODE) return;
 

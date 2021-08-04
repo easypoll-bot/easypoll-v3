@@ -23,10 +23,19 @@ public class Permissions {
 
     private final Member member;
 
+    /**
+     *
+     * @param member Guild member of the user
+     */
     public Permissions(Member member) {
         this.member = member;
     }
 
+    /**
+     * Check if the member has the PollCreator role
+     *
+     * @return true if the member has the PollCreator role, otherwise false
+     */
     public boolean hasPollCreatorRole() {
         String[] groups = {"PollCreator"};
 
