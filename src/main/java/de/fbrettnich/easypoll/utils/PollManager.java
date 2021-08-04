@@ -206,9 +206,9 @@ public class PollManager {
     /**
      * Close a poll and update the message
      *
-     * @param collection
-     * @param searchQuery
-     * @param document
+     * @param collection MongoDB Collection
+     * @param searchQuery Database search query
+     * @param document Mongo doucument
      */
     private void closePoll(DBCollection collection, DBObject searchQuery, DBObject document) {
         if (document != null) {

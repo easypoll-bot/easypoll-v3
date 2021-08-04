@@ -50,6 +50,12 @@ public class Main {
     private static MySQL mysql;
     private static ShardManager shardManager;
 
+    /**
+     * The main method to build and start the bot
+     *
+     * @param args unused
+     * @throws LoginException Errors when logging in
+     */
     public static void main(String[] args) throws LoginException {
 
         config = new ConfigFile();
@@ -282,6 +288,7 @@ public class Main {
     }
 
     /**
+     * Get the config file
      *
      * @return config file
      */
@@ -290,6 +297,7 @@ public class Main {
     }
 
     /**
+     * Get the MongoDB Database
      *
      * @return MongoDB
      */
@@ -298,6 +306,7 @@ public class Main {
     }
 
     /**
+     * Get the MySQL Database
      *
      * @return mysql
      */
@@ -306,6 +315,7 @@ public class Main {
     }
 
     /**
+     * Get the ShardManager
      *
      * @return ShardManager
      */

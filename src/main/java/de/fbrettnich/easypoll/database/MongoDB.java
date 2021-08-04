@@ -42,7 +42,7 @@ public class MongoDB {
     }
 
     /**
-     * Get Mongo Collection from Old Database
+     * Get Mongo Collection from Database
      *
      * @param collection name
      * @return DBCollection
