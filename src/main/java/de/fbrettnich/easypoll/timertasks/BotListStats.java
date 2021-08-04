@@ -91,6 +91,20 @@ public class BotListStats extends TimerTask {
             }
         }
 
+        // discord.bots.gg
+        {
+            JSONObject obj = new JSONObject().put("guildCount", servers).put("shardCount", shards);
+            try {
+                Unirest.post("https://discord.bots.gg/api/v1/bots/" + Constants.BOT_ID + "/stats")
+                        .header("Content-Type", "application/json")
+                        .header("Authorization", Main.getConfig().getString("botlist.discordbotsgg.token"))
+                        .body(obj.toString())
+                        .asJson();
+            } catch (UnirestException ex) {
+                Sentry.captureException(ex);
+            }
+        }
+
         // botlist.space
         /*{
             JSONObject obj = new JSONObject().put("server_count", servers);
