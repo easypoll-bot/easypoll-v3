@@ -81,8 +81,9 @@ public class ConfigFile {
     }
 
     /**
+     * Check if the config file exists
      *
-     * @return true if config file exists
+     * @return true if config file exists, otherwise false
      */
     private boolean fileExists() {
         try {
@@ -96,6 +97,7 @@ public class ConfigFile {
     }
 
     /**
+     * Get a string based on the key
      *
      * @param key property key
      * @return property value

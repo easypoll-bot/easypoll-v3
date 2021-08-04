@@ -19,7 +19,7 @@ import java.text.DecimalFormat;
 public class FormatUtil {
 
     /**
-     * format number to decimal number with '.'
+     * Format number to decimal number with '.'
      *
      * @param number custom int
      * @return number in decimal format with '.'

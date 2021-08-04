@@ -52,6 +52,11 @@ public class InfoCommand {
 
     }
 
+    /**
+     * Calculate the uptime of the bot and combine it as a string
+     *
+     * @return the bot uptime as string
+     */
     private String getUptime() {
         int sec = (int)((System.currentTimeMillis() - Constants.STARTUP) / 1000);
 
