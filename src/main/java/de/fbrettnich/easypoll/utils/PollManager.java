@@ -35,7 +35,7 @@ public class PollManager {
 
     public PollManager() { }
 
-    public MessageEmbed getPollEmbed(String pollId, PollType pollType, long endTime, Boolean closed, @Nullable List<MessageReaction> messageReactions, @Nullable Boolean allowmultiplechoices, String question, List<String> choices_reaction, List<String> choices_content) {
+    public MessageEmbed getPollEmbed(String pollId, PollType pollType, long endTime, Boolean closed, @Nullable List<MessageReaction> messageReactions, @Nullable Boolean allowmultiplechoices, String question, List<String> choicesReaction, List<String> choicesContent) {
 
         EmbedBuilder eb = new EmbedBuilder();
         StringBuilder description = new StringBuilder();
@@ -53,11 +53,11 @@ public class PollManager {
                     .append(":thumbsup: Yes\n")
                     .append(":thumbsdown: No\n");
         } else {
-            for (int i = 0; i < choices_reaction.size(); i++) {
+            for (int i = 0; i < choicesReaction.size(); i++) {
                 description
-                        .append(choices_reaction.get(i))
+                        .append(choicesReaction.get(i))
                         .append(" ")
-                        .append(choices_content.get(i))
+                        .append(choicesContent.get(i))
                         .append("\n");
             }
 
@@ -72,11 +72,11 @@ public class PollManager {
 
             double allReactionsCount = messageReactions.stream().mapToInt(MessageReaction::getCount).sum() - messageReactions.size();
 
-            if(messageReactions.size() >= choices_reaction.size()) {
+            if(messageReactions.size() >= choicesReaction.size()) {
 
                 description.append("\n**Final Result**\n");
 
-                for (int i = 0; i < choices_reaction.size(); i++) {
+                for (int i = 0; i < choicesReaction.size(); i++) {
 
                     int reactionCount = messageReactions.get(i).getCount() - 1;
 
@@ -84,7 +84,7 @@ public class PollManager {
                     if (reactionCount == 0 || allReactionsCount == 0) percentage = 0;
 
                     description
-                            .append(choices_reaction.get(i))
+                            .append(choicesReaction.get(i))
                             .append(" ")
                             .append(getProgressbar(percentage))
                             .append(" [").append(reactionCount)
@@ -126,7 +126,7 @@ public class PollManager {
         return eb.build();
     }
 
-    public void createPoll(String pollId, String guildId, String channelId, String messageId, String userId, String question, List<String> choices_reaction, List<String> choices_content, PollType pollType, boolean allowmultiplechoices, long endTime) {
+    public void createPoll(String pollId, String guildId, String channelId, String messageId, String userId, String question, List<String> choicesReaction, List<String> choicesContent, PollType pollType, boolean allowmultiplechoices, long endTime) {
 
         DBCollection collection = Main.getMongoDB().getCollection("polls");
         DBObject document = new BasicDBObject();
@@ -137,8 +137,8 @@ public class PollManager {
         document.put("messageId", messageId);
         document.put("userId", userId);
         document.put("question", question);
-        document.put("choices_reaction", choices_reaction);
-        document.put("choices_content", choices_content);
+        document.put("choices_reaction", choicesReaction);
+        document.put("choices_content", choicesContent);
         document.put("type", pollType.name());
         document.put("multiplechoices", allowmultiplechoices);
         document.put("created", System.currentTimeMillis());
@@ -205,9 +205,9 @@ public class PollManager {
 
                             });
                         }catch (InsufficientPermissionException ignored) { }
-                    }catch (ErrorResponseException ex) {
-                        if(ex.getErrorResponse() != ErrorResponse.UNKNOWN_MESSAGE) {
-                            Sentry.captureException(ex);
+                    }catch (ErrorResponseException e) {
+                        if(e.getErrorResponse() != ErrorResponse.UNKNOWN_MESSAGE) {
+                            Sentry.captureException(e);
                         }
                     }
                 }

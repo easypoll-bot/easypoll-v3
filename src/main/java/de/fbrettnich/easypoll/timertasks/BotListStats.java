@@ -45,8 +45,8 @@ public class BotListStats extends TimerTask {
                         .header("Authorization", Main.getConfig().getString("botlist.topgg.token"))
                         .body(obj.toString())
                         .asJson();
-            } catch (UnirestException ex) {
-                Sentry.captureException(ex);
+            } catch (UnirestException e) {
+                Sentry.captureException(e);
             }
         }
 
@@ -59,8 +59,8 @@ public class BotListStats extends TimerTask {
                         .header("Authorization", Main.getConfig().getString("dbots"))
                         .body(obj.toString())
                         .asJson();
-            } catch (UnirestException ex) {
-                Sentry.captureException(ex);
+            } catch (UnirestException e) {
+                Sentry.captureException(e);
             }
         }
 
@@ -73,8 +73,8 @@ public class BotListStats extends TimerTask {
                         .header("Authorization", Main.getConfig().getString("botlist.discordbotlist.token"))
                         .body(obj.toString())
                         .asJson();
-            } catch (UnirestException ex) {
-                Sentry.captureException(ex);
+            } catch (UnirestException e) {
+                Sentry.captureException(e);
             }
         }
 
@@ -87,8 +87,8 @@ public class BotListStats extends TimerTask {
                         .header("Authorization", Main.getConfig().getString("botlist.botsondiscordxyz.token"))
                         .body(obj.toString())
                         .asJson();
-            } catch (UnirestException ex) {
-                Sentry.captureException(ex);
+            } catch (UnirestException e) {
+                Sentry.captureException(e);
             }
         }
 
@@ -101,8 +101,8 @@ public class BotListStats extends TimerTask {
                         .header("Authorization", Main.getConfig().getString("botlist.discordbotsgg.token"))
                         .body(obj.toString())
                         .asJson();
-            } catch (UnirestException ex) {
-                Sentry.captureException(ex);
+            } catch (UnirestException e) {
+                Sentry.captureException(e);
             }
         }
 
@@ -115,10 +115,9 @@ public class BotListStats extends TimerTask {
                         .header("Authorization", Main.getConfig().getString("botlist.botsondiscordxyz.token"))
                         .body(obj.toString())
                         .asJson();
-            } catch (UnirestException ex) {
-                Sentry.captureException(ex);
+            } catch (UnirestException e) {
+                Sentry.captureException(e);
             }
         }*/
-
     }
 }

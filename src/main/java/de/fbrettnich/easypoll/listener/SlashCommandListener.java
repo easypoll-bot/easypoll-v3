@@ -32,7 +32,6 @@ public class SlashCommandListener  extends ListenerAdapter {
         String commandName = event.getName();
 
         switch (commandName) {
-
             case "closepoll":
                 new ClosePollCommand(event);
                 Statistics.insertCommandUsage(StatisticsCommands.SLASH_CLOSEPOLL);
@@ -79,6 +78,5 @@ public class SlashCommandListener  extends ListenerAdapter {
                 Sentry.captureMessage("Cannot process command: " + commandName, SentryLevel.ERROR);
                 break;
         }
-
     }
 }

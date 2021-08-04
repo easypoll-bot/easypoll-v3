@@ -57,8 +57,8 @@ public class MySQL {
             try {
                 con = DriverManager.getConnection("jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE + "?autoReconnect=true&useUnicode=true", USER, PASSWORD);
                 System.out.println("[MySQL] The connection to the MySQL database was successfully established.");
-            } catch (SQLException ex) {
-                Sentry.captureException(ex);
+            } catch (SQLException e) {
+                Sentry.captureException(e);
                 System.err.println("[MySQL] Error while connecting to the database!");
             }
         }
@@ -74,8 +74,8 @@ public class MySQL {
                 con = null;
                 System.out.println("[MySQL] The connection to the MySQL database was successfully closed.");
             }
-        } catch (SQLException ex) {
-            Sentry.captureException(ex);
+        } catch (SQLException e) {
+            Sentry.captureException(e);
             System.err.println("[MySQL] Error when disconnecting from the database!");
         }
     }
