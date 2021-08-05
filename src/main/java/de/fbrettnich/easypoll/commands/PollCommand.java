@@ -105,8 +105,11 @@ public class PollCommand {
             String time = event.getOption("time").getAsString();
             time = time.replace(" ", "");
 
-            long multiplier = 1L;
-            if(time.endsWith("m")) {
+            long multiplier = 60L;
+            if(time.endsWith("s")) {
+                time = time.replace("s", "");
+                multiplier = 1L;
+            }else if(time.endsWith("m")) {
                 time = time.replace("m", "");
                 multiplier = 60L;
             }else if(time.endsWith("h")) {
@@ -115,18 +118,22 @@ public class PollCommand {
             }else if(time.endsWith("d")) {
                 time = time.replace("d", "");
                 multiplier = 24*60*60L;
+            }else if(time.endsWith("w")) {
+                time = time.replace("w", "");
+                multiplier = 7*24*60*60L;
             }
 
             try {
                 Integer.parseInt(time);
             } catch(NumberFormatException e) {
+                
                 EmbedBuilder eb = new EmbedBuilder();
 
                 eb.setColor(Color.ORANGE);
                 eb.setTitle("Invalid time specification!", Constants.WEBSITE_URL);
                 eb.addField(
                         "You have entered an invalid time!",
-                        "Used at the end of a number m (minute), h (hour) or d (day) for time specifications.\n" +
+                        "Used at the end of a number s (second), m (minute), h (hour), d (day) or w (week) for time specifications.\n" +
                                 "Examples: 15m for 15 minutes, 1h for 1 hour, 3d for 3 days\n" +
                                 "\n" +
                                 "*PS: You will find your sent command of this poll to copy as a message to which I replied (click on the blue `/timepoll` command above this message)*",
@@ -141,7 +148,7 @@ public class PollCommand {
 
             long totalTime = Integer.parseInt(time) * multiplier * 1000L;
             if(totalTime > 7*24*60*60*1000L) totalTime = 7*24*60*60*1000L;
-            endTime = System.currentTimeMillis() + totalTime;
+            endTime = System.currentTimeMillis() + totalTime + 1000L;
         }
 
         if(optionDataList.stream().map(OptionMapping::getName).noneMatch(s -> s.startsWith("answer"))) {
