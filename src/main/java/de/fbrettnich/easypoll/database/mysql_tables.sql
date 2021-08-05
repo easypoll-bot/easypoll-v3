@@ -1,15 +1,19 @@
 /*
- * Copyright (c) 2021 Felix Brettnich
+ * EasyPoll Discord Bot (https://github.com/fbrettnich/easypoll-bot)
+ * Copyright (C) 2021  Felix Brettnich
  *
- * This file is part of EasyPoll (https://github.com/fbrettnich/easypoll)
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * All contents of this source code are protected by copyright.
- * The copyright lies, if not expressly differently marked,
- * by Felix Brettnich. All rights reserved.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
  *
- * Any kind of duplication, distribution, rental, lending,
- * public accessibility or other use requires the explicit,
- * written consent from Felix Brettnich
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 CREATE TABLE IF NOT EXISTS `statistics_global`(
