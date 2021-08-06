@@ -39,7 +39,6 @@ public class VoteCommand {
                 "\n" +
                 "You can vote for us on the following pages:\n" +
                 "\u2022 [top.gg/bot/437618149505105920](https://top.gg/bot/437618149505105920/vote)\n" +
-                "\u2022 [dbots.me/bot/easypoll](https://dbots.me/bot/easypoll/vote)\n" +
                 "\u2022 [discordbotlist.com/bots/easypoll](https://discordbotlist.com/bots/easypoll/upvote)\n"
         );
 
