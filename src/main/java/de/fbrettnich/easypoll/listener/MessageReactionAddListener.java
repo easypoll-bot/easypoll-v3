@@ -62,7 +62,7 @@ public class MessageReactionAddListener extends ListenerAdapter {
 
         if(messageColor != null) {
 
-            if (messageColor.equals(Constants.COLOR_POLL_UPDOWN) && messageReactions.get(0).getReactionEmote().getName().equalsIgnoreCase("\uD83D\uDC4D") && messageReactions.get(1).getReactionEmote().getName().equalsIgnoreCase("\uD83D\uDC4E")) {
+            if (messageColor.equals(Constants.COLOR_POLL_UPDOWN) && messageReactions.size() >= 2 && messageReactions.get(0).getReactionEmote().getName().equalsIgnoreCase("\uD83D\uDC4D") && messageReactions.get(1).getReactionEmote().getName().equalsIgnoreCase("\uD83D\uDC4E")) {
 
                 removeAddedReaction = false;
 
