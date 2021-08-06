@@ -204,7 +204,7 @@ public class PollCommand {
                 eb.setColor(Color.RED);
                 eb.setTitle("I do not have permissions to add reactions to the messages in the specified channel.");
                 eb.addField("Please make sure that I have the following permissions",
-                        "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
+                        "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_EMBED_LINKS, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
                         true);
 
                 hook.sendMessageEmbeds(
@@ -317,7 +317,7 @@ public class PollCommand {
                         eb.setColor(Color.RED);
                         eb.setTitle("I do not have permissions to add reactions to the messages in the specified channel.");
                         eb.addField("Please make sure that I have the following permissions",
-                                "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
+                                "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_EMBED_LINKS, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
                                 true);
 
                         hook.sendMessageEmbeds(
@@ -334,7 +334,7 @@ public class PollCommand {
                     eb.setColor(Color.RED);
                     eb.setTitle("I do not have permissions to add reactions to the messages in the specified channel.");
                     eb.addField("Please make sure that I have the following permissions",
-                            "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
+                            "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_EMBED_LINKS, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
                             true);
 
                     hook.sendMessageEmbeds(
