@@ -59,7 +59,7 @@ public class MySQL {
     public void connect() {
         if(!isConnected()) {
             try {
-                con = DriverManager.getConnection("jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE + "?autoReconnect=true&useUnicode=true", USER, PASSWORD);
+                con = DriverManager.getConnection("jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE + "?autoReconnect=true&useUnicode=true&serverTimezone=UTC", USER, PASSWORD);
                 System.out.println("[MySQL] The connection to the MySQL database was successfully established.");
             } catch (SQLException e) {
                 Sentry.captureException(e);

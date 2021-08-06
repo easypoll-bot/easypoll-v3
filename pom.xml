@@ -43,7 +43,7 @@
         <dependency>
             <groupId>com.github.DV8FromTheWorld</groupId>
             <artifactId>JDA</artifactId>
-            <version>5445e8865481f02942cbdad5dc13a787d929b6aa</version>
+            <version>7ff16f966896a6b09e05bf36af24324ac3cc1d1c</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
@@ -53,7 +53,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
+            <version>8.0.16</version>
         </dependency>
         <dependency>
             <groupId>com.vdurmont</groupId>
