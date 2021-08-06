@@ -41,7 +41,7 @@ If you want to contribute to EasyPoll, follow these steps:
 - Make your changes
 - Check your changes
 - Create a [pull request](https://github.com/fbrettnich/easypoll-bot/pulls)
-    - **Important:** Create pull requests only in our `development` or `feature` branch, pull requests to the `main` branch will be rejected!
+<!--    - **Important:** Create pull requests only in our `development` or `feature` branch, pull requests to the `main` branch will be rejected! -->
 
 We are happy about any contribution &#9786;
 
