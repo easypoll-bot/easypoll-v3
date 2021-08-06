@@ -18,12 +18,15 @@
 
 package de.fbrettnich.easypoll.listener;
 
+import de.fbrettnich.easypoll.core.Constants;
 import de.fbrettnich.easypoll.utils.Statistics;
 import de.fbrettnich.easypoll.utils.enums.StatisticsEvents;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.ChannelType;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.exceptions.ErrorHandler;
 import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
@@ -31,6 +34,8 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.ErrorResponse;
 
 import java.awt.*;
+import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
@@ -39,7 +44,35 @@ public class MessageReceivedListener extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
 
-        if (event.getAuthor().isBot()) return;
+        User user = event.getAuthor();
+        if (user.isBot()) return;
+
+        List<Member> mentionedUsers = event.getMessage().getMentionedMembers();
+        if(!mentionedUsers.isEmpty() && mentionedUsers.contains(event.getGuild().getSelfMember())) {
+
+            EmbedBuilder eb = new EmbedBuilder();
+            eb.setTitle("How to use EasyPoll", Constants.WEBSITE_URL);
+            eb.setColor(Color.decode("#01FF70"));
+            eb.setThumbnail(event.getJDA().getSelfUser().getEffectiveAvatarUrl());
+
+            eb.addField("Bot Prefix", "`/` *(Using SlashCommands)*", false);
+            eb.addField("Help Command", "`/help`", false);
+            eb.addField("Website", "[www.easypoll.me](" + Constants.WEBSITE_URL + ")", false);
+
+            eb.setFooter("Requested by " + user.getName() + "#" + user.getDiscriminator());
+            eb.setTimestamp(new Date().toInstant());
+
+            try {
+                event.getTextChannel().sendMessageEmbeds(eb.build())
+                        .delay(30, TimeUnit.SECONDS)
+                        .flatMap(Message::delete)
+                        .queue(null, new ErrorHandler()
+                                .ignore(ErrorResponse.UNKNOWN_MESSAGE)
+                                .handle(Objects::nonNull, Sentry::captureException)
+                        );
+            }catch (InsufficientPermissionException ignored) {}
+
+        }
 
         /* Information for users who use old EasyPoll commands */
         String messageContent = event.getMessage().getContentDisplay();
