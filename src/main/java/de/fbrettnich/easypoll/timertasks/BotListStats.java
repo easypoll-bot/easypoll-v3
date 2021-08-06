@@ -54,20 +54,6 @@ public class BotListStats extends TimerTask {
             }
         }
 
-        // dbots.me
-        {
-            JSONObject obj = new JSONObject().put("server_count", servers).put("shards_count", shards).put("user_count", users);
-            try {
-                Unirest.post("https://api.dbots.me/v1/bots/" + Constants.BOT_ID + "/stats")
-                        .header("Content-Type", "application/json")
-                        .header("Authorization", Main.getConfig().getString("dbots"))
-                        .body(obj.toString())
-                        .asJson();
-            } catch (UnirestException e) {
-                Sentry.captureException(e);
-            }
-        }
-
         // discordbotlist.com
         {
             JSONObject obj = new JSONObject().put("guilds", servers).put("users", users);

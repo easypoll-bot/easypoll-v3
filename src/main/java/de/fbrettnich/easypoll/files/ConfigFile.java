@@ -58,7 +58,6 @@ public class ConfigFile {
                 prop.setProperty("mongodb.database", "DiscordBot");
 
                 prop.setProperty("botlist.topgg.token", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
-                prop.setProperty("botlist.dbots.token", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
                 prop.setProperty("botlist.discordbotlist.token", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
                 prop.setProperty("botlist.discordbotsgg.token", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
                 prop.setProperty("botlist.botsondiscordxyz.token", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
