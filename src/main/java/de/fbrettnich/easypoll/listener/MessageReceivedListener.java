@@ -47,31 +47,34 @@ public class MessageReceivedListener extends ListenerAdapter {
         User user = event.getAuthor();
         if (user.isBot()) return;
 
-        List<Member> mentionedUsers = event.getMessage().getMentionedMembers();
-        if(!mentionedUsers.isEmpty() && mentionedUsers.contains(event.getGuild().getSelfMember())) {
+        if(event.isFromType(ChannelType.TEXT)) {
+            List<Member> mentionedUsers = event.getMessage().getMentionedMembers();
+            if (!mentionedUsers.isEmpty() && mentionedUsers.contains(event.getGuild().getSelfMember())) {
 
-            EmbedBuilder eb = new EmbedBuilder();
-            eb.setTitle("How to use EasyPoll", Constants.WEBSITE_URL);
-            eb.setColor(Color.decode("#01FF70"));
-            eb.setThumbnail(event.getJDA().getSelfUser().getEffectiveAvatarUrl());
+                EmbedBuilder eb = new EmbedBuilder();
+                eb.setTitle("How to use EasyPoll", Constants.WEBSITE_URL);
+                eb.setColor(Color.decode("#01FF70"));
+                eb.setThumbnail(event.getJDA().getSelfUser().getEffectiveAvatarUrl());
 
-            eb.addField("Bot Prefix", "`/` *(Using SlashCommands)*", false);
-            eb.addField("Help Command", "`/help`", false);
-            eb.addField("Website", "[www.easypoll.me](" + Constants.WEBSITE_URL + ")", false);
+                eb.addField("Bot Prefix", "`/` *(Using SlashCommands)*", false);
+                eb.addField("Help Command", "`/help`", false);
+                eb.addField("Website", "[www.easypoll.me](" + Constants.WEBSITE_URL + ")", false);
 
-            eb.setFooter("Requested by " + user.getName() + "#" + user.getDiscriminator());
-            eb.setTimestamp(new Date().toInstant());
+                eb.setFooter("Requested by " + user.getName() + "#" + user.getDiscriminator());
+                eb.setTimestamp(new Date().toInstant());
 
-            try {
-                event.getTextChannel().sendMessageEmbeds(eb.build())
-                        .delay(30, TimeUnit.SECONDS)
-                        .flatMap(Message::delete)
-                        .queue(null, new ErrorHandler()
-                                .ignore(ErrorResponse.UNKNOWN_MESSAGE)
-                                .handle(Objects::nonNull, Sentry::captureException)
-                        );
-            }catch (InsufficientPermissionException ignored) {}
+                try {
+                    event.getTextChannel().sendMessageEmbeds(eb.build())
+                            .delay(30, TimeUnit.SECONDS)
+                            .flatMap(Message::delete)
+                            .queue(null, new ErrorHandler()
+                                    .ignore(ErrorResponse.UNKNOWN_MESSAGE)
+                                    .handle(Objects::nonNull, Sentry::captureException)
+                            );
+                } catch (InsufficientPermissionException ignored) {
+                }
 
+            }
         }
 
         /* Information for users who use old EasyPoll commands */
