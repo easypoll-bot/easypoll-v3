@@ -10,7 +10,7 @@
 [license-shield]: https://img.shields.io/github/license/fbrettnich/easypoll-bot?label=License
 [faq-shield]: https://img.shields.io/badge/Wiki-FAQ-blue.svg
 [troubleshooting-shield]: https://img.shields.io/badge/Wiki-Troubleshooting-red.svg
-[workflowstatus-shield]: https://img.shields.io/github/workflow/status/fbrettnich/easypoll-bot/Java%20CI%20with%20Maven?label=Build
+[workflowstatus-shield]: https://img.shields.io/github/workflow/status/fbrettnich/easypoll-bot/Java%20CI%20with%20Maven?event=push&label=Build
 
 [ ![guilds-shield][] ][bot-invite]
 [ ![users-shield][] ][bot-invite]
