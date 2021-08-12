@@ -31,21 +31,17 @@ public class CloseTimedPolls extends TimerTask {
     @Override
     public void run() {
 
-        new Thread(() -> {
+        DBCollection collection = Main.getMongoDB().getCollection("polls");
 
-            DBCollection collection = Main.getMongoDB().getCollection("polls");
+        DBObject searchQuery = new BasicDBObject()
+                .append("active", true)
+                .append("end",
+                        new BasicDBObject()
+                                .append("$gt", 0)
+                                .append("$lt", System.currentTimeMillis())
+                );
 
-            DBObject searchQuery = new BasicDBObject()
-                    .append("active", true)
-                    .append("end",
-                            new BasicDBObject()
-                                    .append("$gt", 0)
-                                    .append("$lt", System.currentTimeMillis())
-                    );
-
-            collection.find(searchQuery).limit(5).forEach(document -> new PollManager().closePollByPollId((String) document.get("pollId")));
-
-        }).start();
+        collection.find(searchQuery).limit(5).forEach(document -> new PollManager().closePollByPollId((String) document.get("pollId")));
 
     }
 }
