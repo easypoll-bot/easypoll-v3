@@ -55,7 +55,8 @@ public class ClosePollCommand {
                 !member.hasPermission(Permission.ADMINISTRATOR) &&
                 !member.hasPermission(Permission.MANAGE_PERMISSIONS) &&
                 !new Permissions(member).hasPollCreatorRole() &&
-                !pm.getPollCreatorIdByPollId(pollId).equals(member.getId()))
+                !pm.getPollCreatorIdByPollId(pollId).equals(member.getId())
+        )
         {
 
             EmbedBuilder eb = new EmbedBuilder();
