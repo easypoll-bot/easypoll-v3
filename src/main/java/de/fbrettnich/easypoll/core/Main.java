@@ -31,6 +31,7 @@ import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 import net.dv8tion.jda.api.sharding.ShardManager;
@@ -287,6 +288,12 @@ public class Main {
                                 .addOption(OptionType.STRING, "answer18", "Answer 18")
                                 .addOption(OptionType.STRING, "answer19", "Answer 19")
                                 .addOption(OptionType.STRING, "answer20", "Answer 20")
+                )
+                .addCommands(
+                        new CommandData("setup", "Bot setup and settings")
+                                .addSubcommands(
+                                        new SubcommandData("permissions", "Check required bot permissions")
+                                )
                 )
                 .queue(null, Sentry::captureException);
     }
