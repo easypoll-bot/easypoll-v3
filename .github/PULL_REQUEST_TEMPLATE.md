@@ -10,7 +10,7 @@ Contributing Guidelines: https://github.com/fbrettnich/easypoll-bot/blob/main/.g
 - [ ] Documentation
 - [ ] Other: \___ <!-- Insert another type -->
 
-Closes Issue: NaN <!-- Replace 'NaN' with a issue number that belongs to this pull request. -->
+Closes NaN <!-- Replace 'NaN' with a issue number that belongs to this pull request. -->
 
 ### Description
 
