@@ -34,6 +34,7 @@ public class SlashCommandListener  extends ListenerAdapter {
         if(event.getGuild() == null) return;
 
         String commandName = event.getName();
+        String subCommandName = event.getSubcommandName();
 
         switch (commandName) {
             case "closepoll":
@@ -70,6 +71,15 @@ public class SlashCommandListener  extends ListenerAdapter {
             case "timepoll":
                 new PollCommand(event, true);
                 Statistics.insertCommandUsage(StatisticsCommands.SLASH_TIMEPOLL);
+                break;
+
+            case "setup":
+                if(subCommandName == null) break;
+                switch (subCommandName) {
+                    case "permissions":
+                        new SetupPermissionsCommand(event);
+                        break;
+                }
                 break;
 
             case "vote":
