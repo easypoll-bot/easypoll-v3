@@ -49,6 +49,8 @@ public class SetupPermissionsCommand {
         Member selfMember = event.getGuild().getSelfMember();
         GuildChannel guildChannel = event.getGuildChannel();
 
+        if(member == null) return;
+
         if(
                 !member.isOwner() &&
                 !member.hasPermission(Permission.ADMINISTRATOR) &&
