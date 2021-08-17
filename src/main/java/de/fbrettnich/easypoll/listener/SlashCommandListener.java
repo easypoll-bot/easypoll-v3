@@ -79,6 +79,9 @@ public class SlashCommandListener  extends ListenerAdapter {
             case "setup":
                 if(subCommandName == null) break;
                 switch (subCommandName) {
+                    case "language":
+                        new SetupLanguageCommand(event, gl);
+                        break;
                     case "permissions":
                         new SetupPermissionsCommand(event, gl);
                         break;

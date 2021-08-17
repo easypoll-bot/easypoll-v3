@@ -93,10 +93,17 @@
     },
     "setup": {
       "language": {
-        "title": "Bot Sprache ändern",
-        "description": "Hier kannst du die Bot Sprache auf diesem Server ändern.\nBitte wähle eine neue Sprache:",
-        "selectionmenu": {
-          "placeholder": "Wähle eine Sprache.."
+        "change": {
+          "title": "Bot Sprache ändern",
+          "description": "Hier kannst du die Bot Sprache auf diesem Server ändern.\nBitte wähle eine neue Sprache:",
+          "selectionmenu": {
+            "placeholder": "Wähle eine Sprache.."
+          }
+        },
+        "success": {
+          "title": "Bot Sprache wurde geändert",
+          "description": "Die Bot Sprache auf diesem Server wurde erfolgreich auf **%s** geändert.",
+          "footer": "Geändert von %s"
         }
       },
       "permissions": {

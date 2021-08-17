@@ -34,16 +34,17 @@ You can also find help on how to invite the bot in our Wiki: [Invite Bot to Serv
 
 ## Usage & Commands
 
-| Command     | Description                                                                                                             |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| /poll       | Create a normal poll without time limit and with up to 20 own answers                                                   |
-| /timepoll   | Create a timed poll, set an end date until when the poll will run. Use time specifications for this like 10m / 3h / 1d  |
-| /closepoll  | Close a poll so that no more votes are counted and display the final result                                             |
-| /easypoll   | Get a list and help with all commands                                                                                   |
-| /vote       | Vote for the EasyPoll Bot                                                                                               |
-| /invite     | Invite EasyPoll to your own Discord Serve                                                                               |
-| /info       | Show some information about EasyPoll                                                                                    |
-| /ping       | See the Ping of the Bot to the Discord Gateway                                                                          |
+| Command         | Description                                                                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| /poll           | Create a normal poll without time limit and with up to 20 own answers                                                   |
+| /timepoll       | Create a timed poll, set an end date until when the poll will run. Use time specifications for this like 10m / 3h / 1d  |
+| /closepoll      | Close a poll so that no more votes are counted and display the final result                                             |
+| /easypoll       | Get a list and help with all commands                                                                                   |
+| /vote           | Vote for the EasyPoll Bot                                                                                               |
+| /invite         | Invite EasyPoll to your own Discord Serve                                                                               |
+| /info           | Show some information about EasyPoll                                                                                    |
+| /ping           | See the Ping of the Bot to the Discord Gateway                                                                          |
+| /setup language | Change the Bot language of the current Guild                                                                            |
 
 ## Getting Help
 If you have any questions about using the EasyPoll Bot, feel free to visit the official [EasyPoll Support Discord][discord-invite]  

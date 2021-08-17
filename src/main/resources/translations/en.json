@@ -93,10 +93,17 @@
     },
     "setup": {
       "language": {
-        "title": "Change Bot Language",
-        "description": "Here you can change the language of the Bot on this server.\nPlease select a new language:",
-        "selectionmenu": {
-          "placeholder": "Select a language.."
+        "change": {
+          "title": "Change Bot Language",
+          "description": "Here you can change the language of the Bot on this server.\nPlease select a new language:",
+          "selectionmenu": {
+            "placeholder": "Select a language.."
+          }
+        },
+        "success": {
+          "title": "Bot language has been changed",
+          "description": "The Bot language on this server was successfully changed to **%s**.",
+          "footer": "Changed by %s"
         }
       },
       "permissions": {

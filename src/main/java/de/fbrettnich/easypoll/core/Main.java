@@ -96,6 +96,7 @@ public class Main {
                 .addEventListeners(new MessageReactionAddListener())
                 .addEventListeners(new MessageReceivedListener())
                 .addEventListeners(new ReadyListener())
+                .addEventListeners(new SelectionMenuListener())
                 .addEventListeners(new SlashCommandListener())
 
                 .setStatus(OnlineStatus.ONLINE);
@@ -299,6 +300,9 @@ public class Main {
                 )
                 .addCommands(
                         new CommandData("setup", "Bot setup and settings")
+                                .addSubcommands(
+                                        new SubcommandData("language", "Change the guild language")
+                                )
                                 .addSubcommands(
                                         new SubcommandData("permissions", "Check required bot permissions")
                                 )
