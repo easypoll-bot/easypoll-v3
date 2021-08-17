@@ -19,6 +19,7 @@
 package de.fbrettnich.easypoll.commands;
 
 import de.fbrettnich.easypoll.core.Constants;
+import de.fbrettnich.easypoll.language.GuildLanguage;
 import de.fbrettnich.easypoll.utils.Permissions;
 import de.fbrettnich.easypoll.utils.PollManager;
 import io.sentry.Sentry;
@@ -38,7 +39,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ClosePollCommand {
 
-    public ClosePollCommand(@Nonnull SlashCommandEvent event) {
+    public ClosePollCommand(@Nonnull SlashCommandEvent event, GuildLanguage gl) {
 
         event.deferReply().queue(null, Sentry::captureException);
 
@@ -62,9 +63,9 @@ public class ClosePollCommand {
             EmbedBuilder eb = new EmbedBuilder();
 
             eb.setColor(Color.RED);
-            eb.setTitle("You do not have premissions to use this command!", Constants.WEBSITE_URL);
+            eb.setTitle(gl.getTl("errors.no_permissions.member.title"), Constants.WEBSITE_URL);
             eb.addField(
-                    "To use this command you need at least one of them:",
+                    gl.getTl("errors.no_permissions.member.field.title"),
                     "\u2022 ADMINISTRATOR *(Permission)*\n" +
                             "\u2022 MANAGE_PERMISSIONS *(Permission)*\n" +
                             "\u2022 PollCreator *(Role)*\n" +
@@ -89,16 +90,13 @@ public class ClosePollCommand {
         if(pm.canClosePollByPollId(pollId, event.getGuild().getId())) {
             pm.closePollByPollId(pollId);
 
-            eb.setTitle("Poll closed", Constants.WEBSITE_URL);
+            eb.setTitle(gl.getTl("commands.closepoll.success.title"), Constants.WEBSITE_URL);
             eb.setColor(Color.decode("#01FF70"));
-            eb.setDescription(
-                    "The poll with ID **" + pollId + "** was closed!\n" +
-                    "No more votes are allowed and the result is now displayed in the poll."
-            );
+            eb.setDescription(gl.getTl("commands.closepoll.success.description", pollId));
         }else{
-            eb.setTitle("Poll can not be closed", Constants.WEBSITE_URL);
+            eb.setTitle(gl.getTl("commands.closepoll.failed.title"), Constants.WEBSITE_URL);
             eb.setColor(Color.RED);
-            eb.setDescription("The poll with ID **" + pollId + "** does not exist or is already closed!\n");
+            eb.setDescription(gl.getTl("commands.closepoll.failed.description", pollId));
         }
 
         hook.sendMessageEmbeds(

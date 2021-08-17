@@ -24,6 +24,7 @@ import com.mongodb.DBObject;
 import com.mongodb.lang.Nullable;
 import de.fbrettnich.easypoll.core.Constants;
 import de.fbrettnich.easypoll.core.Main;
+import de.fbrettnich.easypoll.language.GuildLanguage;
 import de.fbrettnich.easypoll.utils.enums.PollType;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -51,25 +52,34 @@ public class PollManager {
      * @param question Poll question
      * @param choicesReaction Reaction list of the answers
      * @param choicesContent Text list of the answers
+     * @param gl {@link GuildLanguage} Guild language manager
      * @return The full and complete message embed
      */
-    public MessageEmbed getPollEmbed(String pollId, PollType pollType, long endTime, Boolean closed, @Nullable List<MessageReaction> messageReactions, @Nullable Boolean allowmultiplechoices, String question, List<String> choicesReaction, List<String> choicesContent) {
+    public MessageEmbed getPollEmbed(String pollId, PollType pollType, long endTime, Boolean closed, @Nullable List<MessageReaction> messageReactions, @Nullable Boolean allowmultiplechoices, String question, List<String> choicesReaction, List<String> choicesContent, GuildLanguage gl) {
 
         EmbedBuilder eb = new EmbedBuilder();
         StringBuilder description = new StringBuilder();
 
         description
-                .append("**Question**\n")
+                .append("**")
+                .append(gl.getTl("polls.question"))
+                .append("**\n")
                 .append(question)
                 .append("\n")
                 .append("\n")
-                .append("**Choices**\n");
+                .append("**")
+                .append(gl.getTl("polls.choices"))
+                .append("**\n");
 
         if (pollType == PollType.DEFAULT_UPDOWN || pollType == PollType.TIME_UPDOWN) {
             eb.setColor(Constants.COLOR_POLL_UPDOWN);
             description
-                    .append(":thumbsup: Yes\n")
-                    .append(":thumbsdown: No\n");
+                    .append(":thumbsup: ")
+                    .append(gl.getTl("polls.yes"))
+                    .append("\n")
+                    .append(":thumbsdown: ")
+                    .append(gl.getTl("polls.no"))
+                    .append("\n");
         } else {
             for (int i = 0; i < choicesReaction.size(); i++) {
                 description
@@ -92,7 +102,10 @@ public class PollManager {
 
             if(messageReactions.size() >= choicesReaction.size()) {
 
-                description.append("\n**Final Result**\n");
+                description
+                        .append("\n**")
+                        .append(gl.getTl("polls.finalresult"))
+                        .append("**\n");
 
                 for (int i = 0; i < choicesReaction.size(); i++) {
 
@@ -115,11 +128,14 @@ public class PollManager {
 
         if (pollType == PollType.TIME_UPDOWN || pollType == PollType.TIME_MULTI) {
             if(closed) {
-                description
-                        .append("\n:alarm_clock: Poll already ended");
+                description.
+                        append("\n:alarm_clock: ")
+                        .append(gl.getTl("polls.alreadyended"));
             }else{
                 description
-                        .append("\n:alarm_clock: Ends ")
+                        .append("\n:alarm_clock: ")
+                        .append(gl.getTl("polls.ends"))
+                        .append(" ")
                         .append("<t:")
                         .append(endTime / 1000L)
                         .append(":R>");
@@ -127,19 +143,25 @@ public class PollManager {
         }
 
         if (allowmultiplechoices != null && allowmultiplechoices) {
-            description.append("\n:white_check_mark: Multiple choices allowed");
+            description
+                    .append("\n:white_check_mark: ")
+                    .append(gl.getTl("polls.multiplechoice.allowed"));
         } else {
-            description.append("\n:no_entry: Multiple choices not allowed");
+            description
+                    .append("\n:no_entry: ")
+                    .append(gl.getTl("polls.multiplechoice.disallowed"));
         }
 
         if(closed) {
             eb.setColor(Constants.COLOR_POLL_CLOSED);
-            description.append("\n:lock: No other votes allowed");
+            description
+                    .append("\n:lock: ")
+                    .append(gl.getTl("polls.noothervotes"));
         }
 
         eb.setDescription(description);
 
-        eb.setFooter("Poll ID: " + pollId);
+        eb.setFooter(gl.getTl("polls.pollid", pollId));
 
         return eb.build();
     }
@@ -248,7 +270,8 @@ public class PollManager {
                                                     (boolean) document.get("multiplechoices"),
                                                     (String) document.get("question"),
                                                     (List<String>) document.get("choices_reaction"),
-                                                    (List<String>) document.get("choices_content")
+                                                    (List<String>) document.get("choices_content"),
+                                                    new GuildLanguage((String) document.get("guildId"))
                                             )
                                     ).queue(null, Sentry::captureException);
                                 } catch (InsufficientPermissionException ignored) {}

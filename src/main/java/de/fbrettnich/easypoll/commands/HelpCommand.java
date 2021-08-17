@@ -19,6 +19,7 @@
 package de.fbrettnich.easypoll.commands;
 
 import de.fbrettnich.easypoll.core.Constants;
+import de.fbrettnich.easypoll.language.GuildLanguage;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
@@ -28,28 +29,28 @@ import java.awt.*;
 
 public class HelpCommand {
 
-    public HelpCommand(@Nonnull SlashCommandEvent event) {
+    public HelpCommand(@Nonnull SlashCommandEvent event, GuildLanguage gl) {
 
         EmbedBuilder eb = new EmbedBuilder();
 
-        eb.setTitle("EasyPoll Help", Constants.WEBSITE_URL);
+        eb.setTitle(gl.getTl("commands.help.title"), Constants.WEBSITE_URL);
         eb.setColor(Color.decode("#FDA50F"));
 
         eb.addField(
-                ":bar_chart: Poll Commands",
-                "**/poll** \u2022 Create a normal poll without time limit\n" +
-                        "**/timepoll** \u2022 Create a timed poll, set an end date until when the poll will run\n" +
-                        "**/closepoll** \u2022 Close a poll so that no more votes are counted",
+                gl.getTl("commands.help.fields.poll_commands.title"),
+                "**/poll** \u2022 " + gl.getTl("commands.help.fields.poll_commands.commands.poll") + "\n" +
+                        "**/timepoll** \u2022 " + gl.getTl("commands.help.fields.poll_commands.commands.timepoll") + "\n" +
+                        "**/closepoll** \u2022 " + gl.getTl("commands.help.fields.poll_commands.commands.closepoll"),
                 false
         );
 
         eb.addField(
-                ":mag_right: Public Commands",
-                "**/help** \u2022 Show this Bot Help\n" +
-                        "**/vote** \u2022 Vote for the EasyPoll Bot\n" +
-                        "**/invite** \u2022 Invite EasyPoll to your own Discord Server\n" +
-                        "**/info** \u2022 Show some information about EasyPoll\n" +
-                        "**/ping** \u2022 See the Ping of the Bot to the Discord Gateway",
+                gl.getTl("commands.help.fields.public_commands.title"),
+                "**/help** \u2022 " + gl.getTl("commands.help.fields.public_commands.commands.help") + "\n" +
+                        "**/vote** \u2022 " + gl.getTl("commands.help.fields.public_commands.commands.vote") + "\n" +
+                        "**/invite** \u2022 " + gl.getTl("commands.help.fields.public_commands.commands.invite") + "\n" +
+                        "**/info** \u2022 " + gl.getTl("commands.help.fields.public_commands.commands.info") + "\n" +
+                        "**/ping** \u2022 " + gl.getTl("commands.help.fields.public_commands.commands.ping"),
                 false
         );
 

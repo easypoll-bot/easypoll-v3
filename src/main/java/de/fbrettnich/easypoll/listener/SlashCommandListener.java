@@ -19,6 +19,7 @@
 package de.fbrettnich.easypoll.listener;
 
 import de.fbrettnich.easypoll.commands.*;
+import de.fbrettnich.easypoll.language.GuildLanguage;
 import de.fbrettnich.easypoll.utils.Statistics;
 import de.fbrettnich.easypoll.utils.enums.StatisticsCommands;
 import io.sentry.Sentry;
@@ -33,43 +34,45 @@ public class SlashCommandListener  extends ListenerAdapter {
 
         if(event.getGuild() == null) return;
 
+        GuildLanguage gl = new GuildLanguage(event.getGuild());
+
         String commandName = event.getName();
         String subCommandName = event.getSubcommandName();
 
         switch (commandName) {
             case "closepoll":
-                new ClosePollCommand(event);
+                new ClosePollCommand(event, gl);
                 Statistics.insertCommandUsage(StatisticsCommands.SLASH_CLOSEPOLL);
                 break;
 
             case "help":
             case "easypoll":
-                new HelpCommand(event);
+                new HelpCommand(event, gl);
                 Statistics.insertCommandUsage(StatisticsCommands.SLASH_HELP);
                 break;
 
             case "info":
-                new InfoCommand(event);
+                new InfoCommand(event, gl);
                 Statistics.insertCommandUsage(StatisticsCommands.SLASH_INFO);
                 break;
 
             case "invite":
-                new InviteCommand(event);
+                new InviteCommand(event, gl);
                 Statistics.insertCommandUsage(StatisticsCommands.SLASH_INVITE);
                 break;
 
             case "ping":
-                new PingCommand(event);
+                new PingCommand(event, gl);
                 Statistics.insertCommandUsage(StatisticsCommands.SLASH_PING);
                 break;
 
             case "poll":
-                new PollCommand(event, false);
+                new PollCommand(event, gl, false);
                 Statistics.insertCommandUsage(StatisticsCommands.SLASH_POLL);
                 break;
 
             case "timepoll":
-                new PollCommand(event, true);
+                new PollCommand(event, gl, true);
                 Statistics.insertCommandUsage(StatisticsCommands.SLASH_TIMEPOLL);
                 break;
 
@@ -77,13 +80,13 @@ public class SlashCommandListener  extends ListenerAdapter {
                 if(subCommandName == null) break;
                 switch (subCommandName) {
                     case "permissions":
-                        new SetupPermissionsCommand(event);
+                        new SetupPermissionsCommand(event, gl);
                         break;
                 }
                 break;
 
             case "vote":
-                new VoteCommand(event);
+                new VoteCommand(event, gl);
                 Statistics.insertCommandUsage(StatisticsCommands.SLASH_VOTE);
                 break;
 

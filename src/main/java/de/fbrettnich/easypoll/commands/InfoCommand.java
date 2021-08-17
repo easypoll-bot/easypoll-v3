@@ -20,6 +20,7 @@ package de.fbrettnich.easypoll.commands;
 
 import de.fbrettnich.easypoll.core.Constants;
 import de.fbrettnich.easypoll.core.Main;
+import de.fbrettnich.easypoll.language.GuildLanguage;
 import de.fbrettnich.easypoll.utils.FormatUtil;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -31,25 +32,25 @@ import java.awt.*;
 
 public class InfoCommand {
 
-    public InfoCommand(@Nonnull SlashCommandEvent event) {
+    public InfoCommand(@Nonnull SlashCommandEvent event, GuildLanguage gl) {
 
         EmbedBuilder eb = new EmbedBuilder();
 
-        eb.setTitle("EasyPoll Information", Constants.WEBSITE_URL);
+        eb.setTitle(gl.getTl("commands.info.title"), Constants.WEBSITE_URL);
         eb.setColor(Color.decode("#01FF70"));
         eb.setThumbnail(event.getJDA().getSelfUser().getEffectiveAvatarUrl());
 
-        eb.addField("Creator", Constants.BOT_OWNER_MENTION, false);
-        eb.addField("Repository", "[github.com/fbrettnich/easypoll-bot](https://github.com/fbrettnich/easypoll-bot)", false);
-        eb.addField("Version", Constants.VERSION, false);
+        eb.addField(gl.getTl("commands.info.fields.creator"), Constants.BOT_OWNER_MENTION, false);
+        eb.addField(gl.getTl("commands.info.fields.repository"), "[github.com/fbrettnich/easypoll-bot](https://github.com/fbrettnich/easypoll-bot)", false);
+        eb.addField(gl.getTl("commands.info.fields.version"), Constants.VERSION, false);
 
-        eb.addField("Library", "[JDA (Java Discord API)](https://github.com/DV8FromTheWorld/JDA)", false);
+        eb.addField(gl.getTl("commands.info.fields.library"), "[JDA (Java Discord API)](https://github.com/DV8FromTheWorld/JDA)", false);
 
-        eb.addField("Servers", FormatUtil.decimalFormat(Main.getShardManager().getGuilds().size()), false);
-        eb.addField("Users", FormatUtil.decimalFormat(Main.getShardManager().getGuilds().stream().mapToInt(Guild::getMemberCount).sum()), false);
+        eb.addField(gl.getTl("commands.info.fields.servers"), FormatUtil.decimalFormat(Main.getShardManager().getGuilds().size()), false);
+        eb.addField(gl.getTl("commands.info.fields.users"), FormatUtil.decimalFormat(Main.getShardManager().getGuilds().stream().mapToInt(Guild::getMemberCount).sum()), false);
 
-        eb.addField("Shard", (event.getGuild().getJDA().getShardInfo().getShardId() + 1) + "/" + Main.getShardManager().getShardsTotal(), false);
-        eb.addField("Uptime", getUptime(), false);
+        eb.addField(gl.getTl("commands.info.fields.shard"), (event.getGuild().getJDA().getShardInfo().getShardId() + 1) + "/" + Main.getShardManager().getShardsTotal(), false);
+        eb.addField(gl.getTl("commands.info.fields.uptime"), getUptime(), false);
 
         event.replyEmbeds(
                 eb.build()

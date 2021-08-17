@@ -19,7 +19,7 @@
 package de.fbrettnich.easypoll.commands;
 
 import de.fbrettnich.easypoll.core.Constants;
-import de.fbrettnich.easypoll.utils.Permissions;
+import de.fbrettnich.easypoll.language.GuildLanguage;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
@@ -38,7 +38,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SetupPermissionsCommand {
 
-    public SetupPermissionsCommand(@Nonnull SlashCommandEvent event) {
+    public SetupPermissionsCommand(@Nonnull SlashCommandEvent event, GuildLanguage gl) {
 
         event.deferReply().queue(null, Sentry::captureException);
 
@@ -59,9 +59,9 @@ public class SetupPermissionsCommand {
             EmbedBuilder eb = new EmbedBuilder();
 
             eb.setColor(Color.RED);
-            eb.setTitle("You do not have premissions to use this command!", Constants.WEBSITE_URL);
+            eb.setTitle(gl.getTl("errors.no_permissions.member.title"), Constants.WEBSITE_URL);
             eb.addField(
-                    "To use this command you need at least one of them:",
+                    gl.getTl("errors.no_permissions.member.field.title"),
                     "\u2022 ADMINISTRATOR *(Permission)*\n" +
                             "\u2022 MANAGE_PERMISSIONS *(Permission)*",
                     true);
@@ -81,26 +81,26 @@ public class SetupPermissionsCommand {
 
         EmbedBuilder eb = new EmbedBuilder();
 
-        eb.setTitle("Required Bot Permission Check", "https://github.com/fbrettnich/easypoll-bot/wiki/Required-Bot-Permissions");
+        eb.setTitle(gl.getTl("commands.setup.permissions.title"), "https://github.com/fbrettnich/easypoll-bot/wiki/Required-Bot-Permissions");
         eb.setColor(Color.decode("#FDA50F"));
         eb.setDescription(
-                "**Server Permissions**\n" +
-                        (selfMember.hasPermission(Permission.MESSAGE_READ) ? ":white_check_mark:" : ":no_entry_sign:") + " Read Messages\n" +
-                        (selfMember.hasPermission(Permission.MESSAGE_WRITE) ? ":white_check_mark:" : ":no_entry_sign:") + " Send Messages\n" +
-                        (selfMember.hasPermission(Permission.MESSAGE_MANAGE) ? ":white_check_mark:" : ":no_entry_sign:") + " Manage Messages\n" +
-                        (selfMember.hasPermission(Permission.MESSAGE_EMBED_LINKS) ? ":white_check_mark:" : ":no_entry_sign:") + " Embed Links\n" +
-                        (selfMember.hasPermission(Permission.MESSAGE_HISTORY) ? ":white_check_mark:" : ":no_entry_sign:") + " Read message History\n" +
-                        (selfMember.hasPermission(Permission.MESSAGE_ADD_REACTION) ? ":white_check_mark:" : ":no_entry_sign:") + " Add Reactions\n" +
-                        (selfMember.hasPermission(Permission.MESSAGE_EXT_EMOJI) ? ":white_check_mark:" : ":no_entry_sign:") + " Use External Emojis\n" +
+                "**" + gl.getTl("commands.setup.permissions.server_permissions") + "**\n" +
+                        (selfMember.hasPermission(Permission.MESSAGE_READ) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_read") + "\n" +
+                        (selfMember.hasPermission(Permission.MESSAGE_WRITE) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_write") + "\n" +
+                        (selfMember.hasPermission(Permission.MESSAGE_MANAGE) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_manage") + "\n" +
+                        (selfMember.hasPermission(Permission.MESSAGE_EMBED_LINKS) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_embed_links") + "\n" +
+                        (selfMember.hasPermission(Permission.MESSAGE_HISTORY) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_history") + "\n" +
+                        (selfMember.hasPermission(Permission.MESSAGE_ADD_REACTION) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_add_reaction") + "\n" +
+                        (selfMember.hasPermission(Permission.MESSAGE_EXT_EMOJI) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_ext_emoji") + "\n" +
                         "\n" +
-                "**Channel Permissions** (#" + event.getChannel().getName() + ")\n" +
-                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_READ) ? ":white_check_mark:" : ":no_entry_sign:") + " Read Messages\n" +
-                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_WRITE) ? ":white_check_mark:" : ":no_entry_sign:") + " Send Messages\n" +
-                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_MANAGE) ? ":white_check_mark:" : ":no_entry_sign:") + " Manage Messages\n" +
-                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_EMBED_LINKS) ? ":white_check_mark:" : ":no_entry_sign:") + " Embed Links\n" +
-                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_HISTORY) ? ":white_check_mark:" : ":no_entry_sign:") + " Read message History\n" +
-                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_ADD_REACTION) ? ":white_check_mark:" : ":no_entry_sign:") + " Add Reactions\n" +
-                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_EXT_EMOJI) ? ":white_check_mark:" : ":no_entry_sign:") + " Use External Emojis"
+                "**" + gl.getTl("commands.setup.permissions.channel_permissions") + "** (#" + event.getChannel().getName() + ")\n" +
+                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_READ) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_read") + "\n" +
+                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_WRITE) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_write") + "\n" +
+                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_MANAGE) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_manage") + "\n" +
+                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_EMBED_LINKS) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_embed_links") + "\n" +
+                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_HISTORY) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_history") + "\n" +
+                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_ADD_REACTION) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_add_reaction") + "\n" +
+                        (selfMember.hasPermission(guildChannel, Permission.MESSAGE_EXT_EMOJI) ? ":white_check_mark:" : ":no_entry_sign:") + " " + gl.getTl("commands.setup.permissions.permissions.message_ext_emoji") + ""
         );
 
         hook.sendMessageEmbeds(

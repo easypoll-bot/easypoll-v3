@@ -18,6 +18,7 @@
 
 package de.fbrettnich.easypoll.commands;
 
+import de.fbrettnich.easypoll.language.GuildLanguage;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
@@ -27,15 +28,13 @@ import java.awt.*;
 
 public class PingCommand {
 
-    public PingCommand(@Nonnull SlashCommandEvent event) {
+    public PingCommand(@Nonnull SlashCommandEvent event, GuildLanguage gl) {
 
         EmbedBuilder eb = new EmbedBuilder();
 
-        eb.setTitle("Pong! :ping_pong:");
+        eb.setTitle(gl.getTl("commands.ping.title"));
         eb.setColor(Color.decode("#4CBB17"));
-        eb.setDescription(
-                "`Ping to Gateway " + ((int) event.getJDA().getGatewayPing()) + " ms`"
-        );
+        eb.setDescription(gl.getTl("commands.ping.description", String.valueOf(((int) event.getJDA().getGatewayPing()))));
 
         event.replyEmbeds(
                 eb.build()

@@ -19,6 +19,7 @@
 package de.fbrettnich.easypoll.commands;
 
 import de.fbrettnich.easypoll.core.Constants;
+import de.fbrettnich.easypoll.language.GuildLanguage;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
@@ -28,16 +29,15 @@ import java.awt.*;
 
 public class VoteCommand {
 
-    public VoteCommand(@Nonnull SlashCommandEvent event) {
+    public VoteCommand(@Nonnull SlashCommandEvent event, GuildLanguage gl) {
 
         EmbedBuilder eb = new EmbedBuilder();
 
-        eb.setTitle("Vote for EasyPoll", Constants.VOTE_URL);
+        eb.setTitle(gl.getTl("commands.vote.title"), Constants.VOTE_URL);
         eb.setColor(Color.decode("#01FF70"));
-        eb.setDescription("" +
-                "We are happy that you want to vote for our bot. You show us that you like the bot and help us to grow further.\n" +
+        eb.setDescription(
+                gl.getTl("commands.vote.description") +
                 "\n" +
-                "You can vote for us on the following pages:\n" +
                 "\u2022 [top.gg/bot/437618149505105920](https://top.gg/bot/437618149505105920/vote)\n" +
                 "\u2022 [discordbotlist.com/bots/easypoll](https://discordbotlist.com/bots/easypoll/upvote)\n"
         );

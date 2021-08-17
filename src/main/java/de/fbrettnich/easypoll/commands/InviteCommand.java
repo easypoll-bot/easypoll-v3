@@ -19,6 +19,7 @@
 package de.fbrettnich.easypoll.commands;
 
 import de.fbrettnich.easypoll.core.Constants;
+import de.fbrettnich.easypoll.language.GuildLanguage;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
@@ -28,15 +29,13 @@ import java.awt.*;
 
 public class InviteCommand {
 
-    public InviteCommand(@Nonnull SlashCommandEvent event) {
+    public InviteCommand(@Nonnull SlashCommandEvent event, GuildLanguage gl) {
 
         EmbedBuilder eb = new EmbedBuilder();
 
-        eb.setTitle("Invite EasyPoll", Constants.INVITE_URL);
+        eb.setTitle(gl.getTl("commands.invite.title"), Constants.INVITE_URL);
         eb.setColor(Color.decode("#5865F2"));
-        eb.setDescription(
-                "You can invite " + event.getJDA().getSelfUser().getAsMention() + " here: [www.easypoll.me/invite](" + Constants.INVITE_URL + ")"
-        );
+        eb.setDescription(gl.getTl("commands.invite.description", event.getJDA().getSelfUser().getAsMention(), Constants.INVITE_URL));
 
         event.replyEmbeds(
                 eb.build()
