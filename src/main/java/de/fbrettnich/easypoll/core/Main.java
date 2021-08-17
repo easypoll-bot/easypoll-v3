@@ -21,6 +21,7 @@ package de.fbrettnich.easypoll.core;
 import de.fbrettnich.easypoll.database.MongoDB;
 import de.fbrettnich.easypoll.database.MySQL;
 import de.fbrettnich.easypoll.files.ConfigFile;
+import de.fbrettnich.easypoll.language.TranslationManager;
 import de.fbrettnich.easypoll.listener.*;
 import de.fbrettnich.easypoll.timertasks.BotListStats;
 import de.fbrettnich.easypoll.timertasks.CloseTimedPolls;
@@ -54,6 +55,7 @@ public class Main {
     private static MongoDB mongodb;
     private static MySQL mysql;
     private static ShardManager shardManager;
+    private static TranslationManager translationManager;
 
     /**
      * The main method to build and start the bot
@@ -70,6 +72,9 @@ public class Main {
             options.setDsn(getConfig().getString("sentry.url"));
             options.setEnvironment(Constants.DEVMODE ? "development" : "production");
         });
+
+        translationManager = new TranslationManager();
+        translationManager.loadTranslations("de", "en");
 
         mongodb = new MongoDB(Constants.DEVMODE ? getConfig().getString("mongodb.clienturi_dev") : getConfig().getString("mongodb.clienturi"), getConfig().getString("mongodb.database"));
         mysql = new MySQL(getConfig().getString("mysql.host"), getConfig().getString("mysql.port"), getConfig().getString("mysql.database"), getConfig().getString("mysql.username"), getConfig().getString("mysql.password"));
@@ -332,5 +337,14 @@ public class Main {
      */
     public static ShardManager getShardManager() {
         return shardManager;
+    }
+
+    /**
+     * Get the TranslationManager
+     *
+     * @return {@link TranslationManager}
+     */
+    public static TranslationManager getTranslationManager() {
+        return translationManager;
     }
 }

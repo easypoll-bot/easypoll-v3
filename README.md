@@ -68,6 +68,7 @@ We are happy about any contribution &#9786;
 - [emoji-java](https://github.com/vdurmont/emoji-java)
 - [sentry-java](https://github.com/getsentry/sentry-java)
 - [unirest-java](https://github.com/Kong/unirest-java)
+- [json-simple](https://github.com/fangyidong/json-simple)
 
 ## Self-Hosting
 Running your own version of EasyPoll Bot is not supported.  
