@@ -102,7 +102,6 @@ public class TranslationManager {
             String k = lang + ":" + pathKey;
             k = k.replaceFirst("\\.", "");
             translations.put(k, (String) obj);
-            System.out.println(k + " | " + obj);
         }
     }
 
