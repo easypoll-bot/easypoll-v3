@@ -46,6 +46,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -56,6 +57,8 @@ public class Main {
     private static MySQL mysql;
     private static ShardManager shardManager;
     private static TranslationManager translationManager;
+
+    public static HashMap<String, String> guildLanguageCache = new HashMap<>();
 
     /**
      * The main method to build and start the bot
