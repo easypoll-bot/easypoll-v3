@@ -87,7 +87,7 @@ public class ChangeLanguageMenu {
             message.delete().queue(null, Sentry::captureException);
         }
 
-        String lang = "en";
+        String lang = Constants.DEFAULT_LANGUAGE;
         if(!selectOptions.isEmpty()) {
             lang = selectOptions.get(0).getValue();
         }

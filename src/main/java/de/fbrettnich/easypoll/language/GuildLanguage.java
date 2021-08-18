@@ -21,6 +21,7 @@ package de.fbrettnich.easypoll.language;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
+import de.fbrettnich.easypoll.core.Constants;
 import de.fbrettnich.easypoll.core.Main;
 import net.dv8tion.jda.api.entities.Guild;
 
@@ -82,7 +83,7 @@ public class GuildLanguage {
         DBObject searchQuery = new BasicDBObject("guildId", this.guildId);
         DBObject document = collection.findOne(searchQuery);
 
-        String lang = "en";
+        String lang = Constants.DEFAULT_LANGUAGE;
         if (document != null) {
             lang = (String) document.get("language");
         }
