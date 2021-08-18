@@ -3,7 +3,8 @@
     "name": "German",
     "name_local": "Deutsch",
     "code": "de",
-    "flag_unicode": "\uD83C\uDDE9\uD83C\uDDEA"
+    "flag_unicode": "\uD83C\uDDE9\uD83C\uDDEA",
+    "translators": "Floxiii#0001 (231091710195662848)"
   },
   "polls": {
     "question": "Frage",

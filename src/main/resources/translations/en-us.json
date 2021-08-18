@@ -3,7 +3,8 @@
     "name": "English",
     "name_local": "English",
     "code": "en",
-    "flag_unicode": "\uD83C\uDDFA\uD83C\uDDF8"
+    "flag_unicode": "\uD83C\uDDFA\uD83C\uDDF8",
+    "translators": "Floxiii#0001 (231091710195662848)"
   },
   "polls": {
     "question": "Question",
