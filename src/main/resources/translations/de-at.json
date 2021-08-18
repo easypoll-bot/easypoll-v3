@@ -1,0 +1,146 @@
+{
+  "translation": {
+    "name": "German-Austrian",
+    "name_local": "Östareichisch",
+    "code": "at",
+    "flag_unicode": "\uD83C\uDDE6\uD83C\uDDF9",
+    "translators": "Lukaѕ#9999 (630816377183141928)"
+  },
+  "polls": {
+    "question": "Frogn",
+    "choices": "Auswoimöglichkeitn",
+    "yes": "Joa",
+    "no": "Na",
+    "finalresult": "Endgültigs Ergebnis",
+    "alreadyended": "De Umfrog is scho zuar",
+    "ends": "Endet",
+    "multiplechoice": {
+      "allowed": "De mehrfoche Auswoi is möglich",
+      "disallowed": "De mehrfoche Auswoi is vaboten"
+    },
+    "noothervotes": "Kane weidan Stimmen kinan ogeben werdn",
+    "pollid": "Umfrogn ID: %s"
+  },
+  "commands": {
+    "closepoll": {
+      "success": {
+        "title": "De Umfrog is erfoigreich gschlossa wordn",
+        "description": "De Umfrog mit da ID **%s** is scho zuar!\nEs sand kane weidaren Stimma erlaubt und's Ergebnis wird in da Umfrog ozagt."
+      },
+      "failed": {
+        "title": "De Umfrog ko ned zuagmocht werdan",
+        "description": "De Umfrog mit da ID **%s** is scho zuar oda gibts ned amoi!"
+      }
+    },
+    "help": {
+      "title": "EasyPoll Hüfn",
+      "fields": {
+        "poll_commands": {
+          "title": ":bar_chart: Umfrogn-Befehle",
+          "commands": {
+            "poll": "Erstö a normale Umfrog ohne des Zeitlimit",
+            "timepoll": "Erstö a zeitlich begrenzte Umfrog, leg a Enddatum fest, bis zu wöcham de Umfrog vafügba sa soid",
+            "closepoll": "A Umfrog zuarmocha, damid kane weidaren Stimma zöd werdan"
+          }
+        },
+        "public_commands": {
+          "title": ":mag_right: Öffentliche Befehle",
+          "commands": {
+            "help": "Zagt de Bot-Hüfn hier o",
+            "vote": "Stimm für n EasyPoll-Bot ab",
+            "invite": "Lod EasyPoll auf dein eigenen Discord ei",
+            "info": "Zag a poar Infos üba EasyPoll",
+            "ping": "Guck den Ping fum Bot zum Discord-Gateway o"
+          }
+        }
+      }
+    },
+    "info": {
+      "title": "EasyPoll Informationen",
+      "fields": {
+        "creator": "Entwickla",
+        "repository": "Repository",
+        "version": "Version",
+        "library": "Library",
+        "servers": "Serva",
+        "users": "Benutza",
+        "shard": "Shard",
+        "uptime": "Uptime"
+      }
+    },
+    "invite": {
+      "title": "Eiloda fu EasyPoll",
+      "description": "Du kost %s hier eiloda: [www.easypoll.me/invite](%s)"
+    },
+    "ping": {
+      "title": "Pong! :ping_pong:",
+      "description": "`Ping zum Gateway %s ms`"
+    },
+    "poll": {
+      "invalid_time": {
+        "title": "Ungültige Zeitogob!",
+        "field": {
+          "title": "Do host a ungültige Zeit eigeban!",
+          "description": "Vawend am Ende ana Zoi s (Sekunde), m (Minute), h (Stunde), d (Tag) oder w (Woche) für de Zeitogob.\nBeispiele: 15m für 15 Minutn, 1h für 1 Stunde, 3d für 3 Tage\n\n*PS: Klick aufn blauen`/timepoll` Befehl übda der Nochricht do, um a Kopie des Befehls für dei Umfrog zu erhoitn.*"
+        }
+      },
+      "unknown_emoji": {
+        "title": "Des Emoji gibts ned",
+        "field": {
+          "title": "Do host a ned existirandes Emoji ogeben!",
+          "description": "Bitte pass drauf auf, dass es a **offizielles Discord** Emoji oda a Emoji **fu dem Server hier** is. EasyPoll kann nur Emojis fu den Servan vawenda, auf de wos sie da Bot a befindet.\n\n*PS: Klicke auf den blauen `%s` Befehl über dieser Nachricht, um eine Kopie des Befehls deiner Umfrage zu erhalten.*"
+        }
+      }
+    },
+    "setup": {
+      "language": {
+        "change": {
+          "title": "Bot-Sprochn ändan",
+          "description": "Hier koste de Sproch fum Bot für dein Serva ändan.\nSuach da de neiche Sprochn aus:",
+          "selectionmenu": {
+            "placeholder": "Suach da a Sproch aus.."
+          }
+        },
+        "success": {
+          "title": "De Sprochn fum Bot wurde geändat",
+          "description": "De Bot-Sprochn wurde für den Serva erfolgreich auf **%s** geändat.",
+          "footer": "Geändat fu %s"
+        }
+      },
+      "permissions": {
+        "title": "Prüfen fu de Rechte vum Bot",
+        "server_permissions": "Serva-Rechte",
+        "channel_permissions": "Kanal-Rechte",
+        "permissions": {
+          "message_read": "Nochrichten lesa",
+          "message_write": "Nochrichten vaschicka",
+          "message_manage": "Nochrichten verwalta",
+          "message_embed_links": "Links eibettan",
+          "message_history": "Nochrichtnverlauf ozang",
+          "message_add_reaction": "Reaktionen dazurgeben",
+          "message_ext_emoji": "Externe Emojis vawendan"
+        }
+      }
+    },
+    "vote": {
+      "title": "Obstimma für EasyPoll",
+      "description": "Wir gfrein uns, daste für den Bot stimma wüst. Du zagst uns, dass du in Bot mogst und hüfst uns, weida zu wochsan.\n\nAuf den foigenden Seiten konste für uns obstimma:"
+    }
+  },
+  "errors": {
+    "no_permissions": {
+      "member": {
+        "title": "Du host ned die Berechtigung um den Befehl zu nutza!",
+        "field": {
+          "title": "Um den Befehl zu nutza, brauchste ans fu denen:"
+        }
+      },
+      "bot": {
+        "title": "I hob leida ned de nötigen Rechte um olle Aktionen zu mocha!",
+        "field": {
+          "title": "Bitte pass auf, dass ich foigende Rechte hob:"
+        }
+      }
+    }
+  }
+}
