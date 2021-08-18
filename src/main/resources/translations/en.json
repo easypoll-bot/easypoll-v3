@@ -80,14 +80,14 @@
         "title": "Invalid time specification!",
         "field": {
           "title": "You have entered an invalid time!",
-          "description": "Use at the end of a number s (second), m (minute), h (hour), d (day) or w (week) for time specifications.\nExamples: 15m for 15 minutes, 1h for 1 hour, 3d for 3 days\n\n*PS: You will find your sent command of this poll to copy as a message to which I replied (click on the blue `/timepoll` command above this message)*"
+          "description": "Use at the end of a number s (second), m (minute), h (hour), d (day) or w (week) for time specifications.\nExamples: 15m for 15 minutes, 1h for 1 hour, 3d for 3 days\n\n*PS: You can click on the blue `/timepoll` command above this message to receive a copy of the used command for your poll*"
         }
       },
       "unknown_emoji": {
         "title": "Unknown Emoji",
         "field": {
           "title": "You have specified an unknown emoji!",
-          "description": "Please make sure it is an **official Discord** emoji or an emoji **from this server**. EasyPoll can only use emojis from servers where EasyPoll is too.\n\n*PS: You will find your sent command of this poll to copy as a message to which I replied (click on the blue `%s` command above this message)*"
+          "description": "Please make sure it is an **official Discord** emoji or an emoji **from this server**. EasyPoll can only use emojis from servers where EasyPoll is too.\n\n*PS: You can click on the blue `%s` command above this message to receive a copy of the used command for your poll*"
         }
       }
     },

@@ -49,7 +49,7 @@
             "vote": "Stimme für den EasyPoll Bot ab",
             "invite": "Lade EasyPoll auf deinen eigenen Discord Server ein",
             "info": "Zeige einige Informationen über EasyPoll",
-            "ping": "Sehen den Ping des Bots zum Discord Gateway"
+            "ping": "Sehe den Ping des Bots zum Discord Gateway"
           }
         }
       }
@@ -80,14 +80,14 @@
         "title": "Ungültige Zeitangabe!",
         "field": {
           "title": "Du hast eine ungültige Zeit eingegeben!",
-          "description": "Verwende am Ende einer Zahl s (Sekunde), m (Minute), h (Stunde), d (Tag) oder w (Woche) für Zeitangaben.\nBeispiele: 15m für 15 Minuten, 1h für 1 Stunde, 3d für 3 Tage\n\n*PS: Du findest den von dir gesendeten Befehl, dieser Umfrage, zum Kopieren als Nachricht, auf die ich geantwortet habe (Klicke auf den blauen `/timepoll` Befehl über dieser Meldung)*"
+          "description": "Verwende am Ende einer Zahl s (Sekunde), m (Minute), h (Stunde), d (Tag) oder w (Woche) für Zeitangaben.\nBeispiele: 15m für 15 Minuten, 1h für 1 Stunde, 3d für 3 Tage\n\n*PS: Klicke auf den blauen `/timepoll` Befehl über dieser Nachricht, um eine Kopie des Befehls deiner Umfrage zu erhalten.*"
         }
       },
       "unknown_emoji": {
         "title": "Unbekanntes Emoji",
         "field": {
           "title": "Du hast ein unbekanntes Emoji angegeben!",
-          "description": "Bitte achte darauf, dass es ein **offizielles Discord** Emoji oder ein Emoji **von diesem Server** ist. EasyPoll kann nur Emojis von Servern verwenden, auf denen sich EasyPoll ebenfalls befindet.\n\n*PS: Du findest den von dir gesendeten Befehl, dieser Umfrage, zum Kopieren als Nachricht, auf die ich geantwortet habe (Klicke auf den blauen `%s` Befehl über dieser Meldung)*"
+          "description": "Bitte achte darauf, dass es ein **offizielles Discord** Emoji oder ein Emoji **von diesem Server** ist. EasyPoll kann nur Emojis von Servern verwenden, auf denen sich EasyPoll ebenfalls befindet.\n\n*PS: Klicke auf den blauen `%s` Befehl über dieser Nachricht, um eine Kopie des Befehls deiner Umfrage zu erhalten.*"
         }
       }
     },
