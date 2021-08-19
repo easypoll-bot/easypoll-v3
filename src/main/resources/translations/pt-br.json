@@ -81,14 +81,14 @@
                 "title": "Tempo especificado inválido!",
                 "field": {
                     "title": "Você colocou um tempo inválido!",
-                    "description": "Use no fim do número um s (segundo), m (minuto), h (hora), d (dia) ou w (semana) para especificações de tempo.\nExemplos: 15m para 15 minutos, 1h para 1 hora, 3d para 3 dias\n\n*Obs.: Você pode clicar no comando azul '/timepoll' abaixo dessa mensagem para receber uma cópia dos comandos usados para sua enquete.*"
+                    "description": "Use no fim do número um s (segundo), m (minuto), h (hora), d (dia) ou w (semana) para especificações de tempo.\nExemplos: 15m para 15 minutos, 1h para 1 hora, 3d para 3 dias\n\n*Obs.: Você pode clicar no comando azul `/timepoll` acima desta mensagem para receber uma cópia dos comandos usados para sua enquete.*"
                 }
             },
             "unknown_emoji": {
                 "title": "Emoji desconhecido",
                 "field": {
                     "title": "Você especificou um emoji desconhecido!",
-                    "description": "Por favor confira se esse é um emoji **oficial do Discord** ou um emoji **desse servidor**. EasyPoll pode usar apenas emojis de servidores onde o EasyPoll também está.\n\n*Obs.: Você pode clicar no comando azul '%s' abaixo dessa mensagem para receber uma cópia dos comandos usados para sua enquete.*"
+                    "description": "Por favor confira se esse é um emoji **oficial do Discord** ou um emoji **desse servidor**. EasyPoll pode usar apenas emojis de servidores onde o EasyPoll também está.\n\n*Obs.: Você pode clicar no comando azul `%s` acima dessa mensagem para receber uma cópia dos comandos usados para sua enquete*"
                 }
             }
         },
@@ -124,7 +124,7 @@
         },
         "vote": {
             "title": "Votar no EasyPoll",
-            "description": "Estamos felizes que você queira votar em nosso bot. Você nos mostra que gosta do bot e nos ajuda a crescer ainda mais.\n\nVocê pode votar em nós nas seguintes páginas:"
+            "description": "Estamos felizes que você queira votar em nosso bot. Nos mostra que gosta do bot e nos ajuda a crescer ainda mais.\n\nVocê pode votar em nós nas seguintes páginas:"
         }
     },
     "errors": {
