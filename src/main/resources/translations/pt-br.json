@@ -1,0 +1,146 @@
+{
+    "translation": {
+        "name": "Portuguese (Brazilian)",
+        "name_local": "Português do Brasil",
+        "code": "pt-br",
+        "flag_unicode": "\uD83C\uDDE7\uD83C\uDDF7",
+        "translators": "eumakoto#4496 (697609857175650405), Marcos Rosa#7350 (690189535879233572)"
+    },
+    "polls": {
+        "question": "Questão",
+        "choices": "Alternativas",
+        "yes": "Sim",
+        "no": "Não",
+        "finalresult": "Resultado Final",
+        "alreadyended": "A enquete já terminou",
+        "ends": "Termina",
+        "multiplechoice": {
+            "allowed": "Múltipla escolha permitida",
+            "disallowed": "Múltipla escolha não permitida"
+        },
+        "noothervotes": "Votos não são mais permitidos",
+        "pollid": "ID da enquete: %s"
+    },
+    "commands": {
+        "closepoll": {
+            "success": {
+                "title": "Enquete fechada",
+                "description": "A enquete de ID **%s** estava fechada!\nVotos não são mais permitidos e o resultado está exibido na enquete."
+            },
+            "failed": {
+                "title": "Esta enquete não pode ser fechada",
+                "description": "A enquete de ID **%s** já está fechada ou não existe mais!"
+            }
+        },
+        "help": {
+            "title": "EasyPoll Ajuda",
+            "fields": {
+                "poll_commands": {
+                    "title": ":bar_chart: Comandos de Enquete",
+                    "commands": {
+                        "poll": "Criar uma enquete normal sem tempo limite",
+                        "timepoll": "Criar uma enquete temporária, com data limite para votações",
+                        "closepoll": "Fechar uma enquete para parar a contagem de votos"
+                    }
+                },
+                "public_commands": {
+                    "title": ":mag_right: Comandos Públicos",
+                    "commands": {
+                        "help": "Mostrar a Ajuda deste Bot",
+                        "vote": "Vote no EasyPoll Bot",
+                        "invite": "Convidar o EasyPoll para seu servidor no Discord",
+                        "info": "Mostrar informações sobre o EasyPoll",
+                        "ping": "Ver o Ping do bot para o Gateway do Discord"
+                    }
+                }
+            }
+        },
+        "info": {
+            "title": "Informações sobre o EasyPoll",
+            "fields": {
+                "creator": "Criador",
+                "repository": "Repositório",
+                "version": "Versão",
+                "library": "Biblioteca",
+                "servers": "Servidores",
+                "users": "Usuários",
+                "shard": "Fragmento",
+                "uptime": "Tempo de atividade"
+            }
+        },
+        "invite": {
+            "title": "Convidar EasyPoll",
+            "description": "Você pode convidar %s aqui: [www.easypoll.me/invite](%s)"
+        },
+        "ping": {
+            "title": "Pong! :ping_pong:",
+            "description": "Ping para o Gateway %s ms"
+        },
+        "poll": {
+            "invalid_time": {
+                "title": "Tempo especificado inválido!",
+                "field": {
+                    "title": "Você colocou um tempo inválido!",
+                    "description": "Use no fim do número um s (segundo), m (minuto), h (hora), d (dia) ou w (semana) para especificações de tempo.\nExemplos: 15m para 15 minutos, 1h para 1 hora, 3d para 3 dias\n\n*Obs.: Você pode clicar no comando azul '/timepoll' abaixo dessa mensagem para receber uma cópia dos comandos usados para sua enquete.*"
+                }
+            },
+            "unknown_emoji": {
+                "title": "Emoji desconhecido",
+                "field": {
+                    "title": "Você especificou um emoji desconhecido!",
+                    "description": "Por favor confira se esse é um emoji **oficial do Discord** ou um emoji **desse servidor**. EasyPoll pode usar apenas emojis de servidores onde o EasyPoll também está.\n\n*Obs.: Você pode clicar no comando azul '%s' abaixo dessa mensagem para receber uma cópia dos comandos usados para sua enquete.*"
+                }
+            }
+        },
+        "setup": {
+            "language": {
+                "change": {
+                    "title": "Alterar idioma do Bot",
+                    "description": "Aqui você pode alterar o idioma do Bot nesse servidor.\nPor favor selecione um novo idioma:",
+                    "selectionmenu": {
+                        "placeholder": "Selecione um idioma.."
+                    }
+                },
+                "success": {
+                    "title": "Idioma do Bot alterado",
+                    "description": "O idioma do Bot nesse servidor foi alterado com sucesso para **%s**.",
+                    "footer": "Alterado por %s"
+                }
+            },
+            "permissions": {
+                "title": "Verificação de permissão do Bot necessária",
+                "server_permissions": "Permissões do Servidor",
+                "channel_permissions": "Permissões de Canal",
+                "permissions": {
+                    "message_read": "Ler Mensagens",
+                    "message_write": "Enviar Mensagens",
+                    "message_manage": "Gerenciar Mensagens",
+                    "message_embed_links": "Links Incorporados",
+                    "message_history": "Ler Histórico de mensagens",
+                    "message_add_reaction": "Adicionar Reações",
+                    "message_ext_emoji": "Usar Emojis Externos"
+                }
+            }
+        },
+        "vote": {
+            "title": "Votar no EasyPoll",
+            "description": "Estamos felizes que você queira votar em nosso bot. Você nos mostra que gosta do bot e nos ajuda a crescer ainda mais.\n\nVocê pode votar em nós nas seguintes páginas:"
+        }
+    },
+    "errors": {
+        "no_permissions": {
+            "member": {
+                "title": "Você não tem permissão para usar esse comando!",
+                "field": {
+                    "title": "Para usar este comando, você precisa de pelo menos um deles:"
+                }
+            },
+            "bot": {
+                "title": "Não tenho as permissões necessárias para realizar todas as ações!",
+                "field": {
+                    "title": "Certifique-se de que tenho as seguintes permissões:"
+                }
+            }
+        }
+    }
+}
