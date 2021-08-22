@@ -77,7 +77,7 @@ public class Main {
         });
 
         translationManager = new TranslationManager();
-        translationManager.loadTranslations("de-at", "de-de", "en-us", "nl-nl", "pt-br");
+        translationManager.loadTranslations("de-at", "de-de", "en-us", "nl-nl", "pt-br", "zh-tw");
 
         mongodb = new MongoDB(Constants.DEVMODE ? getConfig().getString("mongodb.clienturi_dev") : getConfig().getString("mongodb.clienturi"), getConfig().getString("mongodb.database"));
         mysql = new MySQL(getConfig().getString("mysql.host"), getConfig().getString("mysql.port"), getConfig().getString("mysql.database"), getConfig().getString("mysql.username"), getConfig().getString("mysql.password"));
