@@ -28,6 +28,7 @@ import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.SelectionMenuEvent;
 import net.dv8tion.jda.api.exceptions.ErrorHandler;
+import net.dv8tion.jda.api.exceptions.MissingAccessException;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
 import net.dv8tion.jda.api.requests.ErrorResponse;
@@ -84,7 +85,9 @@ public class ChangeLanguageMenu {
         }
 
         if(message != null) {
-            message.delete().queue(null, Sentry::captureException);
+            try {
+                message.delete().queue(null, Sentry::captureException);
+            }catch (MissingAccessException ignored) {}
         }
 
         String lang = Constants.DEFAULT_LANGUAGE;
