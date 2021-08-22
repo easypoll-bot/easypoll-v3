@@ -10,10 +10,10 @@
     "question": "Question",
     "choices": "Coix",
     "yes": "Oui",
-    "no": "non",
+    "no": "Non",
     "finalresult": "Résultat final",
     "alreadyended": "Sondage déja términé",
-    "ends": " se termine",
+    "ends": "Se termine",
     "multiplechoice": {
       "allowed": "Choix multiple autorisé",
       "disallowed": "Choix multiple non autorisé"
@@ -124,7 +124,7 @@
     },
     "vote": {
       "title": "Voter pour EasyPoll",
-      "description": "Nous sommes heureux, quand tu veux voter pour EasyPoll. Vous nous montrez que vous aimez le bot et aidez nous à grandir.\n\nAuf den folgenden Seiten kannst du für uns abstimmen:"
+      "description": "Nous sommes heureux, quand tu veux voter pour EasyPoll. Vous nous montrez que vous aimez le bot et aidez nous à grandir.\n\nVous pouvez votez pour nous sur les pages suivantes:"
     }
   },
   "errors": {
