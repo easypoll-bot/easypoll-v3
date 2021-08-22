@@ -1,0 +1,146 @@
+{
+    "translation": {
+        "name": "Dutch",
+        "name_local": "Nederlands",
+        "code": "nl-nl",
+        "flag_unicode": "\uD83C\uDDF3\uD83C\uDDF1",
+        "translators": "thefonz#2743 (423924063270993920)"
+    },
+    "polls": {
+        "question": "Vraag",
+        "choices": "Keuzes",
+        "yes": "Ja",
+        "no": "Nee",
+        "finalresult": "Eind resultaat",
+        "alreadyended": "Poll is al afgelopen",
+        "ends": "Eindigt",
+        "multiplechoice": {
+            "allowed": "Meerdere keuzes toegestaan",
+            "disallowed": "Meerdere keuzes niet toegestaan"
+        },
+        "noothervotes": "Geen andere stemmen toegestaan",
+        "pollid": "Poll ID: %s"
+    },
+    "commands": {
+        "closepoll": {
+            "success": {
+                "title": "Poll is gesloten",
+                "description": "Poll met id **%s** is gesloten!"
+            },
+            "failed": {
+                "title": "Poll kan niet gesloten worden",
+                "description": "De poll met ID **%s** is al gesloten en bestaat niet meer!"
+            }
+        },
+        "help": {
+            "title": "EasyPoll Hulp",
+            "fields": {
+                "poll_commands": {
+                    "title": "Overzicht van Poll opdrachten",
+                    "commands": {
+                        "poll": "Maak een normale poll zonder tijds limit",
+                        "timepoll": "Creëer een poll met tijds limit, en stel de datum tot wanneer de poll geldig is",
+                        "closepoll": "Sluit een poll zodat er geen stemming meegeteld worden"
+                    }
+                },
+                "public_commands": {
+                    "title": "Public opdrachten",
+                    "commands": {
+                        "help": "Laat de help van deze bot zien",
+                        "vote": "Stem voor de EasyPoll Bot",
+                        "invite": "Uitnodigen EasyPoll naar jouw eigen Discord Server",
+                        "info": "Laat wat informatie zien over EasyPoll",
+                        "ping": "Zie de ping van de Bot in de Discord Gateway"
+                    }
+                }
+            }
+        },
+        "info": {
+            "title": "EasyPoll informatie",
+            "fields": {
+                "creator": "Maker",
+                "repository": "Opslag",
+                "version": "Versie",
+                "library": "Bibliotheek",
+                "servers": "Server",
+                "users": "Gebruikers",
+                "shard": "Shard",
+                "uptime": "Uptime"
+            }
+        },
+        "invite": {
+            "title": "EasyPoll uitnodigen",
+            "description": "Jij kan uitnodigen %s here: [www.easypoll.me/invite](%s)"
+        },
+        "ping": {
+            "title": "Pong! :ping_pong:",
+            "description": "`Ping naar poort %s ms`"
+        },
+        "poll": {
+            "invalid_time": {
+                "title": "Tijd specificatie incorrect!",
+                "field": {
+                    "title": "Ingevoerde tijd is ongeldig",
+                    "description": "Gebruiker aan het eind nummers s (seconden), u (uren), d (dagen) of w (weken) voor tijd specifacties.\nBijvoorbeeld: 15m voor 15 minuten, 1h voor 1 uur, 3d voor 3 dagen.\n\n*PS: Je kan klikken op de blauw `/timepoll` opdracht hierboven dit bericht*"
+                }
+            },
+            "unknown_emoji": {
+                "title": "Onbekende Emoji",
+                "field": {
+                    "title": "Je hebt een onbekende emoji opgegeven!",
+                    "description": "Zorg ervoor dat het een **officiële Discord** emoji of een emoji **van deze server** is. EasyPoll kan alleen emoji's gebruiken van servers waar EasyPoll ook is.\n\n*PS: U kunt op het blauwe `%s`-commando boven dit bericht klikken om een kopie van het gebruikte commando voor uw poll te ontvangen*"
+                }
+            }
+        },
+        "setup": {
+            "language": {
+                "change": {
+                    "title": "Bottaal wijzigen",
+                    "description": "Hier kunt u de taal van de Bot op deze server wijzigen.\nSelecteer een nieuwe taal:",
+                    "selectionmenu": {
+                        "placeholder": "Selecteer een taal"
+                    }
+                },
+                "success": {
+                    "title": "Bot taal is veranderd",
+                    "description": "De bot taal op deze server is met success veranderd naar **%s**.",
+                    "footer": "Veranderd by %s"
+                }
+            },
+            "permissions": {
+                "title": "Toestemming Bot controle",
+                "server_permissions": "Server toegangen",
+                "channel_permissions": "Kanalen toegangen",
+                "permissions": {
+                    "message_read": "Lees berichten",
+                    "message_write": "Stuur berichten",
+                    "message_manage": "Beheer berichten",
+                    "message_embed_links": "Koppelingen insluiten",
+                    "message_history": "Berichtgeschiedenis lezen",
+                    "message_add_reaction": "Reactie toevoegen",
+                    "message_ext_emoji": "Gebruik externe Emojis"
+                }
+            }
+        },
+        "vote": {
+            "title": "Stem voor EasyPoll",
+            "description": "We zijn gelukkig dat je wilt stemmen op onze Bot. Jij laat ons zien dat jij onze bot leuk vind en dit helpt ons verder groeien.\n\nJij kan voor ons stemmen op de volgende paginas:"
+        }
+    },
+    "errors": {
+        "no_permissions": {
+            "member": {
+                "title": "Jij hebt geen toestemming om deze commando te gebruiken!",
+                "field": {
+                    "title": "Om dit commando te gebruiken heb je er minstens één nodig:"
+                }
+            },
+            "bot": {
+                "title": "Jij heb niet de bedonigde rechten om alle uit acties uit te voeren!",
+                "field": {
+                    "title": "Zorg ervoor dat ik de volgende toegang heb:"
+                }
+            }
+        }
+    }
+}

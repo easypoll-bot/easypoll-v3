@@ -1,0 +1,146 @@
+{
+  "translation": {
+    "name": "English (US)",
+    "name_local": "English",
+    "code": "en-us",
+    "flag_unicode": "\uD83C\uDDFA\uD83C\uDDF8",
+    "translators": "Floxiii#0001 (231091710195662848)"
+  },
+  "polls": {
+    "question": "Question",
+    "choices": "Choices",
+    "yes": "Yes",
+    "no": "No",
+    "finalresult": "Final Result",
+    "alreadyended": "Poll already ended",
+    "ends": "Ends",
+    "multiplechoice": {
+      "allowed": "Multiple choices allowed",
+      "disallowed": "Multiple choices not allowed"
+    },
+    "noothervotes": "No other votes allowed",
+    "pollid": "Poll ID: %s"
+  },
+  "commands": {
+    "closepoll": {
+      "success": {
+        "title": "Poll closed",
+        "description": "The poll with ID **%s** was closed!\nNo more votes are allowed and the result is now displayed in the poll."
+      },
+      "failed": {
+        "title": "Poll can not be closed",
+        "description": "The poll with ID **%s** is already closed or does not exist!"
+      }
+    },
+    "help": {
+      "title": "EasyPoll Help",
+      "fields": {
+        "poll_commands": {
+          "title": ":bar_chart: Poll Commands",
+          "commands": {
+            "poll": "Create a normal poll without time limit",
+            "timepoll": "Create a timed poll, set an end date until when the poll will run",
+            "closepoll": "Close a poll so that no more votes are counted"
+          }
+        },
+        "public_commands": {
+          "title": ":mag_right: Public Commands",
+          "commands": {
+            "help": "Show this Bot Help",
+            "vote": "Vote for the EasyPoll Bot",
+            "invite": "Invite EasyPoll to your own Discord Server",
+            "info": "Show some information about EasyPoll",
+            "ping": "See the Ping of the Bot to the Discord Gateway"
+          }
+        }
+      }
+    },
+    "info": {
+      "title": "EasyPoll Information",
+      "fields": {
+        "creator": "Creator",
+        "repository": "Repository",
+        "version": "Version",
+        "library": "Library",
+        "servers": "Servers",
+        "users": "Users",
+        "shard": "Shard",
+        "uptime": "Uptime"
+      }
+    },
+    "invite": {
+      "title": "Invite EasyPoll",
+      "description": "You can invite %s here: [www.easypoll.me/invite](%s)"
+    },
+    "ping": {
+      "title": "Pong! :ping_pong:",
+      "description": "`Ping to Gateway %s ms`"
+    },
+    "poll": {
+      "invalid_time": {
+        "title": "Invalid time specification!",
+        "field": {
+          "title": "You have entered an invalid time!",
+          "description": "Use at the end of a number s (second), m (minute), h (hour), d (day) or w (week) for time specifications.\nExamples: 15m for 15 minutes, 1h for 1 hour, 3d for 3 days\n\n*PS: You can click on the blue `/timepoll` command above this message to receive a copy of the used command for your poll*"
+        }
+      },
+      "unknown_emoji": {
+        "title": "Unknown Emoji",
+        "field": {
+          "title": "You have specified an unknown emoji!",
+          "description": "Please make sure it is an **official Discord** emoji or an emoji **from this server**. EasyPoll can only use emojis from servers where EasyPoll is too.\n\n*PS: You can click on the blue `%s` command above this message to receive a copy of the used command for your poll*"
+        }
+      }
+    },
+    "setup": {
+      "language": {
+        "change": {
+          "title": "Change Bot Language",
+          "description": "Here you can change the language of the Bot on this server.\nPlease select a new language:",
+          "selectionmenu": {
+            "placeholder": "Select a language.."
+          }
+        },
+        "success": {
+          "title": "Bot language has been changed",
+          "description": "The Bot language on this server was successfully changed to **%s**.",
+          "footer": "Changed by %s"
+        }
+      },
+      "permissions": {
+        "title": "Required Bot Permission Check",
+        "server_permissions": "Server Permissions",
+        "channel_permissions": "Channel Permissions",
+        "permissions": {
+          "message_read": "Read Messages",
+          "message_write": "Send Messages",
+          "message_manage": "Manage Messages",
+          "message_embed_links": "Embed Links",
+          "message_history": "Read message History",
+          "message_add_reaction": "Add Reactions",
+          "message_ext_emoji": "Use External Emojis"
+        }
+      }
+    },
+    "vote": {
+      "title": "Vote for EasyPoll",
+      "description": "We are happy that you want to vote for our bot. You show us that you like the bot and help us to grow further.\n\nYou can vote for us on the following pages:"
+    }
+  },
+  "errors": {
+    "no_permissions": {
+      "member": {
+        "title": "You do not have premissions to use this command!",
+        "field": {
+          "title": "To use this command you need at least one of them:"
+        }
+      },
+      "bot": {
+        "title": "I do not have the required permissions to perform all actions!",
+        "field": {
+          "title": "Please make sure that I have the following permissions:"
+        }
+      }
+    }
+  }
+}

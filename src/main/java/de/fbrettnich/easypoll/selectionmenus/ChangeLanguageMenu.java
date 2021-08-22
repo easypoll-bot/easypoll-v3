@@ -16,47 +16,47 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package de.fbrettnich.easypoll.commands;
+package de.fbrettnich.easypoll.selectionmenus;
 
 import de.fbrettnich.easypoll.core.Constants;
 import de.fbrettnich.easypoll.language.GuildLanguage;
-import de.fbrettnich.easypoll.utils.Permissions;
-import de.fbrettnich.easypoll.utils.PollManager;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.interaction.SelectionMenuEvent;
 import net.dv8tion.jda.api.exceptions.ErrorHandler;
 import net.dv8tion.jda.api.interactions.InteractionHook;
+import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
 import net.dv8tion.jda.api.requests.ErrorResponse;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-public class ClosePollCommand {
+public class ChangeLanguageMenu {
 
-    public ClosePollCommand(@Nonnull SlashCommandEvent event, GuildLanguage gl) {
+    public ChangeLanguageMenu(@Nonnull SelectionMenuEvent event, GuildLanguage gl) {
 
         event.deferReply().queue(null, Sentry::captureException);
 
         InteractionHook hook = event.getHook();
+        User user = event.getUser();
         Member member = event.getMember();
+        Message message = event.getMessage();
+        List<SelectOption> selectOptions = event.getSelectedOptions();
 
         if(member == null) return;
-
-        PollManager pm = new PollManager();
-        String pollId = event.getOption("pollid").getAsString();
+        if(selectOptions == null) return;
 
         if(
                 !member.isOwner() &&
                 !member.hasPermission(Permission.ADMINISTRATOR) &&
-                !member.hasPermission(Permission.MANAGE_PERMISSIONS) &&
-                !new Permissions(member).hasPollCreatorRole() &&
-                !pm.getPollCreatorIdByPollId(pollId).equals(member.getId())
+                !member.hasPermission(Permission.MANAGE_PERMISSIONS)
         )
         {
 
@@ -67,14 +67,12 @@ public class ClosePollCommand {
             eb.addField(
                     gl.getTl("errors.no_permissions.member.field.title"),
                     "\u2022 ADMINISTRATOR *(Permission)*\n" +
-                            "\u2022 MANAGE_PERMISSIONS *(Permission)*\n" +
-                            "\u2022 PollCreator *(Role)*\n" +
-                            "\u2022 Creator of this Poll",
+                            "\u2022 MANAGE_PERMISSIONS *(Permission)*",
                     true);
 
             hook.sendMessageEmbeds(
-                    eb.build()
-            )
+                            eb.build()
+                    )
                     .delay(30, TimeUnit.SECONDS)
                     .flatMap(Message::delete)
                     .queue(null, new ErrorHandler()
@@ -85,28 +83,26 @@ public class ClosePollCommand {
             return;
         }
 
+        if(message != null) {
+            message.delete().queue(null, Sentry::captureException);
+        }
+
+        String lang = Constants.DEFAULT_LANGUAGE;
+        if(!selectOptions.isEmpty()) {
+            lang = selectOptions.get(0).getValue();
+        }
+
+        gl.setLanguage(lang);
+
         EmbedBuilder eb = new EmbedBuilder();
 
-        if(pm.canClosePollByPollId(pollId, event.getGuild().getId())) {
-            pm.closePollByPollId(pollId);
-
-            eb.setTitle(gl.getTl("commands.closepoll.success.title"), Constants.WEBSITE_URL);
-            eb.setColor(Color.decode("#01FF70"));
-            eb.setDescription(gl.getTl("commands.closepoll.success.description", pollId));
-        }else{
-            eb.setTitle(gl.getTl("commands.closepoll.failed.title"), Constants.WEBSITE_URL);
-            eb.setColor(Color.RED);
-            eb.setDescription(gl.getTl("commands.closepoll.failed.description", pollId));
-        }
+        eb.setTitle(gl.getTl("commands.setup.language.success.title"), Constants.WEBSITE_URL);
+        eb.setColor(Color.decode("#01FF70"));
+        eb.setDescription(gl.getTl("commands.setup.language.success.description", gl.getTl("translation.name_local")));
+        eb.setFooter(gl.getTl("commands.setup.language.success.footer", (user.getName() + "#" + user.getDiscriminator())));
 
         hook.sendMessageEmbeds(
                 eb.build()
-        )
-                .delay(30, TimeUnit.SECONDS)
-                .flatMap(Message::delete)
-                .queue(null, new ErrorHandler()
-                        .ignore(ErrorResponse.UNKNOWN_MESSAGE)
-                        .handle(Objects::nonNull, Sentry::captureException)
-                );
+        ).queue(null, Sentry::captureException);
     }
 }

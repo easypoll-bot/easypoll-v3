@@ -21,6 +21,7 @@ package de.fbrettnich.easypoll.core;
 import de.fbrettnich.easypoll.database.MongoDB;
 import de.fbrettnich.easypoll.database.MySQL;
 import de.fbrettnich.easypoll.files.ConfigFile;
+import de.fbrettnich.easypoll.language.TranslationManager;
 import de.fbrettnich.easypoll.listener.*;
 import de.fbrettnich.easypoll.timertasks.BotListStats;
 import de.fbrettnich.easypoll.timertasks.CloseTimedPolls;
@@ -45,6 +46,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -54,6 +56,9 @@ public class Main {
     private static MongoDB mongodb;
     private static MySQL mysql;
     private static ShardManager shardManager;
+    private static TranslationManager translationManager;
+
+    public static HashMap<String, String> guildLanguageCache = new HashMap<>();
 
     /**
      * The main method to build and start the bot
@@ -70,6 +75,9 @@ public class Main {
             options.setDsn(getConfig().getString("sentry.url"));
             options.setEnvironment(Constants.DEVMODE ? "development" : "production");
         });
+
+        translationManager = new TranslationManager();
+        translationManager.loadTranslations("de-at", "de-de", "en-us", "fr-fr", "nl-nl", "pt-br", "zh-tw");
 
         mongodb = new MongoDB(Constants.DEVMODE ? getConfig().getString("mongodb.clienturi_dev") : getConfig().getString("mongodb.clienturi"), getConfig().getString("mongodb.database"));
         mysql = new MySQL(getConfig().getString("mysql.host"), getConfig().getString("mysql.port"), getConfig().getString("mysql.database"), getConfig().getString("mysql.username"), getConfig().getString("mysql.password"));
@@ -88,6 +96,7 @@ public class Main {
                 .addEventListeners(new MessageReactionAddListener())
                 .addEventListeners(new MessageReceivedListener())
                 .addEventListeners(new ReadyListener())
+                .addEventListeners(new SelectionMenuListener())
                 .addEventListeners(new SlashCommandListener())
 
                 .setStatus(OnlineStatus.ONLINE);
@@ -292,6 +301,9 @@ public class Main {
                 .addCommands(
                         new CommandData("setup", "Bot setup and settings")
                                 .addSubcommands(
+                                        new SubcommandData("language", "Change the guild language")
+                                )
+                                .addSubcommands(
                                         new SubcommandData("permissions", "Check required bot permissions")
                                 )
                 )
@@ -332,5 +344,14 @@ public class Main {
      */
     public static ShardManager getShardManager() {
         return shardManager;
+    }
+
+    /**
+     * Get the TranslationManager
+     *
+     * @return {@link TranslationManager}
+     */
+    public static TranslationManager getTranslationManager() {
+        return translationManager;
     }
 }

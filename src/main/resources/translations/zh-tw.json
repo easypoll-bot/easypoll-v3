@@ -1,0 +1,146 @@
+{
+    "translation": {
+        "name": "Chinese (traditional)",
+        "name_local": "中文 (繁体)",
+        "code": "zh-tw",
+        "flag_unicode": "\uD83C\uDDE8\uD83C\uDDF3",
+        "translators": "nado#2213 (678148708373626881)"
+    },
+    "polls": {
+        "question": "問題",
+        "choices": "選擇",
+        "yes": "是",
+        "no": "不是",
+        "finalresult": "最終結果",
+        "alreadyended": "投票已經結束",
+        "ends": "結束",
+        "multiplechoice": {
+            "allowed": "允許多重選擇",
+            "disallowed": "不允許多重選擇"
+        },
+        "noothervotes": "停止接受其他投票",
+        "pollid": "投票ID: %s"
+    },
+    "commands": {
+        "closepoll": {
+            "success": {
+                "title": "投票結束",
+                "description": "投票 (ID: **%s**) 已經結束!\n已停止接受其他投票，投票結果會顯示在投票裡。"
+            },
+            "failed": {
+                "title": "投票不能結束",
+                "description": "投票 (ID: **%s**) 已經結束或不存在!"
+            }
+        },
+        "help": {
+            "title": "EasyPoll 幫助",
+            "fields": {
+                "poll_commands": {
+                    "title": ":bar_chart: 投票指令",
+                    "commands": {
+                        "poll": "創建一個沒有時間限制的普通投票",
+                        "timepoll": "創建定時投票，並設置結束日期直到投票運行",
+                        "closepoll": "結束投票以不再計算新選票"
+                    }
+                },
+                "public_commands": {
+                    "title": ":mag_right: 公共指令",
+                    "commands": {
+                        "help": "顯示此機器人幫助",
+                        "vote": "為Easypoll機器人投票",
+                        "invite": "邀請Easypoll進入你的Discord伺服器",
+                        "info": "顯示關於Easypoll的一些資訊",
+                        "ping": "查看機器人對Discord網關的呯(Ping)"
+                    }
+                }
+            }
+        },
+        "info": {
+            "title": "EasyPoll資訊",
+            "fields": {
+                "creator": "創作者",
+                "repository": "存儲庫",
+                "version": "版本",
+                "library": "資料庫",
+                "servers": "伺服器",
+                "users": "用戶",
+                "shard": "碎片",
+                "uptime": "運行時間"
+            }
+        },
+        "invite": {
+            "title": "邀請EasyPoll",
+            "description": "你可以邀請 %s 在這裡: [www.easypoll.me/invite](%s)"
+        },
+        "ping": {
+            "title": "乓! :ping_pong:",
+            "description": "`呯(Ping) 到網關 %s ms`"
+        },
+        "poll": {
+            "invalid_time": {
+                "title": "無效的時間範圍說明!",
+                "field": {
+                    "title": "您輸入了一個無效的時間!",
+                    "description": "將 s (秒), m (分鐘), h (小時), d (天), w (週) 用在一個數字的後面以說明時間範圍。\n例子: 15m (即15分鐘), 1h (即1小時), 3d (即3天)\n\n*提示: 你可以點擊在這條信息上面的藍色 `/timepoll` 指令來獲取一份用於投票的指令的拷貝文件*"
+                }
+            },
+            "unknown_emoji": {
+                "title": "未知的表情符號 (Emoji)",
+                "field": {
+                    "title": "你列舉了一個未知的表情符號 (Emoji)!",
+                    "description": "請確保這是一個 **Discord官方** 的表情符號 (Emoji) 或是 **來自這個伺服器** 的表情符號 (Emoji)。EasyPoll只能夠在其加入的伺服器內使用該伺服器的表情符號 (Emoji)。\n\n*提示: 你可以點擊在這條信息上面的藍色 `%s` 指令來獲取一份用於投票的指令的拷貝文件*"
+                }
+            }
+        },
+        "setup": {
+            "language": {
+                "change": {
+                    "title": "更換Easypoll的語言",
+                    "description": "你可以在這裡更換機器人的語言。\n請選擇一個新的語言:",
+                    "selectionmenu": {
+                        "placeholder": "選擇一個語言.."
+                    }
+                },
+                "success": {
+                    "title": "機器人的語言已經被變更",
+                    "description": "這個伺服器上的機器人的語言己經成功地被變更為 **%s** 。",
+                    "footer": "被 %s 變更"
+                }
+            },
+            "permissions": {
+                "title": "請求機器人權限檢查",
+                "server_permissions": "伺服器權限",
+                "channel_permissions": "頻道權限",
+                "permissions": {
+                    "message_read": "閱讀信息",
+                    "message_write": "發送信息",
+                    "message_manage": "管理訊息",
+                    "message_embed_links": "嵌入連接",
+                    "message_history": "閱讀歷史訊息",
+                    "message_add_reaction": "添加反應",
+                    "message_ext_emoji": "使用外部表情符號 (Emoji)"
+                }
+            }
+        },
+        "vote": {
+            "title": "為EasyPoll投票",
+            "description": "我們為你們想為我們投票而感到開心。你向我們表明您你喜歡使用這個機器人並幫助我們進一步發展。\n\n你可以在以下頁面為我們投票:"
+        }
+    },
+    "errors": {
+        "no_permissions": {
+            "member": {
+                "title": "你沒有權限來使用此指令!",
+                "field": {
+                    "title": "你至少需要其中一個來使用此指令:"
+                }
+            },
+            "bot": {
+                "title": "我沒有必要的權限來執行所有操作!",
+                "field": {
+                    "title": "請確保我有以下的權限:"
+                }
+            }
+        }
+    }
+}

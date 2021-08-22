@@ -1,0 +1,146 @@
+{
+  "translation": {
+    "name": "French",
+    "name_local": "Français",
+    "code": "fr-fr",
+    "flag_unicode": "\uD83C\uDDEB\uD83C\uDDF7",
+    "translators": "B_A_Baracus#0738 (353598885538693130)"
+  },
+  "polls": {
+    "question": "Question",
+    "choices": "Coix",
+    "yes": "Oui",
+    "no": "Non",
+    "finalresult": "Résultat final",
+    "alreadyended": "Sondage déja términé",
+    "ends": "Se termine",
+    "multiplechoice": {
+      "allowed": "Choix multiple autorisé",
+      "disallowed": "Choix multiple non autorisé"
+    },
+    "noothervotes": "Aucun autre vote autorisé",
+    "pollid": "ID du sondage: %s"
+  },
+  "commands": {
+    "closepoll": {
+      "success": {
+        "title": "Vous avez terminé le sondage",
+        "description": "Le sondage avec l'ID **%s** a été terminé!\nAucun autre vote autorisé et le résultat final est visible dans le sondage."
+      },
+      "failed": {
+        "title": "Le sondage n'a pas pu être terminé",
+        "description": "Le sondage avec l'ID **%s** a déjà été terminé ou n'existe pas!"
+      }
+    },
+    "help": {
+      "title": "Aide EasyPoll",
+      "fields": {
+        "poll_commands": {
+          "title": ":bar_chart: Commandes pour les sondages",
+          "commands": {
+            "poll": "Créer un sondage sans limite de temps",
+            "timepoll": "Créer un sondage avec limite de temps, ajouter une date de fin pour terminer le sondage automatiquement",
+            "closepoll": "Terminer un sondage pour ne plus compter de nouveaux votes"
+          }
+        },
+        "public_commands": {
+          "title": ":mag_right: Commandes publiquement",
+          "commands": {
+            "help": "Afficher cette Aide",
+            "vote": "Vote pour EasyPoll",
+            "invite": "Inviter EasyPoll sur votre Discord",
+            "info": "Afficher certains informations EasyPoll",
+            "ping": "Voir le latence de EasyPoll au Gateway"
+          }
+        }
+      }
+    },
+    "info": {
+      "title": "Informations d'EasyPoll",
+      "fields": {
+        "creator": "Développeur",
+        "repository": "Dépôt",
+        "version": "Version",
+        "library": "Library",
+        "servers": "Serveur",
+        "users": "Utilisator",
+        "shard": "Shard",
+        "uptime": "Disponiblité"
+      }
+    },
+    "invite": {
+      "title": "Inviter EasyPoll",
+      "description": "Inviter %s ici: [www.easypoll.me/invite](%s)"
+    },
+    "ping": {
+      "title": "Pong! :ping_pong:",
+      "description": "`Latence au Gateway %s ms`"
+    },
+    "poll": {
+      "invalid_time": {
+        "title": "Temps invalide!",
+        "field": {
+          "title": "Vous avez utilisé un temps invalide!",
+          "description": "Utlise s (seconde), m (minute), h (heure), d (jour) ou w (semaine) derrière un tems.\nExemples: 15m pour 15 minutes, 1h pour 1 heure, 3d pour 3 jours\n\n*PS: Cliquer sur le commande `/timepoll` dessous cette message pour reçevoir une copie de votre commande de votre sondage*"
+        }
+      },
+      "unknown_emoji": {
+        "title": "Emoji invalide!",
+        "field": {
+          "title": "Vous avez utilisé un emoji invalide!",
+          "description": "Utlisisez un emoji **Discord officiel** s.v.p. ou un emoji **de cet serveur** ou autres serveurs EasyPoll.\n\n*PS: Cliquer sur le commande `%s` dessous cette message pour reçevoir une copie de votre commande de votre sondage*"
+        }
+      }
+    },
+    "setup": {
+      "language": {
+        "change": {
+          "title": "Changer langue EasyPoll",
+          "description": "Ici vous pouvez changer la langue.\nChoisir la nouvelle language:",
+          "selectionmenu": {
+            "placeholder": "Choisir une langue"
+          }
+        },
+        "success": {
+          "title": "Vous avez changé langue EasyPoll",
+          "description": "La langue à changé en **%s** avec succès.",
+          "footer": "Changé par %s"
+        }
+      },
+      "permissions": {
+        "title": "Verfier l'autorisations",
+        "server_permissions": "L'autorisations serveur",
+        "channel_permissions": "L'autorisations channel",
+        "permissions": {
+          "message_read": "Lire des messages",
+          "message_write": "Envoyer des messages",
+          "message_manage": "Adminstrer des messages",
+          "message_embed_links": "Incorper des liens",
+          "message_history": "Voir histoire des messages",
+          "message_add_reaction": "Ajouter des reactions",
+          "message_ext_emoji": "Utiliser des emjois externes"
+        }
+      }
+    },
+    "vote": {
+      "title": "Voter pour EasyPoll",
+      "description": "Nous sommes heureux, quand tu veux voter pour EasyPoll. Vous nous montrez que vous aimez le bot et aidez nous à grandir.\n\nVous pouvez votez pour nous sur les pages suivantes:"
+    }
+  },
+  "errors": {
+    "no_permissions": {
+      "member": {
+        "title": "Vous n'avez pas l'utorisation pur utiliser cette commande!",
+        "field": {
+          "title": "Pour utlisier cette commande, vous avez besoin d'au moins un de ces autorisations:"
+        }
+      },
+      "bot": {
+        "title": "Je n'ai pas les autisations nécessaires pour effectier cette action!",
+        "field": {
+          "title": "Verifier que j'ai les autorisations suivantes:"
+        }
+      }
+    }
+  }
+}

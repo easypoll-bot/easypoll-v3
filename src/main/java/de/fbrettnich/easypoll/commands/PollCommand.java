@@ -20,6 +20,7 @@ package de.fbrettnich.easypoll.commands;
 
 import com.vdurmont.emoji.EmojiManager;
 import de.fbrettnich.easypoll.core.Constants;
+import de.fbrettnich.easypoll.language.GuildLanguage;
 import de.fbrettnich.easypoll.utils.Permissions;
 import de.fbrettnich.easypoll.utils.PollManager;
 import de.fbrettnich.easypoll.utils.enums.PollType;
@@ -45,7 +46,7 @@ import java.util.regex.Pattern;
 
 public class PollCommand {
 
-    public PollCommand(@Nonnull SlashCommandEvent event, boolean isTimePoll) {
+    public PollCommand(@Nonnull SlashCommandEvent event, GuildLanguage gl, boolean isTimePoll) {
 
         event.deferReply().queue(null, Sentry::captureException);
 
@@ -69,9 +70,9 @@ public class PollCommand {
             EmbedBuilder eb = new EmbedBuilder();
 
             eb.setColor(Color.RED);
-            eb.setTitle("You do not have premissions to use this command!", Constants.WEBSITE_URL);
+            eb.setTitle(gl.getTl("errors.no_permissions.member.title"), Constants.WEBSITE_URL);
             eb.addField(
-                    "To use this command you need at least one of them:",
+                    gl.getTl("errors.no_permissions.member.field.title"),
                     "\u2022 ADMINISTRATOR *(Permission)*\n" +
                             "\u2022 MANAGE_PERMISSIONS *(Permission)*\n" +
                             "\u2022 PollCreator *(Role)*\n" +
@@ -134,13 +135,10 @@ public class PollCommand {
                 EmbedBuilder eb = new EmbedBuilder();
 
                 eb.setColor(Color.ORANGE);
-                eb.setTitle("Invalid time specification!", Constants.WEBSITE_URL);
+                eb.setTitle(gl.getTl("commands.poll.invalid_time.title"), Constants.WEBSITE_URL);
                 eb.addField(
-                        "You have entered an invalid time!",
-                        "Used at the end of a number s (second), m (minute), h (hour), d (day) or w (week) for time specifications.\n" +
-                                "Examples: 15m for 15 minutes, 1h for 1 hour, 3d for 3 days\n" +
-                                "\n" +
-                                "*PS: You will find your sent command of this poll to copy as a message to which I replied (click on the blue `/timepoll` command above this message)*",
+                        gl.getTl("commands.poll.invalid_time.field.title"),
+                        gl.getTl("commands.poll.invalid_time.field.description"),
                         true);
 
                 hook.sendMessageEmbeds(
@@ -171,7 +169,8 @@ public class PollCommand {
                                 null,
                                 question,
                                 null,
-                                null
+                                null,
+                                gl
                         )
                 ).complete();
             }catch (Exception e) {
@@ -202,8 +201,8 @@ public class PollCommand {
                 EmbedBuilder eb = new EmbedBuilder();
 
                 eb.setColor(Color.RED);
-                eb.setTitle("I do not have permissions to add reactions to the messages in the specified channel.");
-                eb.addField("Please make sure that I have the following permissions",
+                eb.setTitle(gl.getTl("errors.no_permissions.bot.title"));
+                eb.addField(gl.getTl("errors.no_permissions.bot.field.title"),
                         "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_EMBED_LINKS, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
                         true);
 
@@ -264,7 +263,8 @@ public class PollCommand {
                                 allowmultiplechoices,
                                 question,
                                 reactionsList,
-                                choiceList
+                                choiceList,
+                                gl
                         )
                 ).complete();
             }catch (Exception e) {
@@ -297,12 +297,10 @@ public class PollCommand {
 
                         EmbedBuilder eb = new EmbedBuilder();
                         eb.setColor(Color.ORANGE);
-                        eb.setTitle("Unknown Emoji", Constants.WEBSITE_URL);
+                        eb.setTitle(gl.getTl("commands.poll.unknown_emoji.title"), Constants.WEBSITE_URL);
                         eb.addField(
-                                "You have specified an unknown emoji!",
-                                "Please make sure it is an **official Discord** emoji or an emoji **from this server**. EasyPoll can only use emojis from servers where EasyPoll is too.\n" +
-                                        "\n" +
-                                        "*PS: You will find your sent command of this poll to copy as a message to which I replied (click on the blue `" + (isTimePoll ? "/timepoll" : "/poll") +  "` command above this message)*",
+                                gl.getTl("commands.poll.unknown_emoji.field.title"),
+                                gl.getTl("commands.poll.unknown_emoji.field.description", (isTimePoll ? "/timepoll" : "/poll")),
                                 true);
 
                         message.clearReactions().queue(null, Sentry::captureException);
@@ -315,8 +313,8 @@ public class PollCommand {
                         EmbedBuilder eb = new EmbedBuilder();
 
                         eb.setColor(Color.RED);
-                        eb.setTitle("I do not have permissions to add reactions to the messages in the specified channel.");
-                        eb.addField("Please make sure that I have the following permissions",
+                        eb.setTitle(gl.getTl("errors.no_permissions.bot.title"));
+                        eb.addField(gl.getTl("errors.no_permissions.bot.field.title"),
                                 "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_EMBED_LINKS, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
                                 true);
 
@@ -332,8 +330,8 @@ public class PollCommand {
                     EmbedBuilder eb = new EmbedBuilder();
 
                     eb.setColor(Color.RED);
-                    eb.setTitle("I do not have permissions to add reactions to the messages in the specified channel.");
-                    eb.addField("Please make sure that I have the following permissions",
+                    eb.setTitle(gl.getTl("errors.no_permissions.bot.title"));
+                    eb.addField(gl.getTl("errors.no_permissions.bot.field.title"),
                             "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_EMBED_LINKS, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
                             true);
 

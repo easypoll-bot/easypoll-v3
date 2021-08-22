@@ -25,6 +25,7 @@ public class Constants {
     public static boolean DEVMODE = true;
 
     public static final String VERSION = "3.0.0";
+    public static final String DEFAULT_LANGUAGE = "en-us";
 
     public static String BOT_ID = "";
     public static final String BOT_OWNER_MENTION = "<@231091710195662848>";
