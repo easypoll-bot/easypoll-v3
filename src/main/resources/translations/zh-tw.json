@@ -1,9 +1,9 @@
 {
     "translation": {
         "name": "Chinese (traditional)",
-        "name_local": "中文 (繁体)",
+        "name_local": "中文 (繁體)",
         "code": "zh-tw",
-        "flag_unicode": "\uD83C\uDDE8\uD83C\uDDF3",
+        "flag_unicode": "\uD83C\uDDF9\uD83C\uDDFC",
         "translators": "nado#2213 (678148708373626881)"
     },
     "polls": {
