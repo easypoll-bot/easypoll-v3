@@ -112,7 +112,16 @@ public class PollCommand {
             String time = event.getOption("time").getAsString();
             time = time.replace(" ", "");
 
+            time = time
+                    .replace("s", "s/")
+                    .replace("m", "m/")
+                    .replace("h", "h/")
+                    .replace("d", "d/")
+                    .replace("w", "w/");
+
             String[] split = time.split("/");
+
+
 
             AtomicLong timeResult = new AtomicLong();
             AtomicBoolean error = new AtomicBoolean(false);

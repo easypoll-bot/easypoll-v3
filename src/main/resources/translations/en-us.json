@@ -81,7 +81,7 @@
         "title": "Invalid time specification!",
         "field": {
           "title": "You have entered an invalid time!",
-          "description": "Use a valid time code. Time codes can consist of several times ending with s (second), m (minute), h (hour), d (day) or w (week).\nExamples: 15m for 15 minutes, 1h for 1 hour, 3d for 3 days, 3d/5h/2m für 3 days, 5 hours und 2 minutes\n\n*PS: You can click on the blue `/timepoll` command above this message to receive a copy of the used command for your poll*"
+          "description": "Use a valid time code. Time codes can consist of several times ending with s (second), m (minute), h (hour), d (day) or w (week).\nExamples: 15m for 15 minutes, 1h for 1 hour, 3d for 3 days, 3d5h2m für 3 days, 5 hours und 2 minutes\n\n*PS: You can click on the blue `/timepoll` command above this message to receive a copy of the used command for your poll*"
         }
       },
       "unknown_emoji": {

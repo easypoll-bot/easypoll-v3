@@ -275,7 +275,7 @@ public class Main {
                 .addCommands(
                         new CommandData("timepoll", "Create a timed poll with end date")
                                 .addOption(OptionType.STRING, "question", "What is the question?", true)
-                                .addOption(OptionType.STRING, "time", "How long should the poll run? (Minutes (m), Hours (h), Days (d) | Example: 3h, 2d, 1d/3h/5m | Max: 7d)", true)
+                                .addOption(OptionType.STRING, "time", "How long should the poll run? (Minutes (m), Hours (h), Days (d) | Example: 3h, 2d, 1d3h5m | Max: 7d)", true)
                                 .addOption(OptionType.BOOLEAN, "allowmultiplechoices", "Are multiple choices allowed?")
                                 .addOption(OptionType.STRING, "answer1", "Answer 1")
                                 .addOption(OptionType.STRING, "answer2", "Answer 2")
