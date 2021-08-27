@@ -1,0 +1,146 @@
+{
+    "translation": {
+        "name": "Chinese (simplified)",
+        "name_local": "中文 (简体)",
+        "code": "zh-cn",
+        "flag_unicode": "\uD83C\uDDE8\uD83C\uDDF3",
+        "translators": "nado#2213 (678148708373626881)"
+    },
+    "polls": {
+        "question": "问题",
+        "choices": "选择",
+        "yes": "是的",
+        "no": "不是",
+        "finalresult": "最终结果",
+        "alreadyended": "投票已经结束",
+        "ends": "结束",
+        "multiplechoice": {
+            "allowed": "允许多重选择",
+            "disallowed": "不允许多重选择"
+        },
+        "noothervotes": "停止接受其他投票",
+        "pollid": "投票ID: %s"
+    },
+    "commands": {
+        "closepoll": {
+            "success": {
+                "title": "投票结束",
+                "description": "投票 (ID: **%s**) 已经结束!\n已停止接受其他投票，投票结果会显示在投票里。"
+            },
+            "failed": {
+                "title": "投票不能结束",
+                "description": "投票 (ID: **%s**) 已经结束或不存在!"
+            }
+        },
+        "help": {
+            "title": "EasyPoll 帮助",
+            "fields": {
+                "poll_commands": {
+                    "title": ":bar_chart: 投票指令",
+                    "commands": {
+                        "poll": "创建一个没有时间限制的普通投票",
+                        "timepoll": "创建定时投票，并设置结束日期直到投票运行",
+                        "closepoll": "结束投票以不再计算新选票"
+                    }
+                },
+                "public_commands": {
+                    "title": ":mag_right: 公共指令",
+                    "commands": {
+                        "help": "显示此机器人帮助",
+                        "vote": "为Easypoll机器人投票",
+                        "invite": "邀请Easypoll进入你的Discord伺服器",
+                        "info": "显示关于Easypoll的一些资讯",
+                        "ping": "查看机器人对Discord网关的呯(Ping)"
+                    }
+                }
+            }
+        },
+        "info": {
+            "title": "EasyPoll资讯",
+            "fields": {
+                "creator": "创作者",
+                "repository": "存储库",
+                "version": "版本",
+                "library": "资料库",
+                "servers": "服务器",
+                "users": "用戶",
+                "shard": "碎片",
+                "uptime": "运行时间"
+            }
+        },
+        "invite": {
+            "title": "邀请EasyPoll",
+            "description": "你可以在这里邀请 %s : [www.easypoll.me/invite](%s)"
+        },
+        "ping": {
+            "title": "乓! :ping_pong:",
+            "description": "`网关的呯(Ping) %s ms`"
+        },
+        "poll": {
+            "invalid_time": {
+                "title": "无效的时间范围说明!",
+                "field": {
+                    "title": "你输入了一个无效的时间!",
+                    "description": "将 s (秒), m (分钟), h (小时), d (天), w (周) 用在一个数字的后面以说明时间范围。\n例子: 15m (即15分钟), 1h (即1小时), 3d (即3天)\n\n*提示: 你可以点击在这条信息上面的蓝色 `/timepoll` 指令来获取一份用于投票的指令的拷贝文件*"
+                }
+            },
+            "unknown_emoji": {
+                "title": "未知的表情符号 (Emoji)",
+                "field": {
+                    "title": "你列出了一个未知的表情符号 (Emoji)!",
+                    "description": "请确保这是一个 **Discord官方** 的表情符号 (Emoji) 或是 **来自这个伺服器** 的表情符号 (Emoji)。 EasyPoll只能够在其加入的伺服器内使用该伺服器的表情符号 (Emoji)。\n\n*提示: 你可以点击在这条信息上面的蓝色 `%s` 指令来获取一份用于投票的指令的拷贝文件*"
+                }
+            }
+        },
+        "setup": {
+            "language": {
+                "change": {
+                    "title": "更换机器人的语言",
+                    "description": "你可以在这里更换机器人的语言。\n请选择一个新的语言:",
+                    "selectionmenu": {
+                        "placeholder": "请选择一种语言.."
+                    }
+                },
+                "success": {
+                    "title": "机器人的语言已经被变更",
+                    "description": "这个伺服器上的机器人的语言已经成功地被变更为 **%s** 。",
+                    "footer": "被 %s 变更"
+                }
+            },
+            "permissions": {
+                "title": "请求机器人权限检查",
+                "server_permissions": "伺服器权限",
+                "channel_permissions": "频道权限",
+                "permissions": {
+                    "message_read": "阅读信息",
+                    "message_write": "发送信息",
+                    "message_manage": "管理讯息",
+                    "message_embed_links": "嵌入连结",
+                    "message_history": "阅读历史讯息",
+                    "message_add_reaction": "添加反应",
+                    "message_ext_emoji": "使用外部表情符号 (Emoji)"
+                }
+            }
+        },
+        "vote": {
+            "title": "为EasyPoll投票",
+            "description": "我们很高兴你想为我们的机器人投票。你向我们表明你喜欢使用这个机器人并帮助我们进一步发展。\n\n你可以在以下页面为我们投票:"
+        }
+    },
+    "errors": {
+        "no_permissions": {
+            "member": {
+                "title": "你没有权限来使用此指令!",
+                "field": {
+                    "title": "你最少需要其中一个来使用此指令:"
+                }
+            },
+            "bot": {
+                "title": "我没有需要的权限来执行所有操作!",
+                "field": {
+                    "title": "请确保我拥有以下的权限:"
+                }
+            }
+        }
+    }
+}

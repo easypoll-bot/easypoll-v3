@@ -1,9 +1,9 @@
 [bot-invite]: https://easypoll.me/invite?utm_source=github&utm_medium=readme&utm_campaign=easypoll
 [discord-invite]: https://easypoll.me/discord
 [license]: https://github.com/fbrettnich/easypoll-bot/blob/main/LICENSE
-[wiki]: https://github.com/fbrettnich/easypoll-bot/wiki
-[faq]: https://github.com/fbrettnich/easypoll-bot/wiki/FAQ
-[troubleshooting]: https://github.com/fbrettnich/easypoll-bot/wiki
+[docs]: https://docs.easypoll.me/
+[faq]: https://docs.easypoll.me/faq
+[troubleshooting]: https://docs.easypoll.me/
 [guilds-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Servers&query=guilds&url=https%3A%2F%2Feasypoll.me%2Fapi.php
 [users-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Users&query=users&url=https%3A%2F%2Feasypoll.me%2Fapi.php
 [discord-shield]: https://discord.com/api/guilds/552156123734474762/widget.png
@@ -30,7 +30,7 @@ With EasyPoll, a Discord Poll Bot, you can easily create polls and your members 
 If you want to use **EasyPoll** on your server, you can invite it via the following link:  
 &#128279; **[https://easypoll.me/invite][bot-invite]**
 
-You can also find help on how to invite the bot in our Wiki: [Invite Bot to Server](https://github.com/fbrettnich/easypoll-bot/wiki/Invite-Bot-to-Server)
+You can also find help on how to invite the bot in our Docs: [Add Bot to Server](https://docs.easypoll.me/getting-started/add-bot-to-server)
 
 ## Usage & Commands
 
@@ -49,7 +49,7 @@ You can also find help on how to invite the bot in our Wiki: [Invite Bot to Serv
 
 ## Getting Help
 If you have any questions about using the EasyPoll Bot, feel free to visit the official [EasyPoll Support Discord][discord-invite]  
-Alternatively you can also have a look at our [Wiki][wiki] and [FAQ][faq].
+Alternatively you can also have a look at our [Docs][docs] and [FAQ][faq].
 
 ## Contributing to EasyPoll
 If you want to contribute to EasyPoll, follow these steps:
@@ -57,7 +57,7 @@ If you want to contribute to EasyPoll, follow these steps:
 - Make your changes
 - Check your changes
 - Create a [pull request](https://github.com/fbrettnich/easypoll-bot/pulls)
-<!--    - **Important:** Create pull requests only in our `development` or `feature` branch, pull requests to the `main` branch will be rejected! -->
+    - **Important:** Create pull requests only in our `development` or `feature` branch, pull requests to the `main` branch will be rejected!
 
 Please also read the [contributing guidelines](https://github.com/fbrettnich/easypoll-bot/blob/main/.github/CONTRIBUTING.md) to contribute properly!
 

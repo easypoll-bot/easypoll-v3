@@ -77,7 +77,7 @@ public class Main {
         });
 
         translationManager = new TranslationManager();
-        translationManager.loadTranslations("de-at", "de-de", "en-us", "fr-fr", "it-it", "nl-nl", "pt-br", "zh-tw");
+        translationManager.loadTranslations("de-at", "de-de", "dk-dk", "en-us", "fr-fr", "it-it", "nl-nl", "pt-br", "zh-cn", "zh-tw");
 
         mongodb = new MongoDB(Constants.DEVMODE ? getConfig().getString("mongodb.clienturi_dev") : getConfig().getString("mongodb.clienturi"), getConfig().getString("mongodb.database"));
         mysql = new MySQL(getConfig().getString("mysql.host"), getConfig().getString("mysql.port"), getConfig().getString("mysql.database"), getConfig().getString("mysql.username"), getConfig().getString("mysql.password"));
@@ -275,7 +275,7 @@ public class Main {
                 .addCommands(
                         new CommandData("timepoll", "Create a timed poll with end date")
                                 .addOption(OptionType.STRING, "question", "What is the question?", true)
-                                .addOption(OptionType.STRING, "time", "How long should the poll run? (Minutes (m), Hours (h), Days (d) | Example: 3h | Max: 7d)", true)
+                                .addOption(OptionType.STRING, "time", "How long should the poll run? (Minutes (m), Hours (h), Days (d) | Example: 3h, 2d, 1d3h5m | Max: 7d)", true)
                                 .addOption(OptionType.BOOLEAN, "allowmultiplechoices", "Are multiple choices allowed?")
                                 .addOption(OptionType.STRING, "answer1", "Answer 1")
                                 .addOption(OptionType.STRING, "answer2", "Answer 2")
