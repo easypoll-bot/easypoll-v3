@@ -4,7 +4,7 @@ If you want to contribute to EasyPoll, follow these steps:
 - Make your changes
 - Check your changes
 - Create a [pull request](https://github.com/fbrettnich/easypoll-bot/pulls)
-<!--    - **Important:** Create pull requests only in our `development` or `feature` branch, pull requests to the `main` branch will be rejected! -->
+    - **Important:** Create pull requests only in our `development` or `feature` branch, pull requests to the `main` branch will be rejected!
 
 ## Don't forget "Signed-off-by"
 It is required that all commit messages include the `Signed-off-by` line with a name and email address that matches the commit author.  
