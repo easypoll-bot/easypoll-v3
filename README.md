@@ -41,7 +41,7 @@ You can also find help on how to invite the bot in our Docs: [Add Bot to Server]
 | /closepoll         | Close a poll so that no more votes are counted and display the final result                                             |
 | /easypoll          | Get a list and help with all commands                                                                                   |
 | /vote              | Vote for the EasyPoll Bot                                                                                               |
-| /invite            | Invite EasyPoll to your own Discord Serve                                                                               |
+| /invite            | Invite EasyPoll to your own Discord Server                                                                              |
 | /info              | Show some information about EasyPoll                                                                                    |
 | /ping              | See the Ping of the Bot to the Discord Gateway                                                                          |
 | /setup language    | Change the Bot language of the current Guild                                                                            |
