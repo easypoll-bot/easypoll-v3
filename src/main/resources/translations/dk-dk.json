@@ -1,0 +1,146 @@
+{
+    "translation": {
+        "name": "Danish",
+        "name_local": "Dansk",
+        "code": "dk",
+        "flag_unicode": "🇩🇰",
+        "translators": "Quarnds#1337 (234029072760569856), August#4385 (290486922717954048)"
+    },
+    "polls": {
+        "question": "Spørgsmål",
+        "choices": "Valgmuligheder",
+        "yes": "Ja",
+        "no": "Nej",
+        "finalresult": "Slutresultat",
+        "alreadyended": "Afstemning er afsluttet",
+        "ends": "Afslutter",
+        "multiplechoice": {
+            "allowed": "Flere valgmuligheder tilladt",
+            "disallowed": "Flere valgmuligheder er ikke tilladt"
+        },
+        "noothervotes": "Ikke flere stemmer tilladt",
+        "pollid": "Afstemning ID: %s"
+    },
+    "commands": {
+        "closepoll": {
+            "success": {
+                "title": "Afstemning lukkede",
+                "description": "Afstemningen med denne ID **%s** er lukket!\nIkke flere stemmer er tilladt, og resultaterne bliver vist i afstemningen."
+            },
+            "failed": {
+                "title": "Afstemningen kan ikke afsluttes",
+                "description": "Afstemningen med ID **%s** er allerede lukket eller eksistere ikke!"
+            }
+        },
+        "help": {
+            "title": "EasyPoll-hjælp",
+            "fields": {
+                "poll_commands": {
+                    "title": ":bar_chart: Afstemningskommandoer",
+                    "commands": {
+                        "poll": "Start en normal afstemning uden tidsfrist",
+                        "timepoll": "Start en tidsfrist afstemning ved at skrive en afslutningsdato, hvornår afstemningen skal slutte",
+                        "closepoll": "Afstemningen lukkes, så stemmer ikke kan blive tilføjet"
+                    }
+                },
+                "public_commands": {
+                    "title": ":mag_right: Offentlige kommandoer",
+                    "commands": {
+                        "help": "Vis denne bots hjælp",
+                        "vote": "Stem på EasyPoll",
+                        "invite": "Inviter EasyPoll til din egen Discord-server",
+                        "info": "Vis noget information om EasyPoll",
+                        "ping": "Vis bottens ping til Discords gateway"
+                    }
+                }
+            }
+        },
+        "info": {
+            "title": "EasyPoll Information",
+            "fields": {
+                "creator": "Udvikler",
+                "repository": "Lager",
+                "version": "Version",
+                "library": "Bibliotek",
+                "servers": "Servere",
+                "users": "Brugere",
+                "shard": "Shard",
+                "uptime": "Oppetid"
+            }
+        },
+        "invite": {
+            "title": "Inviter EasyPoll",
+            "description": "Du kan invitere %s her: [www.easypoll.me/invite](%s)"
+        },
+        "ping": {
+            "title": "Pong! :ping_pong:",
+            "description": "`Ping til Gatewayen %s ms`"
+        },
+        "poll": {
+            "invalid_time": {
+                "title": "Ugyldig tid specificeret!",
+                "field": {
+                    "title": "Du har valgt en ugyldig tid!",
+                    "description": "Brug i slutningen af et tal s (sekund), m (minut), h (time), d (dage), eller w (uge) for tids specifikationer.\nEksempler: 15m for 15 minutter, 1h for 1 time, 3d for 3 dage\n\n*PS: Du kan trykke på den blå `/timepoll` kommando ovenover denne besked for at få en kopi af den brugte kommando for din afstemning*"
+                }
+            },
+            "unknown_emoji": {
+                "title": "Ukendt Emoji",
+                "field": {
+                    "title": "Du har valgt en ukendt emoji!",
+                    "description": "Vær venligst at sikre dig det er en **officiel Discord** emoji eller en emoji **fra denne server**. EasyPoll kan kun bruge emojis fra servere hvor EasyPoll også er.\n\n*PS: Du kan trykke på den blå `%s` kommando over denne besked for at modtage en kopi af den brugte kommando til din afstemning*"
+                }
+            }
+        },
+        "setup": {
+            "language": {
+                "change": {
+                    "title": "Skift bottens sprog",
+                    "description": "Her kan du ændre sproget for botten på denne server.\nVælg venligst et nyt sprog:",
+                    "selectionmenu": {
+                        "placeholder": "Vælg et sprog.."
+                    }
+                },
+                "success": {
+                    "title": "Bottens sprog blev ændret",
+                    "description": "Bottens sprog blev ændret til **%s**.",
+                    "footer": "Ændret af %s"
+                }
+            },
+            "permissions": {
+                "title": "Bot-tilladelseskontrol påkrævet",
+                "server_permissions": "Server-tilladelser",
+                "channel_permissions": "Kanaltilladelser",
+                "permissions": {
+                    "message_read": "Læse beskeder",
+                    "message_write": "Sende beskeder",
+                    "message_manage": "Administrere beskeder",
+                    "message_embed_links": "Integrere links",
+                    "message_history": "Læse beskedhistoriken",
+                    "message_add_reaction": "Tilføje reaktioner",
+                    "message_ext_emoji": "Bruge eksterne emojis"
+                }
+            }
+        },
+        "vote": {
+            "title": "Stem på EasyPoll",
+            "description": "Vi er glade for at du vil stemme på vores bot. Du har vist os, at du godt kan lide botten og hjælper os med at gro.\n\nDu kan stemme på os på de følgene sider:"
+        }
+    },
+    "errors": {
+        "no_permissions": {
+            "member": {
+                "title": "Du har ikke tilladelse til at bruge denne kommando!",
+                "field": {
+                    "title": "For at bruge denne kommando skal du bruge mindst en af disse:"
+                }
+            },
+            "bot": {
+                "title": "Jeg har ikke alle de nødvendige tilladelser til at udføre alle handlinger!",
+                "field": {
+                    "title": "Sørg venligst at jeg har de følgene tilladelser:"
+                }
+            }
+        }
+    }
+}
