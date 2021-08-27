@@ -41,6 +41,8 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -110,27 +112,36 @@ public class PollCommand {
             String time = event.getOption("time").getAsString();
             time = time.replace(" ", "");
 
-            long multiplier = 60L;
-            if(time.endsWith("s")) {
-                time = time.replace("s", "");
-                multiplier = 1L;
-            }else if(time.endsWith("m")) {
-                time = time.replace("m", "");
-                multiplier = 60L;
-            }else if(time.endsWith("h")) {
-                time = time.replace("h", "");
-                multiplier = 60*60L;
-            }else if(time.endsWith("d")) {
-                time = time.replace("d", "");
-                multiplier = 24*60*60L;
-            }else if(time.endsWith("w")) {
-                time = time.replace("w", "");
-                multiplier = 7*24*60*60L;
-            }
+            String[] split = time.split("/");
 
-            try {
-                Integer.parseInt(time);
-            } catch(NumberFormatException e) {
+            AtomicLong timeResult = new AtomicLong();
+            AtomicBoolean error = new AtomicBoolean(false);
+
+            Arrays.stream(split).forEach(timecode -> {
+                long multiplier = 0L;
+
+                if(timecode.endsWith("s")) {
+                    multiplier = 1L;
+                }else if(timecode.endsWith("m")) {
+                    multiplier = 60L;
+                }else if(timecode.endsWith("h")) {
+                    multiplier = 60*60L;
+                }else if(timecode.endsWith("d")) {
+                    multiplier = 24*60*60L;
+                }else if(timecode.endsWith("w")) {
+                    multiplier = 7*24*60*60L;
+                }
+
+                String timeString = timecode.substring(0, timecode.length() - 1);
+                if (timeString.matches("[0-9]+")){
+                    timeResult.getAndAdd(Long.parseLong(timeString) * multiplier);
+                }else {
+                    error.set(true);
+                }
+
+            });
+
+            if (error.get()){
                 
                 EmbedBuilder eb = new EmbedBuilder();
 
@@ -148,7 +159,7 @@ public class PollCommand {
                 return;
             }
 
-            long totalTime = Integer.parseInt(time) * multiplier * 1000L;
+            long totalTime = timeResult.get();
             if(totalTime > 7*24*60*60*1000L) totalTime = 7*24*60*60*1000L;
             endTime = System.currentTimeMillis() + totalTime + 1000L;
         }
