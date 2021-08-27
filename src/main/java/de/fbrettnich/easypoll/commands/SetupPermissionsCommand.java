@@ -83,7 +83,7 @@ public class SetupPermissionsCommand {
 
         EmbedBuilder eb = new EmbedBuilder();
 
-        eb.setTitle(gl.getTl("commands.setup.permissions.title"), "https://github.com/fbrettnich/easypoll-bot/wiki/Required-Bot-Permissions");
+        eb.setTitle(gl.getTl("commands.setup.permissions.title"), "https://docs.easypoll.me/permissions/required-bot-permissions");
         eb.setColor(Color.decode("#FDA50F"));
         eb.setDescription(
                 "**" + gl.getTl("commands.setup.permissions.server_permissions") + "**\n" +
