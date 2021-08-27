@@ -81,7 +81,7 @@
         "title": "Ungültige Zeitangabe!",
         "field": {
           "title": "Du hast eine ungültige Zeit eingegeben!",
-          "description": "Verwende am Ende einer Zahl s (Sekunde), m (Minute), h (Stunde), d (Tag) oder w (Woche) für Zeitangaben.\nBeispiele: 15m für 15 Minuten, 1h für 1 Stunde, 3d für 3 Tage\n\n*PS: Klicke auf den blauen `/timepoll` Befehl über dieser Nachricht, um eine Kopie des Befehls deiner Umfrage zu erhalten.*"
+          "description": "Verwende einen gültigen Zeitcode. Zeitcodes können aus mehreren Zeiten bestehen die mit s (Sekunde), m (Minute), h (Stunde), d (Tag) oder w (Woche) enden.\nBeispiele: 15m für 15 Minuten, 1h für 1 Stunde, 3d für 3 Tage, 3d5h2m für 3 Tage, 5 Minuten und 2 Minuten \n\n*PS: Klicke auf den blauen `/timepoll` Befehl über dieser Nachricht, um eine Kopie des Befehls deiner Umfrage zu erhalten.*"
         }
       },
       "unknown_emoji": {
