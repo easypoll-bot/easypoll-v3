@@ -3,7 +3,7 @@
         "name": "Chinese (simplified)",
         "name_local": "中文(简体)",
         "code": "zh-cn",
-        "flag_unicode": "🇨🇳",
+        "flag_unicode": "\uD83C\uDDE8\uD83C\uDDF3",
         "translators": "nado#2213 (678148708373626881)"
     },
     "polls": {
@@ -88,7 +88,7 @@
                 "title": "未知的表情符号 (Emoji)",
                 "field": {
                     "title": "你列出了一个未知的表情符号 (Emoji)!",
-                    "description": "请确保这是一个 **Discord官方** 的表情符号 (Emoji) 或是 **来自这个伺服器** 的表情符号 (Emoji)。 EasyPoll只能够在其加入的伺服器内使用该伺服器的表情符号 (Emoji)。\n\n*提示: 你可以点击在这条信息上面的蓝色 `/timepoll` 指令来获取一份用于投票的指令的拷贝文件*"
+                    "description": "请确保这是一个 **Discord官方** 的表情符号 (Emoji) 或是 **来自这个伺服器** 的表情符号 (Emoji)。 EasyPoll只能够在其加入的伺服器内使用该伺服器的表情符号 (Emoji)。\n\n*提示: 你可以点击在这条信息上面的蓝色 `%s` 指令来获取一份用于投票的指令的拷贝文件*"
                 }
             }
         },
