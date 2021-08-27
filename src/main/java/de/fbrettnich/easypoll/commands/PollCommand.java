@@ -168,7 +168,7 @@ public class PollCommand {
                 return;
             }
 
-            long totalTime = timeResult.get();
+            long totalTime = timeResult.get() * 1000L;
             if(totalTime > 7*24*60*60*1000L) totalTime = 7*24*60*60*1000L;
             endTime = System.currentTimeMillis() + totalTime + 1000L;
         }
