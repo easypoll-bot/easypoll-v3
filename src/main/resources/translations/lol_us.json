@@ -1,0 +1,146 @@
+{
+  "translation": {
+    "name": "The Kingdom of Cats",
+    "name_local": "LOLCAT",
+    "code": "en-us",
+    "flag_unicode": "\uD83D\uDC31",
+    "translators": "Newspicel#4242 (850045707917328474)"
+  },
+  "polls": {
+    "question": "Queshun",
+    "choices": "Choicez",
+    "yes": "Yez",
+    "no": "No",
+    "finalresult": "Final Result",
+    "alreadyended": "Poll already endd",
+    "ends": "Endz",
+    "multiplechoice": {
+      "allowed": "Multiple choicez allowd",
+      "disallowed": "Multiple choicez not allowd"
+    },
+    "noothervotes": "No othr votez allowd",
+    "pollid": "Poll ID: %s"
+  },
+  "commands": {
+    "closepoll": {
+      "success": {
+        "title": "Poll closd",
+        "description": "Teh poll wif ID **%s** wuz closed!\nNo moar votez r allowd an trh result iz nao displayd in da poll."
+      },
+      "failed": {
+        "title": "Poll can not be closd",
+        "description": "Teh poll wif ID **%s** iz already closd or doez not exist!"
+      }
+    },
+    "help": {
+      "title": "EasyPoll Halp",
+      "fields": {
+        "poll_commands": {
+          "title": ":bar_chart: Poll Commandz",
+          "commands": {
+            "poll": "Create normal poll without tiem limit",
+            "timepoll": "Create tiemd poll, set an end date til when teh poll will run",
+            "closepoll": "Close poll so dat no moar votez r countd"
+          }
+        },
+        "public_commands": {
+          "title": ":mag_right: Public commandz",
+          "commands": {
+            "help": "Show dis bot halp",
+            "vote": "Vote 4 da easypoll bot",
+            "invite": "Invite easypoll 2 ur own discord servr",
+            "info": "Show sum informashun bout easypoll",
+            "ping": "C teh ping ov teh bot 2 teh discord gateway"
+          }
+        }
+      }
+    },
+    "info": {
+      "title": "Easypoll informashun",
+      "fields": {
+        "creator": "Creator",
+        "repository": "Repository",
+        "version": "Vershun",
+        "library": "Library",
+        "servers": "Servers",
+        "users": "Users",
+        "shard": "Shard",
+        "uptime": "Uptime"
+      }
+    },
+    "invite": {
+      "title": "Invite EasyPoll",
+      "description": "U can invite %S her: [www.easypoll.me/invite](%s)"
+    },
+    "ping": {
+      "title": "Pong! :cat:",
+      "description": "`Ping 2 Gateway %s ms`"
+    },
+    "poll": {
+      "invalid_time": {
+        "title": "Invalid tiem specificashun!",
+        "field": {
+          "title": "U has enterd an invalid tiem!",
+          "description": "Use valid tiem code. Tiem codez can consist ov several tiems endin wif s (second), m (minit), h (hour), d (dai) or w (week).\nExamplez: 15m for 15 minutez, 1h for 1 hour, 3d for 3 days, 3d5h2m for 3 dais, 5 hours and 2 minutez\n\n*PS: u can click on teh blu `/timepoll` command aboov dis mesage 2 receiv copy ov teh usd command 4 ur poll*"
+        }
+      },
+      "unknown_emoji": {
+        "title": "Unknown Emoji",
+        "field": {
+          "title": "U has specifid an unknown emoji!",
+          "description": "Plz mak sure it be **offishul discord** emoji or an emoji **frum dis servr**. Easypoll can only use emojis frum servers wer easypoll iz 2.\n\n*PS: u can click on teh blu `/timepoll` command aboov dis mesage 2 receiv copy ov teh usd command 4 ur poll*"
+        }
+      }
+    },
+    "setup": {
+      "language": {
+        "change": {
+          "title": "Change Bot language",
+          "description": "Her u can change teh language ov teh bot on dis servr.\nPlz select new language:",
+          "selectionmenu": {
+            "placeholder": "Select language..."
+          }
+        },
+        "success": {
+          "title": "Bot language has been changd",
+          "description": "Teh bot language on dis servr wuz succesfully changd 2 **%s**.",
+          "footer": "Changd by %s"
+        }
+      },
+      "permissions": {
+        "title": "Requird bot permishun check",
+        "server_permissions": "Servr permishuns",
+        "channel_permissions": "Channel permishuns",
+        "permissions": {
+          "message_read": "Read Mesagez",
+          "message_write": "Send Mesagez",
+          "message_manage": "Manage Mesagez",
+          "message_embed_links": "Embd Linkz",
+          "message_history": "Read mesage history",
+          "message_add_reaction": "Add reacshuns",
+          "message_ext_emoji": "Use External Emojis"
+        }
+      }
+    },
+    "vote": {
+      "title": "Vote 4 EasyPoll",
+      "description": "We r happeh dat u wants 2 vote 4 r bot. U show us dat u liek teh bot an halp us 2 grow furthr.\n\nU can vote 4 us on teh followin pagez:"
+    }
+  },
+  "errors": {
+    "no_permissions": {
+      "member": {
+        "title": "U do not has premishuns 2 use dis command!",
+        "field": {
+          "title": "2 use dis command u ned at least wan ov them:"
+        }
+      },
+      "bot": {
+        "title": "I no has teh requird permishuns 2 perform all acshuns!",
+        "field": {
+          "title": "Plz mak sure dat I has teh followin permishuns:"
+        }
+      }
+    }
+  }
+}
