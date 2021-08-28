@@ -1,0 +1,146 @@
+{
+   "translation":{
+      "name":"Albanian",
+      "name_local":"Shqiptare",
+      "code":"sq-sq",
+      "flag_unicode":"🇦🇱",
+      "translators":"Newspicel#4242 (850045707917328474)"
+   },
+   "polls":{
+      "question":"Pyetje",
+      "choices":"Zgjedhje",
+      "yes":"Po.",
+      "no":"Jo.",
+      "finalresult":"Rezultati Përfundimtar",
+      "alreadyended":"Sondazhi tashmë përfundoi",
+      "ends":"Përfundon",
+      "multiplechoice":{
+         "allowed":"Zgjedhje të shumta lejohen",
+         "disallowed":"Zgjedhje të shumta nuk lejohen"
+      },
+      "noothervotes":"Nuk lejohen vota të tjera",
+      "pollid":"Id e sondazhit: %s"
+   },
+   "commands":{
+      "closepoll":{
+         "success":{
+            "title":"Sondazhi u mbyll",
+            "description":"Sondazhi ME ID * * % s* * u mbyll!<0\\>nuk lejohen më vota dhe rezultati tani shfaqet në sondazh."
+         },
+         "failed":{
+            "title":"Sondazhi nuk mund të mbyllet",
+            "description":"Sondazhi me ID **%s** është mbyllur tashmë ose nuk ekziston!"
+         }
+      },
+      "help":{
+         "title":"Ndihmë EasyPoll",
+         "fields":{
+            "poll_commands":{
+               "title":": bar_chart: Komandat E Sondazhit",
+               "commands":{
+                  "poll":"Krijoni një sondazh normal pa limit kohor",
+                  "timepoll":"Krijoni një sondazh në kohën e duhur, vendosni një datë fundi deri kur do të zhvillohet sondazhi",
+                  "closepoll":"Mbyll një sondazh në mënyrë që të mos numërohen më vota"
+               }
+            },
+            "public_commands":{
+               "title":": mag_right: Komandat Publike",
+               "commands":{
+                  "help":"Tregoni Këtë Ndihmë Bot",
+                  "vote":"Votoni Për Botin EasyPoll",
+                  "invite":"Ftojeni Easypoll në Serverin Tuaj Discord",
+                  "info":"Tregoni disa informacione rreth EasyPoll",
+                  "ping":"Shihni Pingun E Botit Në Portën E Përçarjes"
+               }
+            }
+         }
+      },
+      "info":{
+         "title":"Informacioni I EasyPoll",
+         "fields":{
+            "creator":"Krijuesi",
+            "repository":"Depo",
+            "version":"Versioni",
+            "library":"Bibliotekë",
+            "servers":"Serverë",
+            "users":"Përdoruesit",
+            "shard":"Copë e thyer",
+            "uptime":"Uptime"
+         }
+      },
+      "invite":{
+         "title":"Fto EasyPoll",
+         "description":"Ju mund të ftoni %s këtu: [www.easypoll.me/invite] (%s)"
+      },
+      "ping":{
+         "title":"Pong! : ping_pong:",
+         "description":"'Ping Për Portë % s ms`"
+      },
+      "poll":{
+         "invalid_time":{
+            "title":"Specifikimi i kohës së pavlefshme!",
+            "field":{
+               "title":"Ju keni hyrë në një kohë të pavlefshme!",
+               "description":"Përdorni një kod të vlefshëm kohor. Kodet kohore mund të përbëhen nga disa herë duke përfunduar me s (sekondë), m (minutë), h (orë), d (ditë) ose w (javë).<0\\ > Shembuj: 15m për 15 minuta, 1h për 1 orë, 3d për 3 ditë, 3D5H2M për 3 ditë, 5 orë dhe 2 minuta<0\\><0\\>*PS: MUND të klikoni në komandën blu '/ timepoll ' mbi këtë mesazh për të marrë një kopje të komandës së përdorur për sondazhin tuaj*"
+            }
+         },
+         "unknown_emoji":{
+            "title":"Emoji I Panjohur",
+            "field":{
+               "title":"Ju keni specifikuar një emoji të panjohur!",
+               "description":"Ju lutemi sigurohuni që është një** Zyrtar Discord * * emoji ose një emoji * * nga ky server**. EasyPoll mund të përdorë emojis vetëm nga serverat ku Është Edhe EasyPoll.<0\\><0\\> * PS: ju mund të klikoni në komandën blu `%s` mbi këtë mesazh për të marrë një kopje të komandës së përdorur për sondazhin tuaj*"
+            }
+         }
+      },
+      "setup":{
+         "language":{
+            "change":{
+               "title":"Ndrysho Gjuhën Bot",
+               "description":"Këtu mund të ndryshoni gjuhën E Botit në këtë server.<0\\>ju Lutemi zgjidhni një gjuhë të re:",
+               "selectionmenu":{
+                  "placeholder":"Zgjidhni një gjuhë.."
+               }
+            },
+            "success":{
+               "title":"Gjuha Bot është ndryshuar",
+               "description":"Gjuha Bot Në këtë server u ndryshua me sukses në ** % s**.",
+               "footer":"Ndryshuar nga %s"
+            }
+         },
+         "permissions":{
+            "title":"Kontrolli I Kërkuar I Lejes Bot",
+            "server_permissions":"Lejet E Serverit",
+            "channel_permissions":"Lejet E Kanalit",
+            "permissions":{
+               "message_read":"Lexoni Mesazhet",
+               "message_write":"Dërgoni Mesazhe",
+               "message_manage":"Menaxhoni Mesazhet",
+               "message_embed_links":"Lidhjet Embed",
+               "message_history":"Lexoni historinë e mesazheve",
+               "message_add_reaction":"Shtoni Reaksione",
+               "message_ext_emoji":"Përdorni Emojis Të Jashtëm"
+            }
+         }
+      },
+      "vote":{
+         "title":"Votoni Për EasyPoll",
+         "description":"Ne jemi të lumtur që ju doni të votoni për bot tonë. Ju na tregoni se ju pëlqen bot dhe na ndihmoni të rritemi më tej.<0\\><0\\>ju mund të votoni për ne në faqet e mëposhtme:"
+      }
+   },
+   "errors":{
+      "no_permissions":{
+         "member":{
+            "title":"Ju nuk keni premisat për të përdorur këtë komandë!",
+            "field":{
+               "title":"Për të përdorur këtë komandë ju duhet të paktën një prej tyre:"
+            }
+         },
+         "bot":{
+            "title":"Unë nuk kam lejet e kërkuara për të kryer të gjitha veprimet!",
+            "field":{
+               "title":"Ju lutemi sigurohuni që kam lejet e mëposhtme:"
+            }
+         }
+      }
+   }
+}
