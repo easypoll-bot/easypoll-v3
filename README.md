@@ -3,7 +3,7 @@
 [license]: https://github.com/fbrettnich/easypoll-bot/blob/main/LICENSE
 [docs]: https://docs.easypoll.me/
 [faq]: https://docs.easypoll.me/faq
-[troubleshooting]: https://docs.easypoll.me/
+[troubleshooting]: https://docs.easypoll.me/troubleshooting
 [guilds-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Servers&query=guilds&url=https%3A%2F%2Feasypoll.me%2Fapi.php
 [users-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Users&query=users&url=https%3A%2F%2Feasypoll.me%2Fapi.php
 [discord-shield]: https://discord.com/api/guilds/552156123734474762/widget.png
