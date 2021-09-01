@@ -23,6 +23,7 @@ import de.fbrettnich.easypoll.language.GuildLanguage;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
+import net.dv8tion.jda.api.interactions.components.Button;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
@@ -55,8 +56,13 @@ public class HelpCommand {
         );
 
         event.replyEmbeds(
-                eb.build()
-        ).queue(null, Sentry::captureException);
+                        eb.build()
+                )
+                .addActionRow(
+                        Button.link(Constants.DOCUMENTATION_URL, gl.getTl("commands.help.buttons.documentation")),
+                        Button.link(Constants.DISCORD_DIRECT_URL, gl.getTl("commands.help.buttons.supportdiscord"))
+                )
+                .queue(null, Sentry::captureException);
 
     }
 }

@@ -8,6 +8,6 @@ RUN mvn -f pom.xml clean package
 
 FROM openjdk:11-jre-slim
 WORKDIR /app
-COPY --from=build /build/target/EasyPoll-3.0-jar-with-dependencies.jar /app/EasyPoll.jar
+COPY --from=build /build/target/EasyPoll.jar /app/EasyPoll.jar
 
 ENTRYPOINT ["java","-jar","/app/EasyPoll.jar"]

@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+  app:
+    container_name: easypoll
+    image: 'ghcr.io/fbrettnich/easypoll-bot:main'
+    restart: on-failure
+    environment:
+      PRODUCTION: 'true'
+      BOT_TOKEN: ''
+      SHARDS_TOTAL: '2'
+      SHARDS_MIN: '0'
+      SHARDS_MAX: '1'
+      MYSQL_HOST: '127.0.0.1'
+      MYSQL_PORT: '3306'
+      MYSQL_DATABASE: 'easypoll'
+      MYSQL_USER: 'easypoll'
+      MYSQL_PASSWORD: ''
+      MONGODB_CLIENTURI: 'mongodb://localhost:27017/test?retryWrites=true'
+      MONGODB_DATABASE: 'DiscordBot'
+      SENTRY_URL: ''
+      BOTLIST_TOPGG: ''
+      BOTLIST_DISCORDBOTLISTCOM: ''
+      BOTLIST_BOTSONDISCORDXYZ: ''
+      BOTLIST_DISCORDBOTSGG: ''

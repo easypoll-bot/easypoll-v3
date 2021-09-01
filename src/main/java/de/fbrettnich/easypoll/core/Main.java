@@ -20,7 +20,6 @@ package de.fbrettnich.easypoll.core;
 
 import de.fbrettnich.easypoll.database.MongoDB;
 import de.fbrettnich.easypoll.database.MySQL;
-import de.fbrettnich.easypoll.files.ConfigFile;
 import de.fbrettnich.easypoll.language.TranslationManager;
 import de.fbrettnich.easypoll.listener.*;
 import de.fbrettnich.easypoll.timertasks.BotListStats;
@@ -52,7 +51,6 @@ import java.util.TimerTask;
 
 public class Main {
 
-    private static ConfigFile config;
     private static MongoDB mongodb;
     private static MySQL mysql;
     private static ShardManager shardManager;
@@ -68,24 +66,29 @@ public class Main {
      */
     public static void main(String[] args) throws LoginException {
 
-        config = new ConfigFile();
-        Constants.DEVMODE = Boolean.parseBoolean(getConfig().getString("devmode"));
+        Constants.DEVMODE = !Boolean.parseBoolean(System.getenv("PRODUCTION"));
 
         Sentry.init(options -> {
-            options.setDsn(getConfig().getString("sentry.url"));
+            options.setDsn(System.getenv("SENTRY_URL"));
             options.setEnvironment(Constants.DEVMODE ? "development" : "production");
         });
 
         translationManager = new TranslationManager();
         translationManager.loadTranslations("de-at", "de-de", "dk-dk", "en-us", "fr-fr", "it-it", "nl-nl", "pt-br", "zh-cn", "zh-tw");
 
-        mongodb = new MongoDB(Constants.DEVMODE ? getConfig().getString("mongodb.clienturi_dev") : getConfig().getString("mongodb.clienturi"), getConfig().getString("mongodb.database"));
-        mysql = new MySQL(getConfig().getString("mysql.host"), getConfig().getString("mysql.port"), getConfig().getString("mysql.database"), getConfig().getString("mysql.username"), getConfig().getString("mysql.password"));
+        mongodb = new MongoDB(System.getenv("MONGODB_CLIENTURI"), System.getenv("MONGODB_DATABASE"));
+        mysql = new MySQL(System.getenv("MYSQL_HOST"), System.getenv("MYSQL_PORT"), System.getenv("MYSQL_DATABASE"), System.getenv("MYSQL_USER"), System.getenv("MYSQL_PASSWORD"));
 
-        DefaultShardManagerBuilder defaultShardManagerBuilder = DefaultShardManagerBuilder.createDefault(Constants.DEVMODE ? getConfig().getString("bot.token_dev") : getConfig().getString("bot.token"))
+        DefaultShardManagerBuilder defaultShardManagerBuilder = DefaultShardManagerBuilder.createDefault(System.getenv("BOT_TOKEN"))
 
                 .setAutoReconnect(true)
-                .setShardsTotal(-1)
+                .setShardsTotal(
+                        Integer.parseInt(System.getenv("SHARDS_TOTAL"))
+                )
+                .setShards(
+                        Integer.parseInt(System.getenv("SHARDS_MIN")),
+                        Integer.parseInt(System.getenv("SHARDS_MAX"))
+                )
                 .setChunkingFilter(ChunkingFilter.NONE)
                 .setMemberCachePolicy(MemberCachePolicy.NONE)
                 .disableCache(CacheFlag.EMOTE, CacheFlag.ACTIVITY, CacheFlag.VOICE_STATE, CacheFlag.CLIENT_STATUS, CacheFlag.ROLE_TAGS)
@@ -153,7 +156,7 @@ public class Main {
                     try {
                         int monthlypoints = Unirest.get("https://top.gg/api/bots/" + Constants.BOT_ID)
                                 .header("Content-Type", "application/json")
-                                .header("Authorization", Main.getConfig().getString("botlist.topgg.token"))
+                                .header("Authorization", System.getenv("BOTLIST_TOPGG"))
                                 .asJson()
                                 .getBody()
                                 .getObject()
@@ -308,15 +311,6 @@ public class Main {
                                 )
                 )
                 .queue(null, Sentry::captureException);
-    }
-
-    /**
-     * Get the config file
-     *
-     * @return config file
-     */
-    public static ConfigFile getConfig() {
-        return config;
     }
 
     /**

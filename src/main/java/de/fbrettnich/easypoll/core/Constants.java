@@ -31,7 +31,9 @@ public class Constants {
     public static final String BOT_OWNER_MENTION = "<@231091710195662848>";
 
     public static final String WEBSITE_URL = "https://easypoll.me/?utm_source=discordbot&utm_medium=website&utm_campaign=easypoll";
+    public static final String DOCUMENTATION_URL = "https://docs.easypoll.me/";
     public static final String INVITE_URL = "https://discord.com/oauth2/authorize?client_id=437618149505105920&permissions=355392&redirect_uri=https%3A%2F%2Feasypoll.me%2Fdiscord&response_type=code&scope=bot%20applications.commands";
+    public static final String DISCORD_DIRECT_URL = "https://discord.gg/JnuXNCv";
     public static final String VOTE_URL = "https://easypoll.me/vote";
 
     public static final Color COLOR_POLL_UPDOWN = new Color(0, 255, 255);

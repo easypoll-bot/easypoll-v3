@@ -18,6 +18,7 @@
 
 package de.fbrettnich.easypoll.language;
 
+import de.fbrettnich.easypoll.core.Constants;
 import io.sentry.Sentry;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -116,7 +117,7 @@ public class TranslationManager {
         if (translations.containsKey(lang + ":" + key)) {
             return translations.get(lang + ":" + key);
         }else {
-            return translations.getOrDefault("en:" + key, "[Empty translation " + key + "]");
+            return translations.getOrDefault(Constants.DEFAULT_LANGUAGE + ":" + key, "[Empty translation " + key + "]");
         }
     }
 

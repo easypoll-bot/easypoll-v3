@@ -3,7 +3,7 @@
 [license]: https://github.com/fbrettnich/easypoll-bot/blob/main/LICENSE
 [docs]: https://docs.easypoll.me/
 [faq]: https://docs.easypoll.me/faq
-[troubleshooting]: https://docs.easypoll.me/
+[troubleshooting]: https://docs.easypoll.me/troubleshooting
 [guilds-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Servers&query=guilds&url=https%3A%2F%2Feasypoll.me%2Fapi.php
 [users-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Users&query=users&url=https%3A%2F%2Feasypoll.me%2Fapi.php
 [discord-shield]: https://discord.com/api/guilds/552156123734474762/widget.png
@@ -41,7 +41,7 @@ You can also find help on how to invite the bot in our Docs: [Add Bot to Server]
 | /closepoll         | Close a poll so that no more votes are counted and display the final result                                             |
 | /easypoll          | Get a list and help with all commands                                                                                   |
 | /vote              | Vote for the EasyPoll Bot                                                                                               |
-| /invite            | Invite EasyPoll to your own Discord Serve                                                                               |
+| /invite            | Invite EasyPoll to your own Discord Server                                                                               |
 | /info              | Show some information about EasyPoll                                                                                    |
 | /ping              | See the Ping of the Bot to the Discord Gateway                                                                          |
 | /setup language    | Change the Bot language of the current Guild                                                                            |

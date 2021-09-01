@@ -23,6 +23,7 @@ import de.fbrettnich.easypoll.language.GuildLanguage;
 import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
+import net.dv8tion.jda.api.interactions.components.Button;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
@@ -38,8 +39,12 @@ public class InviteCommand {
         eb.setDescription(gl.getTl("commands.invite.description", event.getJDA().getSelfUser().getAsMention(), Constants.INVITE_URL));
 
         event.replyEmbeds(
-                eb.build()
-        ).queue(null, Sentry::captureException);
+                        eb.build()
+                )
+                .addActionRow(
+                        Button.link(Constants.INVITE_URL, gl.getTl("commands.invite.buttons.invitebot"))
+                )
+                .queue(null, Sentry::captureException);
 
     }
 }

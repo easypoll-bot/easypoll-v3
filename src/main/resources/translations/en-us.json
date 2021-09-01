@@ -53,6 +53,10 @@
             "ping": "See the Ping of the Bot to the Discord Gateway"
           }
         }
+      },
+      "buttons": {
+        "documentation": "Documentation",
+        "supportdiscord": "Support Discord"
       }
     },
     "info": {
@@ -66,11 +70,19 @@
         "users": "Users",
         "shard": "Shard",
         "uptime": "Uptime"
+      },
+      "buttons": {
+        "website": "Website",
+        "documentation": "Documentation",
+        "repository": "Repository"
       }
     },
     "invite": {
       "title": "Invite EasyPoll",
-      "description": "You can invite %s here: [www.easypoll.me/invite](%s)"
+      "description": "You can invite %s here: [www.easypoll.me/invite](%s)",
+      "buttons": {
+        "invitebot": "Add to your own server"
+      }
     },
     "ping": {
       "title": "Pong! :ping_pong:",
