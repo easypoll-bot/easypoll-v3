@@ -2,3 +2,6 @@
 src/test/
 target/
 config.properties
+docker-compose.override.yml
+docker-compose.production.yml
+docker-compose.development.yml
