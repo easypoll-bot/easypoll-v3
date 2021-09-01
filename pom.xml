@@ -31,7 +31,7 @@
         <dependency>
             <groupId>com.github.DV8FromTheWorld</groupId>
             <artifactId>JDA</artifactId>
-            <version>d53cac9ab944e771f49f5f176713cdde35d5e979</version>
+            <version>4853f1b90eb40660202cea89c7caa876bc0e1f84</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
@@ -71,7 +71,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>1.4</version>
+                <version>3.2.4</version>
                 <executions>
                     <execution>
                         <phase>package</phase>

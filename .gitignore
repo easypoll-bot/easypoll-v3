@@ -1,6 +1,7 @@
 .idea/
 src/test/
 target/
+dependency-reduced-pom.xml
 config.properties
 docker-compose.override.yml
 docker-compose.production.yml
