@@ -46,7 +46,7 @@ public class BotListStats extends TimerTask {
             try {
                 Unirest.post("https://top.gg/api/bots/" + Constants.BOT_ID + "/stats")
                         .header("Content-Type", "application/json")
-                        .header("Authorization", Main.getConfig().getString("botlist.topgg.token"))
+                        .header("Authorization", System.getenv("BOTLIST_TOPGG"))
                         .body(obj.toString())
                         .asJson();
             } catch (UnirestException e) {
@@ -60,7 +60,7 @@ public class BotListStats extends TimerTask {
             try {
                 Unirest.post("https://discordbotlist.com/api/v1/bots/" + Constants.BOT_ID + "/stats")
                         .header("Content-Type", "application/json")
-                        .header("Authorization", Main.getConfig().getString("botlist.discordbotlist.token"))
+                        .header("Authorization", System.getenv("BOTLIST_DISCORDBOTLISTCOM"))
                         .body(obj.toString())
                         .asJson();
             } catch (UnirestException e) {
@@ -74,7 +74,7 @@ public class BotListStats extends TimerTask {
             try {
                 Unirest.post("https://bots.ondiscord.xyz/bot-api/bots/" + Constants.BOT_ID + "/guilds")
                         .header("Content-Type", "application/json")
-                        .header("Authorization", Main.getConfig().getString("botlist.botsondiscordxyz.token"))
+                        .header("Authorization", System.getenv("BOTLIST_BOTSONDISCORDXYZ"))
                         .body(obj.toString())
                         .asJson();
             } catch (UnirestException e) {
@@ -88,7 +88,7 @@ public class BotListStats extends TimerTask {
             try {
                 Unirest.post("https://discord.bots.gg/api/v1/bots/" + Constants.BOT_ID + "/stats")
                         .header("Content-Type", "application/json")
-                        .header("Authorization", Main.getConfig().getString("botlist.discordbotsgg.token"))
+                        .header("Authorization", System.getenv("BOTLIST_DISCORDBOTSGG"))
                         .body(obj.toString())
                         .asJson();
             } catch (UnirestException e) {
