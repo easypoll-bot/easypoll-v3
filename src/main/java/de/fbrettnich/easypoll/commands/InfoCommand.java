@@ -26,6 +26,7 @@ import io.sentry.Sentry;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
+import net.dv8tion.jda.api.interactions.components.Button;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
@@ -53,8 +54,14 @@ public class InfoCommand {
         eb.addField(gl.getTl("commands.info.fields.uptime"), getUptime(), false);
 
         event.replyEmbeds(
-                eb.build()
-        ).queue(null, Sentry::captureException);
+                        eb.build()
+                )
+                .addActionRow(
+                        Button.link(Constants.WEBSITE_URL, gl.getTl("commands.info.buttons.website")),
+                        Button.link(Constants.DOCUMENTATION_URL, gl.getTl("commands.info.buttons.documentation")),
+                        Button.link("https://github.com/fbrettnich/easypoll-bot", gl.getTl("commands.info.buttons.repository"))
+                )
+                .queue(null, Sentry::captureException);
 
     }
 
