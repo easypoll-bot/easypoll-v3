@@ -7,6 +7,9 @@ services:
     environment:
       PRODUCTION: 'true'
       BOT_TOKEN: ''
+      SHARDS_TOTAL: '2'
+      SHARDS_MIN: '0'
+      SHARDS_MAX: '2'
       MYSQL_HOST: '127.0.0.1'
       MYSQL_PORT: '3306'
       MYSQL_DATABASE: 'easypoll'

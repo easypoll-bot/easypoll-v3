@@ -82,7 +82,13 @@ public class Main {
         DefaultShardManagerBuilder defaultShardManagerBuilder = DefaultShardManagerBuilder.createDefault(System.getenv("BOT_TOKEN"))
 
                 .setAutoReconnect(true)
-                .setShardsTotal(-1)
+                .setShardsTotal(
+                        Integer.parseInt(System.getenv("SHARDS_TOTAL"))
+                )
+                .setShards(
+                        Integer.parseInt(System.getenv("SHARDS_MIN")),
+                        Integer.parseInt(System.getenv("SHARDS_MAX"))
+                )
                 .setChunkingFilter(ChunkingFilter.NONE)
                 .setMemberCachePolicy(MemberCachePolicy.NONE)
                 .disableCache(CacheFlag.EMOTE, CacheFlag.ACTIVITY, CacheFlag.VOICE_STATE, CacheFlag.CLIENT_STATUS, CacheFlag.ROLE_TAGS)
