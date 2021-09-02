@@ -1,7 +1,6 @@
 version: '3.3'
 services:
   app:
-    network_mode: host
     container_name: easypoll
     image: 'ghcr.io/fbrettnich/easypoll-bot:main'
     restart: unless-stopped
@@ -16,10 +15,21 @@ services:
       MYSQL_DATABASE: 'easypoll'
       MYSQL_USER: 'easypoll'
       MYSQL_PASSWORD: ''
-      MONGODB_CLIENTURI: 'mongodb://localhost:27017/test?retryWrites=true'
+      MONGODB_CLIENTURI: 'mongodb://root:mysuperpassword@mongodb:27017'
       MONGODB_DATABASE: 'DiscordBot'
       SENTRY_URL: ''
       BOTLIST_TOPGG: ''
       BOTLIST_DISCORDBOTLISTCOM: ''
       BOTLIST_BOTSONDISCORDXYZ: ''
       BOTLIST_DISCORDBOTSGG: ''
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'root'
+      MONGO_INITDB_ROOT_PASSWORD: 'mysuperpassword'
+    volumes:
+      - /opt/volumes/easypoll/mongodb:/data/db
+    ports:
+      - 27017:27017
