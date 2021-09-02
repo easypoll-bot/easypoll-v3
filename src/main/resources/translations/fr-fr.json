@@ -8,7 +8,7 @@
   },
   "polls": {
     "question": "Question",
-    "choices": "Coix",
+    "choices": "Choix",
     "yes": "Oui",
     "no": "Non",
     "finalresult": "Résultat final",
