@@ -110,16 +110,7 @@
             "permissions": {
                 "title": "請求機器人權限檢查",
                 "server_permissions": "伺服器權限",
-                "channel_permissions": "頻道權限",
-                "permissions": {
-                    "message_read": "閱讀信息",
-                    "message_write": "發送信息",
-                    "message_manage": "管理訊息",
-                    "message_embed_links": "嵌入連接",
-                    "message_history": "閱讀歷史訊息",
-                    "message_add_reaction": "添加反應",
-                    "message_ext_emoji": "使用外部表情符號 (Emoji)"
-                }
+                "channel_permissions": "頻道權限"
             }
         },
         "vote": {
@@ -142,5 +133,14 @@
                 }
             }
         }
+    },
+    "permissions": {
+        "message_read": "閱讀信息",
+        "message_write": "發送信息",
+        "message_manage": "管理訊息",
+        "message_embed_links": "嵌入連接",
+        "message_history": "閱讀歷史訊息",
+        "message_add_reaction": "添加反應",
+        "message_ext_emoji": "使用外部表情符號 (Emoji)"
     }
 }

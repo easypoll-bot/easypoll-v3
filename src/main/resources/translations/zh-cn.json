@@ -110,16 +110,7 @@
             "permissions": {
                 "title": "请求机器人权限检查",
                 "server_permissions": "伺服器权限",
-                "channel_permissions": "频道权限",
-                "permissions": {
-                    "message_read": "阅读信息",
-                    "message_write": "发送信息",
-                    "message_manage": "管理讯息",
-                    "message_embed_links": "嵌入连结",
-                    "message_history": "阅读历史讯息",
-                    "message_add_reaction": "添加反应",
-                    "message_ext_emoji": "使用外部表情符号 (Emoji)"
-                }
+                "channel_permissions": "频道权限"
             }
         },
         "vote": {
@@ -142,5 +133,14 @@
                 }
             }
         }
+    },
+    "permissions": {
+        "message_read": "阅读信息",
+        "message_write": "发送信息",
+        "message_manage": "管理讯息",
+        "message_embed_links": "嵌入连结",
+        "message_history": "阅读历史讯息",
+        "message_add_reaction": "添加反应",
+        "message_ext_emoji": "使用外部表情符号 (Emoji)"
     }
 }

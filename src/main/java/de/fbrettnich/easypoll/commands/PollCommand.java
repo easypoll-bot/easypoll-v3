@@ -34,6 +34,7 @@ import net.dv8tion.jda.api.exceptions.ErrorResponseException;
 import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
+import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.requests.ErrorResponse;
 
 import javax.annotation.Nonnull;
@@ -220,14 +221,24 @@ public class PollCommand {
                 EmbedBuilder eb = new EmbedBuilder();
 
                 eb.setColor(Color.RED);
-                eb.setTitle(gl.getTl("errors.no_permissions.bot.title"));
+                eb.setTitle(gl.getTl("errors.no_permissions.bot.title"), Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/");
                 eb.addField(gl.getTl("errors.no_permissions.bot.field.title"),
-                        "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_EMBED_LINKS, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
+                        gl.getTl("permissions.message_read") + ", " +
+                                gl.getTl("permissions.message_write") + ", " +
+                                gl.getTl("permissions.message_manage") + ", " +
+                                gl.getTl("permissions.message_embed_links") + ", " +
+                                gl.getTl("permissions.message_history") + ", " +
+                                gl.getTl("permissions.message_add_reaction") + ", " +
+                                gl.getTl("permissions.message_ext_emoji"),
                         true);
 
                 hook.sendMessageEmbeds(
-                        eb.build()
-                ).queue(null, Sentry::captureException);
+                                eb.build()
+                        )
+                        .addActionRow(
+                                Button.link(Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/", gl.getTl("buttons.documentation"))
+                        )
+                        .queue(null, Sentry::captureException);
             }
 
         } else {
@@ -332,14 +343,24 @@ public class PollCommand {
                         EmbedBuilder eb = new EmbedBuilder();
 
                         eb.setColor(Color.RED);
-                        eb.setTitle(gl.getTl("errors.no_permissions.bot.title"));
+                        eb.setTitle(gl.getTl("errors.no_permissions.bot.title"), Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/");
                         eb.addField(gl.getTl("errors.no_permissions.bot.field.title"),
-                                "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_EMBED_LINKS, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
+                                gl.getTl("permissions.message_read") + ", " +
+                                        gl.getTl("permissions.message_write") + ", " +
+                                        gl.getTl("permissions.message_manage") + ", " +
+                                        gl.getTl("permissions.message_embed_links") + ", " +
+                                        gl.getTl("permissions.message_history") + ", " +
+                                        gl.getTl("permissions.message_add_reaction") + ", " +
+                                        gl.getTl("permissions.message_ext_emoji"),
                                 true);
 
                         hook.sendMessageEmbeds(
-                                eb.build()
-                        ).queue(null, Sentry::captureException);
+                                        eb.build()
+                                )
+                                .addActionRow(
+                                        Button.link(Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/", gl.getTl("buttons.documentation"))
+                                )
+                                .queue(null, Sentry::captureException);
 
                     }else{
                         Sentry.captureException(e);
@@ -349,14 +370,24 @@ public class PollCommand {
                     EmbedBuilder eb = new EmbedBuilder();
 
                     eb.setColor(Color.RED);
-                    eb.setTitle(gl.getTl("errors.no_permissions.bot.title"));
+                    eb.setTitle(gl.getTl("errors.no_permissions.bot.title"), Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/");
                     eb.addField(gl.getTl("errors.no_permissions.bot.field.title"),
-                            "MESSAGE_WRITE, MESSAGE_MANAGE, MESSAGE_EMBED_LINKS, MESSAGE_HISTORY, MESSAGE_ADD_REACTION, MESSAGE_EXT_EMOJI",
+                            gl.getTl("permissions.message_read") + ", " +
+                                    gl.getTl("permissions.message_write") + ", " +
+                                    gl.getTl("permissions.message_manage") + ", " +
+                                    gl.getTl("permissions.message_embed_links") + ", " +
+                                    gl.getTl("permissions.message_history") + ", " +
+                                    gl.getTl("permissions.message_add_reaction") + ", " +
+                                    gl.getTl("permissions.message_ext_emoji"),
                             true);
 
                     hook.sendMessageEmbeds(
-                            eb.build()
-                    ).queue(null, Sentry::captureException);
+                                    eb.build()
+                            )
+                            .addActionRow(
+                                    Button.link(Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/", gl.getTl("buttons.documentation"))
+                            )
+                            .queue(null, Sentry::captureException);
 
                     break;
                 }

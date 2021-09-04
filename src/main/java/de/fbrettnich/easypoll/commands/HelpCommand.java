@@ -59,8 +59,8 @@ public class HelpCommand {
                         eb.build()
                 )
                 .addActionRow(
-                        Button.link(Constants.DOCUMENTATION_URL, gl.getTl("commands.help.buttons.documentation")),
-                        Button.link(Constants.DISCORD_DIRECT_URL, gl.getTl("commands.help.buttons.supportdiscord"))
+                        Button.link(Constants.DOCUMENTATION_URL, gl.getTl("buttons.documentation")),
+                        Button.link(Constants.DISCORD_DIRECT_URL, gl.getTl("buttons.supportdiscord"))
                 )
                 .queue(null, Sentry::captureException);
 

@@ -61,7 +61,7 @@ public class SetupLanguageCommand {
             EmbedBuilder eb = new EmbedBuilder();
 
             eb.setColor(Color.RED);
-            eb.setTitle(gl.getTl("errors.no_permissions.member.title"), Constants.WEBSITE_URL);
+            eb.setTitle(gl.getTl("errors.no_permissions.member.title"), Constants.DOCUMENTATION_URL + "permissions/permission-system");
             eb.addField(
                     gl.getTl("errors.no_permissions.member.field.title"),
                     "\u2022 ADMINISTRATOR *(Permission)*\n" +
