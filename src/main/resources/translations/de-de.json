@@ -53,10 +53,6 @@
             "ping": "Sehe den Ping des Bots zum Discord Gateway"
           }
         }
-      },
-      "buttons": {
-        "documentation": "Dokumentation",
-        "supportdiscord": "Support Discord"
       }
     },
     "info": {
@@ -70,19 +66,11 @@
         "users": "User",
         "shard": "Shard",
         "uptime": "Uptime"
-      },
-      "buttons": {
-        "website": "Webseite",
-        "documentation": "Dokumentation",
-        "repository": "Repository"
       }
     },
     "invite": {
       "title": "Einladen von EasyPoll",
-      "description": "Du kannst %s hier einladen: [www.easypoll.me/invite](%s)",
-      "buttons": {
-        "invitebot": "Zu eigenem Server hinzufügen"
-      }
+      "description": "Du kannst %s hier einladen: [www.easypoll.me/invite](%s)"
     },
     "ping": {
       "title": "Pong! :ping_pong:",
@@ -122,16 +110,7 @@
       "permissions": {
         "title": "Prüfen der erforderlichen Bot Permissions",
         "server_permissions": "Server Rechte",
-        "channel_permissions": "Channel Rechte",
-        "permissions": {
-          "message_read": "Nachrichten lesen",
-          "message_write": "Nachrichten senden",
-          "message_manage": "Nachrichten verwalten",
-          "message_embed_links": "Links einbetten",
-          "message_history": "Nachrichtenverlauf anzeigen",
-          "message_add_reaction": "Reaktionen hinzufügen",
-          "message_ext_emoji": "Externe Emojis verwenden"
-        }
+        "channel_permissions": "Channel Rechte"
       }
     },
     "vote": {
@@ -154,5 +133,21 @@
         }
       }
     }
+  },
+  "permissions": {
+    "message_read": "Nachrichten lesen",
+    "message_write": "Nachrichten senden",
+    "message_manage": "Nachrichten verwalten",
+    "message_embed_links": "Links einbetten",
+    "message_history": "Nachrichtenverlauf anzeigen",
+    "message_add_reaction": "Reaktionen hinzufügen",
+    "message_ext_emoji": "Externe Emojis verwenden"
+  },
+  "buttons": {
+    "website": "Webseite",
+    "documentation": "Dokumentation",
+    "repository": "Repository",
+    "supportdiscord": "Support Discord",
+    "invitebot": "Zu eigenem Server hinzufügen"
   }
 }

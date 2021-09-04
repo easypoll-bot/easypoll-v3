@@ -53,10 +53,6 @@
             "ping": "See the Ping of the Bot to the Discord Gateway"
           }
         }
-      },
-      "buttons": {
-        "documentation": "Documentation",
-        "supportdiscord": "Support Discord"
       }
     },
     "info": {
@@ -70,19 +66,11 @@
         "users": "Users",
         "shard": "Shard",
         "uptime": "Uptime"
-      },
-      "buttons": {
-        "website": "Website",
-        "documentation": "Documentation",
-        "repository": "Repository"
       }
     },
     "invite": {
       "title": "Invite EasyPoll",
       "description": "You can invite %s here: [www.easypoll.me/invite](%s)",
-      "buttons": {
-        "invitebot": "Add to your own server"
-      }
     },
     "ping": {
       "title": "Pong! :ping_pong:",
@@ -122,16 +110,7 @@
       "permissions": {
         "title": "Required Bot Permission Check",
         "server_permissions": "Server Permissions",
-        "channel_permissions": "Channel Permissions",
-        "permissions": {
-          "message_read": "Read Messages",
-          "message_write": "Send Messages",
-          "message_manage": "Manage Messages",
-          "message_embed_links": "Embed Links",
-          "message_history": "Read message History",
-          "message_add_reaction": "Add Reactions",
-          "message_ext_emoji": "Use External Emojis"
-        }
+        "channel_permissions": "Channel Permissions"
       }
     },
     "vote": {
@@ -154,5 +133,21 @@
         }
       }
     }
+  },
+  "permissions": {
+    "message_read": "Read Messages",
+    "message_write": "Send Messages",
+    "message_manage": "Manage Messages",
+    "message_embed_links": "Embed Links",
+    "message_history": "Read message History",
+    "message_add_reaction": "Add Reactions",
+    "message_ext_emoji": "Use External Emojis"
+  },
+  "buttons": {
+    "website": "Website",
+    "documentation": "Documentation",
+    "repository": "Repository",
+    "supportdiscord": "Support Discord",
+    "invitebot": "Add to your own server"
   }
 }

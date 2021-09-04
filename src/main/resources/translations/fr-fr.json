@@ -110,16 +110,7 @@
       "permissions": {
         "title": "Verfier l'autorisations",
         "server_permissions": "L'autorisations serveur",
-        "channel_permissions": "L'autorisations channel",
-        "permissions": {
-          "message_read": "Lire des messages",
-          "message_write": "Envoyer des messages",
-          "message_manage": "Adminstrer des messages",
-          "message_embed_links": "Incorper des liens",
-          "message_history": "Voir histoire des messages",
-          "message_add_reaction": "Ajouter des reactions",
-          "message_ext_emoji": "Utiliser des emjois externes"
-        }
+        "channel_permissions": "L'autorisations channel"
       }
     },
     "vote": {
@@ -142,5 +133,14 @@
         }
       }
     }
+  },
+  "permissions": {
+    "message_read": "Lire des messages",
+    "message_write": "Envoyer des messages",
+    "message_manage": "Adminstrer des messages",
+    "message_embed_links": "Incorper des liens",
+    "message_history": "Voir histoire des messages",
+    "message_add_reaction": "Ajouter des reactions",
+    "message_ext_emoji": "Utiliser des emjois externes"
   }
 }

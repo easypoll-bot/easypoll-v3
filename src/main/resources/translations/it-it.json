@@ -110,16 +110,7 @@
             "permissions": {
                 "title": "Controllo Permessi Bot Richiesti",
                 "server_permissions": "Permessi Server",
-                "channel_permissions": "Permessi Canale",
-                "permissions": {
-                    "message_read": "Leggere Messaggi",
-                    "message_write": "Inviare Messaggi",
-                    "message_manage": "Gestire Messaggi",
-                    "message_embed_links": "Collegamenti Embed",
-                    "message_history": "Leggere Storico Messaggi",
-                    "message_add_reaction": "Aggiungere Reazioni",
-                    "message_ext_emoji": "Usare Emoji Esterne"
-                }
+                "channel_permissions": "Permessi Canale"
             }
         },
         "vote": {
@@ -142,5 +133,14 @@
                 }
             }
         }
+    },
+    "permissions": {
+        "message_read": "Leggere Messaggi",
+        "message_write": "Inviare Messaggi",
+        "message_manage": "Gestire Messaggi",
+        "message_embed_links": "Collegamenti Embed",
+        "message_history": "Leggere Storico Messaggi",
+        "message_add_reaction": "Aggiungere Reazioni",
+        "message_ext_emoji": "Usare Emoji Esterne"
     }
 }

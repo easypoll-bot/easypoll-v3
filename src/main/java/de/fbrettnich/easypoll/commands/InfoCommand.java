@@ -57,9 +57,9 @@ public class InfoCommand {
                         eb.build()
                 )
                 .addActionRow(
-                        Button.link(Constants.WEBSITE_URL, gl.getTl("commands.info.buttons.website")),
-                        Button.link(Constants.DOCUMENTATION_URL, gl.getTl("commands.info.buttons.documentation")),
-                        Button.link("https://github.com/fbrettnich/easypoll-bot", gl.getTl("commands.info.buttons.repository"))
+                        Button.link(Constants.WEBSITE_URL, gl.getTl("buttons.website")),
+                        Button.link(Constants.DOCUMENTATION_URL, gl.getTl("buttons.documentation")),
+                        Button.link("https://github.com/fbrettnich/easypoll-bot", gl.getTl("buttons.repository"))
                 )
                 .queue(null, Sentry::captureException);
 

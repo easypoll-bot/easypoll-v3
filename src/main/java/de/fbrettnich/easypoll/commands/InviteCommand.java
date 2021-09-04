@@ -42,7 +42,7 @@ public class InviteCommand {
                         eb.build()
                 )
                 .addActionRow(
-                        Button.link(Constants.INVITE_URL, gl.getTl("commands.invite.buttons.invitebot"))
+                        Button.link(Constants.INVITE_URL, gl.getTl("buttons.invitebot"))
                 )
                 .queue(null, Sentry::captureException);
 

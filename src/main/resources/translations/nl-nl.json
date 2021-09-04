@@ -110,16 +110,7 @@
             "permissions": {
                 "title": "Toestemming Bot controle",
                 "server_permissions": "Server toegangen",
-                "channel_permissions": "Kanalen toegangen",
-                "permissions": {
-                    "message_read": "Lees berichten",
-                    "message_write": "Stuur berichten",
-                    "message_manage": "Beheer berichten",
-                    "message_embed_links": "Koppelingen insluiten",
-                    "message_history": "Berichtgeschiedenis lezen",
-                    "message_add_reaction": "Reactie toevoegen",
-                    "message_ext_emoji": "Gebruik externe Emojis"
-                }
+                "channel_permissions": "Kanalen toegangen"
             }
         },
         "vote": {
@@ -142,5 +133,14 @@
                 }
             }
         }
+    },
+    "permissions": {
+        "message_read": "Lees berichten",
+        "message_write": "Stuur berichten",
+        "message_manage": "Beheer berichten",
+        "message_embed_links": "Koppelingen insluiten",
+        "message_history": "Berichtgeschiedenis lezen",
+        "message_add_reaction": "Reactie toevoegen",
+        "message_ext_emoji": "Gebruik externe Emojis"
     }
 }

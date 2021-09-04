@@ -110,16 +110,7 @@
             "permissions": {
                 "title": "Verificação de permissão do Bot necessária",
                 "server_permissions": "Permissões do Servidor",
-                "channel_permissions": "Permissões de Canal",
-                "permissions": {
-                    "message_read": "Ler Mensagens",
-                    "message_write": "Enviar Mensagens",
-                    "message_manage": "Gerenciar Mensagens",
-                    "message_embed_links": "Links Incorporados",
-                    "message_history": "Ler Histórico de mensagens",
-                    "message_add_reaction": "Adicionar Reações",
-                    "message_ext_emoji": "Usar Emojis Externos"
-                }
+                "channel_permissions": "Permissões de Canal"
             }
         },
         "vote": {
@@ -142,5 +133,14 @@
                 }
             }
         }
+    },
+    "permissions": {
+        "message_read": "Ler Mensagens",
+        "message_write": "Enviar Mensagens",
+        "message_manage": "Gerenciar Mensagens",
+        "message_embed_links": "Links Incorporados",
+        "message_history": "Ler Histórico de mensagens",
+        "message_add_reaction": "Adicionar Reações",
+        "message_ext_emoji": "Usar Emojis Externos"
     }
 }

@@ -110,16 +110,7 @@
             "permissions": {
                 "title": "Bot-tilladelseskontrol påkrævet",
                 "server_permissions": "Server-tilladelser",
-                "channel_permissions": "Kanaltilladelser",
-                "permissions": {
-                    "message_read": "Læse beskeder",
-                    "message_write": "Sende beskeder",
-                    "message_manage": "Administrere beskeder",
-                    "message_embed_links": "Integrere links",
-                    "message_history": "Læse beskedhistoriken",
-                    "message_add_reaction": "Tilføje reaktioner",
-                    "message_ext_emoji": "Bruge eksterne emojis"
-                }
+                "channel_permissions": "Kanaltilladelser"
             }
         },
         "vote": {
@@ -142,5 +133,14 @@
                 }
             }
         }
+    },
+    "permissions": {
+        "message_read": "Læse beskeder",
+        "message_write": "Sende beskeder",
+        "message_manage": "Administrere beskeder",
+        "message_embed_links": "Integrere links",
+        "message_history": "Læse beskedhistoriken",
+        "message_add_reaction": "Tilføje reaktioner",
+        "message_ext_emoji": "Bruge eksterne emojis"
     }
 }

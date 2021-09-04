@@ -110,16 +110,7 @@
       "permissions": {
         "title": "Prüfen fu de Rechte vum Bot",
         "server_permissions": "Serva-Rechte",
-        "channel_permissions": "Kanal-Rechte",
-        "permissions": {
-          "message_read": "Nochrichten lesa",
-          "message_write": "Nochrichten vaschicka",
-          "message_manage": "Nochrichten verwalta",
-          "message_embed_links": "Links eibettan",
-          "message_history": "Nochrichtnverlauf ozang",
-          "message_add_reaction": "Reaktionen dazurgeben",
-          "message_ext_emoji": "Externe Emojis vawendan"
-        }
+        "channel_permissions": "Kanal-Rechte"
       }
     },
     "vote": {
@@ -142,5 +133,14 @@
         }
       }
     }
+  },
+  "permissions": {
+    "message_read": "Nochrichten lesa",
+    "message_write": "Nochrichten vaschicka",
+    "message_manage": "Nochrichten verwalta",
+    "message_embed_links": "Links eibettan",
+    "message_history": "Nochrichtnverlauf ozang",
+    "message_add_reaction": "Reaktionen dazurgeben",
+    "message_ext_emoji": "Externe Emojis vawendan"
   }
 }
