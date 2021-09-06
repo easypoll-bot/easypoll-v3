@@ -95,5 +95,19 @@ public class BotListStats extends TimerTask {
                 Sentry.captureException(e);
             }
         }
+
+        // voidbots.net
+        {
+            JSONObject obj = new JSONObject().put("server_count", servers).put("shard_count", shards);
+            try {
+                Unirest.post("https://api.voidbots.net/bot/stats/" + Constants.BOT_ID)
+                        .header("Content-Type", "application/json")
+                        .header("Authorization", System.getenv("BOTLIST_VOIDBOTSNET"))
+                        .body(obj.toString())
+                        .asJson();
+            } catch (UnirestException e) {
+                Sentry.captureException(e);
+            }
+        }
     }
 }
