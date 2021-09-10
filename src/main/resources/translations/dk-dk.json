@@ -70,7 +70,7 @@
         },
         "invite": {
             "title": "Inviter EasyPoll",
-            "description": "Du kan invitere %s her: [www.easypoll.me/invite](%s)"
+            "description": "Du kan invitere %s her: [www.easypoll.bot/invite](%s)"
         },
         "ping": {
             "title": "Pong! :ping_pong:",

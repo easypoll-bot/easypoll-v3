@@ -70,7 +70,7 @@
     },
     "invite": {
       "title": "Eiloda fu EasyPoll",
-      "description": "Du kost %s hier eiloda: [www.easypoll.me/invite](%s)"
+      "description": "Du kost %s hier eiloda: [www.easypoll.bot/invite](%s)"
     },
     "ping": {
       "title": "Pong! :ping_pong:",

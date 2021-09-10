@@ -44,8 +44,8 @@ public class GameStatus extends TimerTask {
         activities.add(Activity.listening("/poll"));
         activities.add(Activity.listening("/timepoll"));
         activities.add(Activity.listening("/easypoll"));
-        activities.add(Activity.watching("www.easypoll.me"));
-        activities.add(Activity.playing("easypoll.me | /help"));
+        activities.add(Activity.watching("www.easypoll.bot"));
+        activities.add(Activity.playing("easypoll.bot | /help"));
         activities.add(Activity.streaming(
                 "on " +
                         FormatUtil.decimalFormat(Main.getShardManager().getGuilds().size()) + " Servers | " +

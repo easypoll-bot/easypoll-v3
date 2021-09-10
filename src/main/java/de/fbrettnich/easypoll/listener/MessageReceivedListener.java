@@ -58,7 +58,7 @@ public class MessageReceivedListener extends ListenerAdapter {
 
                 eb.addField("Bot Prefix", "`/` *(Using SlashCommands)*", false);
                 eb.addField("Help Command", "`/help`", false);
-                eb.addField("Website", "[www.easypoll.me](" + Constants.WEBSITE_URL + ")", false);
+                eb.addField("Website", "[www.easypoll.bot](" + Constants.WEBSITE_URL + ")", false);
 
                 eb.setFooter("Requested by " + user.getName() + "#" + user.getDiscriminator());
                 eb.setTimestamp(new Date().toInstant());
@@ -92,7 +92,7 @@ public class MessageReceivedListener extends ListenerAdapter {
             eb.setColor(Color.RED);
 
             eb.setDescription(
-                    "Hello " + event.getAuthor().getAsMention() + " :wave:, here is [EasyPoll](https://easypoll.me/) always at your service!\n" +
+                    "Hello " + event.getAuthor().getAsMention() + " :wave:, here is [EasyPoll](https://easypoll.bot/) always at your service!\n" +
                             "\n" +
                             "I have received a big update and from now on I only use [Discord SlashCommands](https://discord.com/developers/docs/interactions/slash-commands)\n" +
                             "You can get a list of all SlashCommands with `/easypoll`\n" +

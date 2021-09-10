@@ -70,7 +70,7 @@
         },
         "invite": {
             "title": "邀請EasyPoll",
-            "description": "你可以邀請 %s 在這裡: [www.easypoll.me/invite](%s)"
+            "description": "你可以邀請 %s 在這裡: [www.easypoll.bot/invite](%s)"
         },
         "ping": {
             "title": "乓! :ping_pong:",

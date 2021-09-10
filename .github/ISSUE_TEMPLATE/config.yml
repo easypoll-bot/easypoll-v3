@@ -1,8 +1,8 @@
 blank_issues_enabled: true
 contact_links:
   - name: Invite Bot
-    url: https://easypoll.me/invite?utm_source=github&utm_medium=issues&utm_campaign=easypoll
+    url: https://easypoll.bot/invite?utm_source=github&utm_medium=issues&utm_campaign=easypoll
     about: You want to use EasyPoll on your Discord? Then just invite him!
   - name: Discord
-    url: https://easypoll.me/discord
+    url: https://easypoll.bot/discord
     about: On the EasyPoll Support Discord you can get the best and fastest help on your questions and problems.

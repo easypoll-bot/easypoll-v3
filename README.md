@@ -1,11 +1,11 @@
-[bot-invite]: https://easypoll.me/invite?utm_source=github&utm_medium=readme&utm_campaign=easypoll
-[discord-invite]: https://easypoll.me/discord
+[bot-invite]: https://easypoll.bot/invite?utm_source=github&utm_medium=readme&utm_campaign=easypoll
+[discord-invite]: https://easypoll.bot/discord
 [license]: https://github.com/fbrettnich/easypoll-bot/blob/main/LICENSE
-[docs]: https://docs.easypoll.me/
-[faq]: https://docs.easypoll.me/faq
-[troubleshooting]: https://docs.easypoll.me/troubleshooting
-[guilds-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Servers&query=guilds&url=https%3A%2F%2Feasypoll.me%2Fapi.php
-[users-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Users&query=users&url=https%3A%2F%2Feasypoll.me%2Fapi.php
+[docs]: https://docs.easypoll.bot/
+[faq]: https://docs.easypoll.bot/faq
+[troubleshooting]: https://docs.easypoll.bot/troubleshooting
+[guilds-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Servers&query=guilds&url=https%3A%2F%2Feasypoll.bot%2Fapi.php
+[users-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Users&query=users&url=https%3A%2F%2Feasypoll.bot%2Fapi.php
 [discord-shield]: https://discord.com/api/guilds/552156123734474762/widget.png
 [license-shield]: https://img.shields.io/github/license/fbrettnich/easypoll-bot?label=License
 [faq-shield]: https://img.shields.io/badge/Wiki-FAQ-blue.svg
@@ -28,9 +28,9 @@ With EasyPoll, a Discord Poll Bot, you can easily create polls and your members 
 
 ## Invite
 If you want to use **EasyPoll** on your server, you can invite it via the following link:  
-&#128279; **[https://easypoll.me/invite][bot-invite]**
+&#128279; **[https://easypoll.bot/invite][bot-invite]**
 
-You can also find help on how to invite the bot in our Docs: [Add Bot to Server](https://docs.easypoll.me/getting-started/add-bot-to-server)
+You can also find help on how to invite the bot in our Docs: [Add Bot to Server](https://docs.easypoll.bot/getting-started/add-bot-to-server)
 
 ## Usage & Commands
 
