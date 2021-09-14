@@ -1,6 +1,6 @@
 [bot-invite]: https://easypoll.bot/invite?utm_source=github&utm_medium=readme&utm_campaign=easypoll
 [discord-invite]: https://easypoll.bot/discord
-[license]: https://github.com/fbrettnich/easypoll-bot/blob/main/LICENSE
+[license]: https://github.com/easypoll-bot/easypoll-java/blob/main/LICENSE
 [docs]: https://docs.easypoll.bot/
 [faq]: https://docs.easypoll.bot/faq
 [troubleshooting]: https://docs.easypoll.bot/troubleshooting
@@ -18,7 +18,7 @@
 [ ![license-shield][] ][license]
 [ ![faq-shield][] ][faq]
 [ ![troubleshooting-shield][] ][troubleshooting]
-[ ![workflowstatus-shield][] ](https://github.com/fbrettnich/easypoll-bot/actions/workflows/java-ci-maven.yml)
+[ ![workflowstatus-shield][] ](https://github.com/easypoll-bot/easypoll-java/actions/workflows/java-ci-maven.yml)
 
 <img align="right" src="https://raw.githubusercontent.com/fbrettnich/easypoll-bot/main/.github/images/easypoll-logo.png" height="200" width="200">
 
@@ -53,13 +53,13 @@ Alternatively you can also have a look at our [Docs][docs] and [FAQ][faq].
 
 ## Contributing to EasyPoll
 If you want to contribute to EasyPoll, follow these steps:
-- [Fork](https://github.com/fbrettnich/easypoll-bot/fork) this repository
+- [Fork](https://github.com/easypoll-bot/easypoll-java/fork) this repository
 - Make your changes
 - Check your changes
-- Create a [pull request](https://github.com/fbrettnich/easypoll-bot/pulls)
+- Create a [pull request](https://github.com/easypoll-bot/easypoll-java/pulls)
     - **Important:** Create pull requests only in our `development` or `feature` branch, pull requests to the `main` branch will be rejected!
 
-Please also read the [contributing guidelines](https://github.com/fbrettnich/easypoll-bot/blob/main/.github/CONTRIBUTING.md) to contribute properly!
+Please also read the [contributing guidelines](https://github.com/easypoll-bot/easypoll-java/blob/main/.github/CONTRIBUTING.md) to contribute properly!
 
 We are happy about any contribution &#9786;
 

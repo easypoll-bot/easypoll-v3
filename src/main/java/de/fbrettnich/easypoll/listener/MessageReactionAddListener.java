@@ -1,5 +1,5 @@
 /*
- * EasyPoll Discord Bot (https://github.com/fbrettnich/easypoll-bot)
+ * EasyPoll Discord Bot (https://github.com/easypoll-bot/easypoll-java)
  * Copyright (C) 2021  Felix Brettnich
  *
  * This program is free software: you can redistribute it and/or modify
