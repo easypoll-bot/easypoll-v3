@@ -289,6 +289,85 @@ public class PollManager {
     }
 
     /**
+     * Reload a poll based on the Message ID
+     *
+     * @param messageId ID of the message
+     */
+    public void reloadPollByMessageId(String messageId) {
+        DBCollection collection = Main.getMongoDB().getCollection("polls");
+        DBObject searchQuery = new BasicDBObject("messageId", messageId);
+        DBObject document = collection.findOne(searchQuery);
+        reloadPoll(collection, searchQuery, document);
+    }
+
+    /**
+     * Reload a poll based on the Poll ID
+     *
+     * @param pollId ID of the poll
+     */
+    public void reloadPollByPollId(String pollId) {
+        DBCollection collection = Main.getMongoDB().getCollection("polls");
+        DBObject searchQuery = new BasicDBObject("pollId", pollId);
+        DBObject document = collection.findOne(searchQuery);
+        reloadPoll(collection, searchQuery, document);
+    }
+
+    /**
+     * Reload a poll and update the message
+     *
+     * @param collection MongoDB Collection
+     * @param searchQuery Database search query
+     * @param document Mongo doucument
+     */
+    private void reloadPoll(DBCollection collection, DBObject searchQuery, DBObject document) {
+        if (document != null) {
+
+            Guild guild = Main.getShardManager().getGuildById((String) document.get("guildId"));
+            if(guild != null) {
+
+                TextChannel textChannel = null;
+                try {
+                    textChannel = guild.getTextChannelById((String) document.get("channelId"));
+                }catch (InsufficientPermissionException ignored) { }
+
+                if(textChannel != null) {
+                    try {
+                        try {
+                            TextChannel finalTextChannel = textChannel;
+                            textChannel.retrieveMessageById((String) document.get("messageId")).queue(message -> {
+
+                                List<MessageReaction> messageReactions = message.getReactions();
+
+                                try {
+                                    finalTextChannel.editMessageEmbedsById((String) document.get("messageId"),
+                                            new PollManager().getPollEmbed(
+                                                    (String) document.get("pollId"),
+                                                    PollType.valueOf((String) document.get("type")),
+                                                    (long) document.get("end"),
+                                                    (!(boolean) document.get("active")),
+                                                    messageReactions,
+                                                    (boolean) document.get("multiplechoices"),
+                                                    (String) document.get("question"),
+                                                    (List<String>) document.get("choices_reaction"),
+                                                    (List<String>) document.get("choices_content"),
+                                                    new GuildLanguage((String) document.get("guildId"))
+                                            )
+                                    ).queue(null, Sentry::captureException);
+                                } catch (InsufficientPermissionException ignored) {}
+
+                            });
+                        }catch (InsufficientPermissionException ignored) { }
+                    }catch (ErrorResponseException e) {
+                        if(e.getErrorResponse() != ErrorResponse.UNKNOWN_MESSAGE) {
+                            Sentry.captureException(e);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * Checking on the basis of the Poll ID if a poll can be closed
      *
      * @param pollId ID of the poll
