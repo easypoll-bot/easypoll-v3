@@ -31,7 +31,7 @@
         <dependency>
             <groupId>com.github.DV8FromTheWorld</groupId>
             <artifactId>JDA</artifactId>
-            <version>4853f1b90eb40660202cea89c7caa876bc0e1f84</version>
+            <version>a35789442ba022c81ce9b5f62d5b6b9968e3895d</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
