@@ -75,26 +75,18 @@ public class MessageReactionAddListener extends ListenerAdapter {
                 switch (event.getReactionEmote().getName()) {
                     case "\uD83D\uDC4D": { // 👍 :thumbsup:
 
-                        messageReactions.get(1).retrieveUsers().queue(users -> {
-                            if (users.contains(user)) {
-                                try {
-                                    messageReactions.get(1).removeReaction(user).queue(null, Sentry::captureException);
-                                }catch (InsufficientPermissionException ignored) { }
-                            }
-                        }, Sentry::captureException);
+                        try {
+                            messageReactions.get(1).removeReaction(user).queue(null, Sentry::captureException);
+                        }catch (InsufficientPermissionException ignored) { }
 
                         break;
                     }
 
                     case "\uD83D\uDC4E": { // 👎 :thumbsdown:
 
-                        messageReactions.get(0).retrieveUsers().queue(users -> {
-                            if (users.contains(user)) {
-                                try {
-                                    messageReactions.get(0).removeReaction(user).queue(null, Sentry::captureException);
-                                }catch (InsufficientPermissionException ignored) { }
-                            }
-                        }, Sentry::captureException);
+                        try {
+                            messageReactions.get(0).removeReaction(user).queue(null, Sentry::captureException);
+                        }catch (InsufficientPermissionException ignored) { }
 
                         break;
                     }
@@ -107,14 +99,12 @@ public class MessageReactionAddListener extends ListenerAdapter {
 
                 for (MessageReaction messageReaction : messageReactions) {
                     if (messageReaction.getReactionEmote().equals(event.getReactionEmote())) {
-                        messageReaction.retrieveUsers().queue(users -> {
-                            if (!users.contains(event.getJDA().getSelfUser())) {
-                                try {
-                                    messageReaction.removeReaction(user).queue(null, Sentry::captureException);
-                                }catch (InsufficientPermissionException ignored) { }
-                                isOtherReaction.set(true);
-                            }
-                        }, Sentry::captureException);
+                        if(!messageReaction.isSelf()) {
+                            try {
+                                messageReaction.removeReaction(user).queue(null, Sentry::captureException);
+                            }catch (InsufficientPermissionException ignored) { }
+                            isOtherReaction.set(true);
+                        }
                     }
                 }
 
@@ -122,18 +112,13 @@ public class MessageReactionAddListener extends ListenerAdapter {
                     if (messageColor.equals(Constants.COLOR_POLL_CUSTOM_SINGEL)) {
                         for (MessageReaction messageReaction : messageReactions) {
                             if (!messageReaction.getReactionEmote().equals(event.getReactionEmote())) {
-                                messageReaction.retrieveUsers().queue(users -> {
-                                    if (users.contains(user)) {
-                                        try {
-                                            messageReaction.removeReaction(user).queue(null, Sentry::captureException);
-                                        }catch (InsufficientPermissionException ignored) { }
-                                    }
-                                }, Sentry::captureException);
+                                try {
+                                    messageReaction.removeReaction(user).queue(null, Sentry::captureException);
+                                }catch (InsufficientPermissionException ignored) { }
                             }
                         }
                     }
                 }
-
             }
         }
 
