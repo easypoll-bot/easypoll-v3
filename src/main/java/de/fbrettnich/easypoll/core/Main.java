@@ -104,8 +104,9 @@ public class Main {
 
                 .setStatus(OnlineStatus.ONLINE);
 
-        shardManager = defaultShardManagerBuilder.build();
+        shardManager = defaultShardManagerBuilder.build(false);
 
+        shardManager.start(0);
 
         new Timer().schedule(new CloseTimedPolls(), 5 * 60 * 1000, 3 * 1000);
 
@@ -347,5 +348,20 @@ public class Main {
      */
     public static TranslationManager getTranslationManager() {
         return translationManager;
+    }
+
+    /**
+     * Start shard by id
+     *
+     * @param shardId shard id
+     */
+    public static void startShard(int shardId) {
+        if (shardId >= shardManager.getShardsTotal()) {
+            System.out.println("[WARNING|SHARD] Cannot start Shard #" + shardId + "! Only " + shardManager.getShardsTotal() + " total shards registered.");
+            return;
+        }
+
+        System.out.println("[INFO|SHARD] Shard #" + shardId + " is starting now...");
+        shardManager.start(shardId);
     }
 }
