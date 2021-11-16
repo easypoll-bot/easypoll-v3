@@ -350,9 +350,18 @@ public class Main {
         return translationManager;
     }
 
+    /**
+     * Start shard by id
+     *
+     * @param shardId shard id
+     */
     public static void startShard(int shardId) {
-        if (shardId > shardManager.getShardsTotal()) return;
+        if (shardId >= shardManager.getShardsTotal()) {
+            System.out.println("[WARNING|SHARD] Cannot start Shard #" + shardId + "! Only " + shardManager.getShardsTotal() + " total shards registered.");
+            return;
+        }
 
+        System.out.println("[INFO|SHARD] Shard #" + shardId + " is starting now...");
         shardManager.start(shardId);
     }
 }
