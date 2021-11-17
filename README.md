@@ -1,9 +1,8 @@
 [bot-invite]: https://easypoll.bot/invite?utm_source=github&utm_medium=readme&utm_campaign=easypoll
 [discord-invite]: https://easypoll.bot/discord
 [license]: https://github.com/easypoll-bot/easypoll-java/blob/main/LICENSE
-[docs]: https://docs.easypoll.bot/
-[faq]: https://docs.easypoll.bot/faq
-[troubleshooting]: https://docs.easypoll.bot/troubleshooting
+[docs]: https://easypoll.bot/docs
+[faq]: https://easypoll.bot/faq
 [guilds-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Servers&query=guilds&url=https%3A%2F%2Feasypoll.bot%2Fapi.php
 [users-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Users&query=users&url=https%3A%2F%2Feasypoll.bot%2Fapi.php
 [discord-shield]: https://discord.com/api/guilds/552156123734474762/widget.png
@@ -17,7 +16,7 @@
 [ ![discord-shield][] ][discord-invite]
 [ ![license-shield][] ][license]
 [ ![faq-shield][] ][faq]
-[ ![troubleshooting-shield][] ][troubleshooting]
+[ ![troubleshooting-shield][] ][faq]
 [ ![workflowstatus-shield][] ](https://github.com/easypoll-bot/easypoll-java/actions/workflows/java-ci-maven.yml)
 
 <img align="right" src="https://raw.githubusercontent.com/fbrettnich/easypoll-bot/main/.github/images/easypoll-logo.png" height="200" width="200">
@@ -30,18 +29,19 @@ With EasyPoll, a Discord Poll Bot, you can easily create polls and your members 
 If you want to use **EasyPoll** on your server, you can invite it via the following link:  
 &#128279; **[https://easypoll.bot/invite][bot-invite]**
 
-You can also find help on how to invite the bot in our Docs: [Add Bot to Server](https://docs.easypoll.bot/getting-started/add-bot-to-server)
+You can also find help on how to invite the bot in our Docs: [Add Bot to Server](https://easypoll.bot/docs/add-bot-to-server)
 
 ## Usage & Commands
 
 | Command            | Description                                                                                                             |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| /help              | Show the bot command help list                                                                                          |
 | /poll              | Create a normal poll without time limit and with up to 20 own answers                                                   |
 | /timepoll          | Create a timed poll, set an end date until when the poll will run. Use time specifications for this like 10m / 3h / 1d  |
 | /closepoll         | Close a poll so that no more votes are counted and display the final result                                             |
 | /easypoll          | Get a list and help with all commands                                                                                   |
 | /vote              | Vote for the EasyPoll Bot                                                                                               |
-| /invite            | Invite EasyPoll to your own Discord Server                                                                               |
+| /invite            | Invite EasyPoll to your own Discord Server                                                                              |
 | /info              | Show some information about EasyPoll                                                                                    |
 | /ping              | See the Ping of the Bot to the Discord Gateway                                                                          |
 | /setup language    | Change the Bot language of the current Guild                                                                            |
