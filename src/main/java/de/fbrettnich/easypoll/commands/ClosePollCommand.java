@@ -63,7 +63,7 @@ public class ClosePollCommand {
             EmbedBuilder eb = new EmbedBuilder();
 
             eb.setColor(Color.RED);
-            eb.setTitle(gl.getTl("errors.no_permissions.member.title"), Constants.DOCUMENTATION_URL + "permissions/permission-system");
+            eb.setTitle(gl.getTl("errors.no_permissions.member.title"), Constants.DOCUMENTATION_URL + "/permission-system");
             eb.addField(
                     gl.getTl("errors.no_permissions.member.field.title"),
                     "\u2022 ADMINISTRATOR *(Permission)*\n" +

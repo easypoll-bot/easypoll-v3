@@ -42,7 +42,7 @@ public class InfoCommand {
         eb.setThumbnail(event.getJDA().getSelfUser().getEffectiveAvatarUrl());
 
         eb.addField(gl.getTl("commands.info.fields.creator"), Constants.BOT_OWNER_MENTION, false);
-        eb.addField(gl.getTl("commands.info.fields.repository"), "[github.com/fbrettnich/easypoll-bot](https://github.com/easypoll-bot/easypoll-java)", false);
+        eb.addField(gl.getTl("commands.info.fields.repository"), "[github.com/fbrettnich/easypoll-bot](" + Constants.GITHUB_URL + ")", false);
         eb.addField(gl.getTl("commands.info.fields.version"), Constants.VERSION, false);
 
         eb.addField(gl.getTl("commands.info.fields.library"), "[JDA (Java Discord API)](https://github.com/DV8FromTheWorld/JDA)", false);
@@ -59,7 +59,7 @@ public class InfoCommand {
                 .addActionRow(
                         Button.link(Constants.WEBSITE_URL, gl.getTl("buttons.website")),
                         Button.link(Constants.DOCUMENTATION_URL, gl.getTl("buttons.documentation")),
-                        Button.link("https://github.com/easypoll-bot/easypoll-java", gl.getTl("buttons.repository"))
+                        Button.link(Constants.GITHUB_URL, gl.getTl("buttons.repository"))
                 )
                 .queue(null, Sentry::captureException);
 

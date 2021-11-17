@@ -83,7 +83,7 @@ public class SetupPermissionsCommand {
 
         EmbedBuilder eb = new EmbedBuilder();
 
-        eb.setTitle(gl.getTl("commands.setup.permissions.title"), Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions");
+        eb.setTitle(gl.getTl("commands.setup.permissions.title"), Constants.DOCUMENTATION_URL + "/required-bot-permissions");
         eb.setColor(Color.decode("#FDA50F"));
         eb.setDescription(
                 "**" + gl.getTl("commands.setup.permissions.server_permissions") + "**\n" +

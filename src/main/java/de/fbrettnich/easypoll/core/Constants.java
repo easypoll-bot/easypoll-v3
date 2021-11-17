@@ -31,10 +31,11 @@ public class Constants {
     public static final String BOT_OWNER_MENTION = "<@231091710195662848>";
 
     public static final String WEBSITE_URL = "https://easypoll.bot/?utm_source=discordbot&utm_medium=website&utm_campaign=easypoll";
-    public static final String DOCUMENTATION_URL = "https://docs.easypoll.bot/";
-    public static final String INVITE_URL = "https://discord.com/oauth2/authorize?client_id=437618149505105920&permissions=486464&redirect_uri=https%3A%2F%2Feasypoll.bot%2Fdiscord&response_type=code&scope=bot%20applications.commands";
+    public static final String DOCUMENTATION_URL = "https://easypoll.bot/docs";
+    public static final String INVITE_URL = "https://discord.com/oauth2/authorize?client_id=437618149505105920&permissions=274878393408&redirect_uri=https%3A%2F%2Feasypoll.bot%2Fdiscord&response_type=code&scope=bot%20applications.commands";
     public static final String DISCORD_DIRECT_URL = "https://discord.gg/JnuXNCv";
     public static final String VOTE_URL = "https://easypoll.bot/vote";
+    public static final String GITHUB_URL = "https://github.com/easypoll-bot/easypoll-java";
 
     public static final Color COLOR_POLL_UPDOWN = new Color(0, 255, 255);
     public static final Color COLOR_POLL_CUSTOM_SINGEL = new Color(0, 255, 254);

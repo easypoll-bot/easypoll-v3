@@ -221,7 +221,7 @@ public class PollCommand {
                 EmbedBuilder eb = new EmbedBuilder();
 
                 eb.setColor(Color.RED);
-                eb.setTitle(gl.getTl("errors.no_permissions.bot.title"), Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/");
+                eb.setTitle(gl.getTl("errors.no_permissions.bot.title"), Constants.DOCUMENTATION_URL + "/required-bot-permissions");
                 eb.addField(gl.getTl("errors.no_permissions.bot.field.title"),
                         gl.getTl("permissions.message_read") + ", " +
                                 gl.getTl("permissions.message_write") + ", " +
@@ -236,7 +236,7 @@ public class PollCommand {
                                 eb.build()
                         )
                         .addActionRow(
-                                Button.link(Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/", gl.getTl("buttons.documentation"))
+                                Button.link(Constants.DOCUMENTATION_URL + "/required-bot-permissions", gl.getTl("buttons.documentation"))
                         )
                         .queue(null, Sentry::captureException);
             }
@@ -343,7 +343,7 @@ public class PollCommand {
                         EmbedBuilder eb = new EmbedBuilder();
 
                         eb.setColor(Color.RED);
-                        eb.setTitle(gl.getTl("errors.no_permissions.bot.title"), Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/");
+                        eb.setTitle(gl.getTl("errors.no_permissions.bot.title"), Constants.DOCUMENTATION_URL + "/required-bot-permissions");
                         eb.addField(gl.getTl("errors.no_permissions.bot.field.title"),
                                 gl.getTl("permissions.message_read") + ", " +
                                         gl.getTl("permissions.message_write") + ", " +
@@ -358,7 +358,7 @@ public class PollCommand {
                                         eb.build()
                                 )
                                 .addActionRow(
-                                        Button.link(Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/", gl.getTl("buttons.documentation"))
+                                        Button.link(Constants.DOCUMENTATION_URL + "/required-bot-permissions", gl.getTl("buttons.documentation"))
                                 )
                                 .queue(null, Sentry::captureException);
 
@@ -370,7 +370,7 @@ public class PollCommand {
                     EmbedBuilder eb = new EmbedBuilder();
 
                     eb.setColor(Color.RED);
-                    eb.setTitle(gl.getTl("errors.no_permissions.bot.title"), Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/");
+                    eb.setTitle(gl.getTl("errors.no_permissions.bot.title"), Constants.DOCUMENTATION_URL + "/required-bot-permissions");
                     eb.addField(gl.getTl("errors.no_permissions.bot.field.title"),
                             gl.getTl("permissions.message_read") + ", " +
                                     gl.getTl("permissions.message_write") + ", " +
@@ -385,7 +385,7 @@ public class PollCommand {
                                     eb.build()
                             )
                             .addActionRow(
-                                    Button.link(Constants.DOCUMENTATION_URL + "permissions/required-bot-permissions/", gl.getTl("buttons.documentation"))
+                                    Button.link(Constants.DOCUMENTATION_URL + "/required-bot-permissions", gl.getTl("buttons.documentation"))
                             )
                             .queue(null, Sentry::captureException);
 
