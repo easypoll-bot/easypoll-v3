@@ -114,7 +114,7 @@ public class Main {
             shardQueueField.setAccessible(true);
             ((ConcurrentLinkedQueue) shardQueueField.get(shardManager)).clear();
         } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
+            Sentry.captureException(e);
         }
 
         shardManager.start(0);
