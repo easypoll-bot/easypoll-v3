@@ -373,7 +373,7 @@ public class Main {
         }
 
         //Check if previous Shard crashed
-        if (!shardManager.getShardById(shardId - 1).getStatus().isInit()) {
+        if (shardManager.getShardById(shardId - 1) == null || !shardManager.getShardById(shardId - 1).getStatus().isInit()) {
             System.out.println("[WARNING|SHARD] Found Shard #" + (shardId - 1) + " in illegal state, Shard #" + shardId + " will not start.");
             return;
         }
