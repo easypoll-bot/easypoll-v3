@@ -372,19 +372,28 @@ public class Main {
             return;
         }
 
-        if (shardManager.getShardById(shardId) != null && shardManager.getShardById(shardId).getStatus().equals(JDA.Status.CONNECTED)) {
+        //Check if previous Shard crashed
+        if (!shardManager.getShardById(shardId - 1).getStatus().isInit()) {
+            System.out.println("[WARNING|SHARD] Found Shard #" + (shardId - 1) + " in illegal state, Shard #" + shardId + " will not start.");
+            return;
+        }
+
+        //Check if Shard is already starting/running
+        if (shardManager.getShardById(shardId) != null && shardManager.getShardById(shardId).getStatus().isInit()) {
             System.out.println("[WARNING|SHARD] Tried to start Shard #" + shardId + " but Shard #" + shardId + " is already running.");
             return;
         }
 
-        if (!shardManager.getShardById(shardId - 1).getStatus().equals(JDA.Status.CONNECTED) && !shardManager.getShardById(shardId - 1).getStatus().equals(JDA.Status.LOADING_SUBSYSTEMS)) {
+        //Compare Ordinal instead of Status itself
+        if (shardManager.getShardById(shardId - 1).getStatus().ordinal() < JDA.Status.LOADING_SUBSYSTEMS.ordinal()) {
             System.out.println("[WARNING|SHARD] Delaying start of Shard #" + shardId + "! Shard #" + (shardId - 1) + " is still starting.");
-            System.out.println(shardManager.getShardById(shardId - 1).getStatus().name());
         }
 
-        shardManager.getShardById(shardId - 1).awaitStatus(JDA.Status.CONNECTED, JDA.Status.LOADING_SUBSYSTEMS, JDA.Status.SHUTDOWN, JDA.Status.FAILED_TO_LOGIN);
+        //Wait for Shard to be logged in, waiting for connected takes too long because of cache population and Status.LOADING_SUBSYSTEMS is enough for the jda to be in working order (ready-event gets fired, etc.)
+        shardManager.getShardById(shardId - 1).awaitStatus(JDA.Status.LOADING_SUBSYSTEMS, JDA.Status.FAILED_TO_LOGIN);
 
-        if (!shardManager.getShardById(shardId - 1).getStatus().equals(JDA.Status.CONNECTED) && !shardManager.getShardById(shardId - 1).getStatus().equals(JDA.Status.LOADING_SUBSYSTEMS)) {
+        //Check if previous shard did start correctly, otherwise fail
+        if (shardManager.getShardById(shardId - 1).getStatus().ordinal() < JDA.Status.LOADING_SUBSYSTEMS.ordinal() || !shardManager.getShardById(shardId - 1).getStatus().isInit()) {
             System.out.println("[WARNING|SHARD] Failed to start #" + (shardId - 1) + "! Shard #" + shardId + " will not start.");
             return;
         }
