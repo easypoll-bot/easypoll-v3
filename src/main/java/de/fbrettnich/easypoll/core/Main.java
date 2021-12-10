@@ -74,7 +74,7 @@ public class Main {
         });
 
         translationManager = new TranslationManager();
-        translationManager.loadTranslations("de-at", "de-de", "dk-dk", "en-us", "es-es", "fr-fr", "it-it", "nl-nl", "pt-br", "zh-cn", "zh-tw");
+        translationManager.loadTranslations("de-at", "de-de", "dk-dk", "en-us", "es-es", "fr-fr", "it-it", "nl-nl", "pt-br", "ru-ru", "zh-cn", "zh-tw");
 
         mongodb = new MongoDB(System.getenv("MONGODB_CLIENTURI"), System.getenv("MONGODB_DATABASE"));
         mysql = new MySQL(System.getenv("MYSQL_HOST"), System.getenv("MYSQL_PORT"), System.getenv("MYSQL_DATABASE"), System.getenv("MYSQL_USER"), System.getenv("MYSQL_PASSWORD"));
