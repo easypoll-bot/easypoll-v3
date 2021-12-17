@@ -51,7 +51,7 @@ public class MessageReactionAddListener extends ListenerAdapter {
 
         if(message == null) return;
         if(message.getAuthor() != event.getJDA().getSelfUser()) return;
-        if(!event.getGuild().getSelfMember().hasPermission(Permission.MESSAGE_MANAGE)) return;
+        if(!event.getGuild().getSelfMember().hasPermission(event.getTextChannel(), Permission.MESSAGE_MANAGE)) return;
 
         List<MessageReaction> messageReactions = message.getReactions();
         List<MessageEmbed> messageEmbedList = message.getEmbeds();
