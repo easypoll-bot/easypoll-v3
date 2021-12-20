@@ -240,8 +240,7 @@ public class PollManager {
 
             document.put("closed", System.currentTimeMillis());
             document.put("active", false);
-
-            collection.update(searchQuery, document);
+            document.put("closeMessageUpdateFailed", false);
 
             Guild guild = Main.getShardManager().getGuildById((String) document.get("guildId"));
             if(guild != null) {
@@ -274,17 +273,24 @@ public class PollManager {
                                                     new GuildLanguage((String) document.get("guildId"))
                                             )
                                     ).queue(null, Sentry::captureException);
-                                } catch (InsufficientPermissionException ignored) {}
+                                } catch (InsufficientPermissionException ex) {
+                                    document.put("closeMessageUpdateFailed", true);
+                                }
 
                             });
-                        }catch (InsufficientPermissionException ignored) { }
+                        }catch (InsufficientPermissionException ex) {
+                            document.put("closeMessageUpdateFailed", true);
+                        }
                     }catch (ErrorResponseException e) {
+                        document.put("closeMessageUpdateFailed", true);
                         if(e.getErrorResponse() != ErrorResponse.UNKNOWN_MESSAGE) {
                             Sentry.captureException(e);
                         }
                     }
                 }
             }
+
+            collection.update(searchQuery, document);
         }
     }
 
@@ -377,11 +383,16 @@ public class PollManager {
     public boolean canClosePollByPollId(String pollId, String guildId) {
         DBCollection collection = Main.getMongoDB().getCollection("polls");
         DBObject searchQuery = new BasicDBObject()
-                .append("active", true)
                 .append("pollId", pollId)
                 .append("guildId", guildId);
 
-        return collection.find(searchQuery).hasNext();
+        DBObject document = collection.findOne(searchQuery);
+
+        if(document != null) {
+            return (document.get("active") != null && (Boolean) document.get("active")) || (document.get("closeMessageUpdateFailed") != null && (Boolean) document.get("closeMessageUpdateFailed"));
+        }
+
+        return false;
     }
 
     /**
@@ -394,11 +405,16 @@ public class PollManager {
     public boolean canClosePollByMessageId(String messageId, String guildId) {
         DBCollection collection = Main.getMongoDB().getCollection("polls");
         DBObject searchQuery = new BasicDBObject()
-                .append("active", true)
                 .append("messageId", messageId)
                 .append("guildId", guildId);
 
-        return collection.find(searchQuery).hasNext();
+        DBObject document = collection.findOne(searchQuery);
+
+        if(document != null) {
+            return (document.get("active") != null && (Boolean) document.get("active")) || (document.get("closeMessageUpdateFailed") != null && (Boolean) document.get("closeMessageUpdateFailed"));
+        }
+
+        return false;
     }
 
     /**
