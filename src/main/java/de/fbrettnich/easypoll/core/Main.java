@@ -43,11 +43,13 @@ import javax.security.auth.login.LoginException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Field;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Main {
 
@@ -104,8 +106,18 @@ public class Main {
 
                 .setStatus(OnlineStatus.ONLINE);
 
-        shardManager = defaultShardManagerBuilder.build();
+        shardManager = defaultShardManagerBuilder.build(false);
 
+        //Clear shardQueue of ShardManager using reflection
+        try {
+            Field shardQueueField = shardManager.getClass().getDeclaredField("queue");
+            shardQueueField.setAccessible(true);
+            ((ConcurrentLinkedQueue) shardQueueField.get(shardManager)).clear();
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            Sentry.captureException(e);
+        }
+
+        shardManager.start(0);
 
         new Timer().schedule(new CloseTimedPolls(), 5 * 60 * 1000, 3 * 1000);
 
@@ -347,5 +359,49 @@ public class Main {
      */
     public static TranslationManager getTranslationManager() {
         return translationManager;
+    }
+
+    /**
+     * Start shard by id
+     *
+     * @param shardId shard id
+     */
+    public static synchronized void startShard(int shardId) throws InterruptedException {
+        if (shardId >= shardManager.getShardsTotal()) {
+            System.out.println("[WARNING|SHARD] Cannot start Shard #" + shardId + "! Only " + shardManager.getShardsTotal() + " total shards registered.");
+            return;
+        }
+
+        //Check if previous Shard crashed
+        if (shardManager.getShardById(shardId - 1) == null || !shardManager.getShardById(shardId - 1).getStatus().isInit()) {
+            System.out.println("[WARNING|SHARD] Found Shard #" + (shardId - 1) + " in illegal state, Shard #" + shardId + " will not start.");
+            return;
+        }
+
+        //Check if Shard is already starting/running
+        if (shardManager.getShardById(shardId) != null && shardManager.getShardById(shardId).getStatus().isInit()) {
+            System.out.println("[WARNING|SHARD] Tried to start Shard #" + shardId + " but Shard #" + shardId + " is already running.");
+            return;
+        }
+
+        //Compare Ordinal instead of Status itself
+        if (shardManager.getShardById(shardId - 1).getStatus().ordinal() < JDA.Status.LOADING_SUBSYSTEMS.ordinal()) {
+            System.out.println("[WARNING|SHARD] Delaying start of Shard #" + shardId + "! Shard #" + (shardId - 1) + " is still starting.");
+        }
+
+        //Wait for Shard to be logged in, waiting for connected takes too long because of cache population and Status.LOADING_SUBSYSTEMS is enough for the jda to be in working order (ready-event gets fired, etc.)
+        shardManager.getShardById(shardId - 1).awaitStatus(JDA.Status.LOADING_SUBSYSTEMS, JDA.Status.FAILED_TO_LOGIN);
+
+        //Check if previous shard did start correctly, otherwise fail
+        if (shardManager.getShardById(shardId - 1).getStatus().ordinal() < JDA.Status.LOADING_SUBSYSTEMS.ordinal() || !shardManager.getShardById(shardId - 1).getStatus().isInit()) {
+            System.out.println("[WARNING|SHARD] Failed to start #" + (shardId - 1) + "! Shard #" + shardId + " will not start.");
+            return;
+        }
+
+        System.out.println("[INFO|SHARD] Shard #" + shardId + " is starting now...");
+
+        //Avoid Ratelimit
+        Thread.sleep(5000);
+        shardManager.start(shardId);
     }
 }
