@@ -1,6 +1,6 @@
 <!--
 Please read the contributing guidelines to contribute properly!
-Contributing Guidelines: https://github.com/easypoll-bot/easypoll-java/blob/main/.github/CONTRIBUTING.md
+Contributing Guidelines: https://github.com/easypoll-bot/easypoll-v3/blob/main/.github/CONTRIBUTING.md
 !! Important: The commits have to be signed !!
 -->
 

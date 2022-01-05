@@ -2,7 +2,7 @@ version: '3.3'
 services:
   bot:
     container_name: easypoll
-    image: 'ghcr.io/easypoll-bot/easypoll-java:main'
+    image: 'ghcr.io/easypoll-bot/easypoll-v3:main'
     restart: unless-stopped
     environment:
       PRODUCTION: 'true'

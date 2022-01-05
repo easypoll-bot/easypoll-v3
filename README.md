@@ -1,15 +1,15 @@
 [bot-invite]: https://easypoll.bot/invite?utm_source=github&utm_medium=readme&utm_campaign=easypoll
 [discord-invite]: https://easypoll.bot/discord
-[license]: https://github.com/easypoll-bot/easypoll-java/blob/main/LICENSE
+[license]: https://github.com/easypoll-bot/easypoll-v3/blob/main/LICENSE
 [docs]: https://easypoll.bot/docs
 [faq]: https://easypoll.bot/faq
 [guilds-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Servers&query=guilds&url=https%3A%2F%2Feasypoll.bot%2Fapi.php
 [users-shield]: https://img.shields.io/badge/dynamic/json?color=7289DA&label=Users&query=users&url=https%3A%2F%2Feasypoll.bot%2Fapi.php
 [discord-shield]: https://discord.com/api/guilds/552156123734474762/widget.png
-[license-shield]: https://img.shields.io/github/license/fbrettnich/easypoll-bot?label=License
+[license-shield]: https://img.shields.io/github/license/easypoll-bot/easypoll-v3?label=License
 [faq-shield]: https://img.shields.io/badge/Wiki-FAQ-blue.svg
 [troubleshooting-shield]: https://img.shields.io/badge/Wiki-Troubleshooting-red.svg
-[workflowstatus-shield]: https://img.shields.io/github/workflow/status/fbrettnich/easypoll-bot/Java%20CI%20with%20Maven?event=push&label=Build
+[workflowstatus-shield]: https://img.shields.io/github/workflow/status/easypoll-bot/easypoll-v3/Java%20CI%20with%20Maven?event=push&label=Build
 
 [ ![guilds-shield][] ][bot-invite]
 [ ![users-shield][] ][bot-invite]
@@ -17,9 +17,9 @@
 [ ![license-shield][] ][license]
 [ ![faq-shield][] ][faq]
 [ ![troubleshooting-shield][] ][faq]
-[ ![workflowstatus-shield][] ](https://github.com/easypoll-bot/easypoll-java/actions/workflows/java-ci-maven.yml)
+[ ![workflowstatus-shield][] ](https://github.com/easypoll-bot/easypoll-v3/actions/workflows/java-ci-maven.yml)
 
-<img align="right" src="https://raw.githubusercontent.com/fbrettnich/easypoll-bot/main/.github/images/easypoll-logo.png" height="200" width="200">
+<img align="right" src="https://raw.githubusercontent.com/easypoll-bot/easypoll-v3/main/.github/images/easypoll-logo.png" height="200" width="200">
 
 # EasyPoll Discord Bot
 
@@ -53,13 +53,13 @@ Alternatively you can also have a look at our [Docs][docs] and [FAQ][faq].
 
 ## Contributing to EasyPoll
 If you want to contribute to EasyPoll, follow these steps:
-- [Fork](https://github.com/easypoll-bot/easypoll-java/fork) this repository
+- [Fork](https://github.com/easypoll-bot/easypoll-v3/fork) this repository
 - Make your changes
 - Check your changes
-- Create a [pull request](https://github.com/easypoll-bot/easypoll-java/pulls)
+- Create a [pull request](https://github.com/easypoll-bot/easypoll-v3/pulls)
     - **Important:** Create pull requests only in our `development` or `feature` branch, pull requests to the `main` branch will be rejected!
 
-Please also read the [contributing guidelines](https://github.com/easypoll-bot/easypoll-java/blob/main/.github/CONTRIBUTING.md) to contribute properly!
+Please also read the [contributing guidelines](https://github.com/easypoll-bot/easypoll-v3/blob/main/.github/CONTRIBUTING.md) to contribute properly!
 
 We are happy about any contribution &#9786;
 

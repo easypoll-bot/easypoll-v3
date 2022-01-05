@@ -1,9 +1,9 @@
 ## Contributing to EasyPoll
 If you want to contribute to EasyPoll, follow these steps:
-- [Fork](https://github.com/easypoll-bot/easypoll-java/fork) this repository
+- [Fork](https://github.com/easypoll-bot/easypoll-v3/fork) this repository
 - Make your changes
 - Check your changes
-- Create a [pull request](https://github.com/easypoll-bot/easypoll-java/pulls)
+- Create a [pull request](https://github.com/easypoll-bot/easypoll-v3/pulls)
     - **Important:** Create pull requests only in our `development` or `feature` branch, pull requests to the `main` branch will be rejected!
 
 ## Don't forget "Signed-off-by"
@@ -52,7 +52,7 @@ maintained indefinitely and may be redistributed consistent with
 this project or the open source license(s) involved.
 
 ## License
-EasyPoll Discord Bot (https://github.com/easypoll-bot/easypoll-java)  
+EasyPoll Discord Bot (https://github.com/easypoll-bot/easypoll-v3)  
 Copyright (C) 2021  Felix Brettnich  
 
 This program is free software: you can redistribute it and/or modify  

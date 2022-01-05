@@ -1,5 +1,5 @@
 /*
- * EasyPoll Discord Bot (https://github.com/easypoll-bot/easypoll-java)
+ * EasyPoll Discord Bot (https://github.com/easypoll-bot/easypoll-v3)
  * Copyright (C) 2021  Felix Brettnich
  *
  * This program is free software: you can redistribute it and/or modify
@@ -42,7 +42,7 @@ public class InfoCommand {
         eb.setThumbnail(event.getJDA().getSelfUser().getEffectiveAvatarUrl());
 
         eb.addField(gl.getTl("commands.info.fields.creator"), Constants.BOT_OWNER_MENTION, false);
-        eb.addField(gl.getTl("commands.info.fields.repository"), "[github.com/fbrettnich/easypoll-bot](" + Constants.GITHUB_URL + ")", false);
+        eb.addField(gl.getTl("commands.info.fields.repository"), "[github.com/easypoll-bot/easypoll-v3](" + Constants.GITHUB_URL + ")", false);
         eb.addField(gl.getTl("commands.info.fields.version"), Constants.VERSION, false);
 
         eb.addField(gl.getTl("commands.info.fields.library"), "[JDA (Java Discord API)](https://github.com/DV8FromTheWorld/JDA)", false);
