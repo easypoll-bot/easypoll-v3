@@ -11,6 +11,11 @@
 [troubleshooting-shield]: https://img.shields.io/badge/Wiki-Troubleshooting-red.svg
 [workflowstatus-shield]: https://img.shields.io/github/workflow/status/easypoll-bot/easypoll-v3/Java%20CI%20with%20Maven?event=push&label=Build
 
+| <h2>:warning: This is version 3 of the EasyPoll Discord Bot :warning:</h1>EasyPoll now uses a newer version, so this version has been archived. For more info visit our [website](https://easypoll.bot) or [GitHub profile](https://github.com/easypoll-bot/). |
+| --- |
+
+---
+
 [ ![guilds-shield][] ][bot-invite]
 [ ![users-shield][] ][bot-invite]
 [ ![discord-shield][] ][discord-invite]
